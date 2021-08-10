@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useAtom} from 'jotai'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {
   episodesAtom,
   playerSkinAtom,
@@ -46,17 +46,17 @@ const NinjaPlayer = ({
   )
 }
 
-NinjaPlayer.propTypes = {
-  // podcast: PropTypes.object,
-  episodes: PropTypes.array,
-  // theme: propTypes.object
-}
+// NinjaPlayer.propTypes = {
+//   // podcast: PropTypes.object,
+//   episodes: PropTypes.array,
+//   // theme: propTypes.object
+// }
 
-NinjaPlayer.defaultProps = {
-  // podcast: {},
-  episodes: [],
-  // theme: {}
-};
+// NinjaPlayer.defaultProps = {
+//   // podcast: {},
+//   episodes: [],
+//   // theme: {}
+// };
 
 
 export default NinjaPlayer;

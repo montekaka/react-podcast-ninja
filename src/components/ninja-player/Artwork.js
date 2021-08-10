@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Artwork = ({artworkUrl}) => {
   return (
@@ -13,13 +13,13 @@ const Artwork = ({artworkUrl}) => {
   )
 }
 
-Artwork.propTypes = {
-  artworkUrl: PropTypes.string
-}
+// Artwork.propTypes = {
+//   artworkUrl: PropTypes.string
+// }
 
-Artwork.defaultProps = {
-  artworkUrl: null,
-};
+// Artwork.defaultProps = {
+//   artworkUrl: null,
+// };
 
 
 export default Artwork;
