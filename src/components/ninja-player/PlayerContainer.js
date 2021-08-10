@@ -26,10 +26,12 @@ const PlayerContainer = () => {
       } catch (err) {
         console.log(err)
       }
+    } else {
+      setChapters([])
     }
   }, [playingId])
   
-  if(episodes && episodes.length > 0) {
+  if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
     const {title, podcastTitle, artworkUrl, chaptersUrl} = episode;
     
@@ -40,7 +42,7 @@ const PlayerContainer = () => {
         <Artwork artworkUrl={artworkUrl}/>
         <Metas title={title} podcastTitle={podcastTitle}/>        
         <PlayerControl/>
-        {chaptersUrl ? <ChaptersList chapters={chapters}/> : <div className="jc-chapters">{`Loading... ${chaptersUrl}`}</div>}
+        <ChaptersList chapters={chapters}/>
       </div>
     )
 

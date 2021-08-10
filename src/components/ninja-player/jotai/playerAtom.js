@@ -11,7 +11,7 @@ export const playerAtom = atom({
   playerRef: null
 })
 
-export const playingIdAtom = atom(0);
+export const playingIdAtom = atom(-1);
 
 export const updatePlayingIdAtom = atom((get) => get(playingIdAtom), (_get, set, id) => {
   set(playingIdAtom, id);
