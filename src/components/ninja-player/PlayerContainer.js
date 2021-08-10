@@ -12,20 +12,21 @@ const PlayerContainer = () => {
   const [playerSkin] = useAtom(playerSkinAtom);
   const [chapters, setChapters] = useState([]);
 
-  useEffect(async () => {
-    
+  useEffect(() => {    
     if(playingId >= 0 && episodes && episodes.length && episodes[playingId] && episodes[playingId].chaptersUrl) {
       const url = episodes[playingId].chaptersUrl;
-      
-      try {
-        const response = await fetch(url)
-        const data = await response.json();
+      fetch(url).then((response) => {
+        const data = response.json();
         if(data.chapters && data.chapters.length > 0) {
           setChapters(data.chapters)
+        } else {
+          setChapters([]);
         }
-      } catch (err) {
+      })
+      .catch((err) => {
+        setChapters([]);
         console.log(err)
-      }
+      })      
     } else {
       setChapters([])
     }
