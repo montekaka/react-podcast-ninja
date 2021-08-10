@@ -1,7 +1,7 @@
 {
-  "name": "portexe-react-pwr",
+  "name": "react-podcast-ninja",
   "version": "1.0.0",
-  "description": "A simple react component that accepts a list of password requirements and updates each as they are fulfilled",
+  "description": "A simple react component that plays back podcast",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "build-storybook": "build-storybook",
     "build-lib": "rollup -c"
   },
-  "author": "Zackery Wilson",
+  "author": "Josh Chen",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.12.10",
