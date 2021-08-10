@@ -27,7 +27,13 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "date-fns": "^2.23.0",
+    "jotai": "^1.2.2",
+    "prop-types": "^15.7.2",
+    "react-feather": "^2.0.9",
+    "react-player": "^2.9.0",
+    "rss-parser": "^3.12.0"      
   },
   "peerDependencies": {
     "react": "^17.0.1",

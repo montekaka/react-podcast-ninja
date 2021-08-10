@@ -1,1 +1,5 @@
-export * from './components/Requirements';
+import {NinjaPlayer} from './components/ninja-player'
+
+export {
+  NinjaPlayer
+}
