@@ -12,13 +12,17 @@ import EpisodeList from './EpisodeList';
 import './ninja-player.css';
 
 const NinjaPlayer = ({
-  podcast, episodes, theme
+  playerId, podcast, episodes, configs
 }) => {
 
   // set jotai state
-  const [episodesState, setEpisodes] = useAtom(episodesAtom);
+  const [, setEpisodes] = useAtom(episodesAtom);
   const [, setPlayerSkin] = useAtom(playerSkinAtom)
   const [, setPlayingId] = useAtom(playingIdAtom)
+  
+  useEffect(() => {
+    setPlayingId(0);
+  }, [playerId])
 
   useEffect(() => {
 
@@ -26,16 +30,15 @@ const NinjaPlayer = ({
 
   useEffect(() => {
     if(episodes && episodes.length > 0) {
-      setEpisodes(episodes);
-      setPlayingId(0);
+      setEpisodes(episodes);      
     }    
   }, [episodes])
   
   useEffect(() => {
-    if(theme && Object.keys(theme).length > 0) {
-      setPlayerSkin(theme); // TODO: use mapping to get the right fileds
+    if(configs && Object.keys(configs).length > 0) {
+      setPlayerSkin(configs); // TODO: use mapping to get the right fileds
     }
-  }, [theme])  
+  }, [configs])  
 
   return (
     <div className="jc-player-wrapper">
