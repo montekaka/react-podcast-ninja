@@ -45,8 +45,8 @@ const NinjaPlayer = ({
       <PlayerContainer/>
       <EpisodeList/>
       <PlayerHolder/>
-      <span>
-        {props.children}
+      <span className="jc-control-misc">
+        <div className="js-control-tabs">{props.children}</div>        
       </span>
     </div>
   )
