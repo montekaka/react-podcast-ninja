@@ -16,6 +16,7 @@ const PlayerContainer = () => {
     if(playingId >= 0 && episodes && episodes.length && episodes[playingId] && episodes[playingId].chaptersUrl) {
       const url = episodes[playingId].chaptersUrl;
       fetch(url).then((response) => {
+        console.log(response)
         const data = response.json();
         if(data.chapters && data.chapters.length > 0) {
           setChapters(data.chapters)
@@ -41,7 +42,7 @@ const PlayerContainer = () => {
         background: playerSkin.primaryBackgroundColor
       }}>
         <Artwork artworkUrl={artworkUrl}/>
-        <Metas title={title} podcastTitle={podcastTitle}/>        
+        <Metas title={title} podcastTitle={chaptersUrl}/>        
         <PlayerControl/>
         <ChaptersList chapters={chapters}/>
       </div>
