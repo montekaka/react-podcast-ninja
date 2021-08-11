@@ -23,17 +23,17 @@ const PlayerContainer = ({playerId}) => {
         if(data.chapters && data.chapters.length > 0) {
           setChapters(data.chapters)
         } else {
-          console.log(`empty...., playingId: ${playingId}, playerId: ${playerId}`)
+          // console.log(`empty...., playingId: ${playingId}, playerId: ${playerId}`)
           setChapters([]);
         }
       })
       .catch((err) => {
         setChapters([]);
-        console.log(err)
+        // console.log(err)
       })      
     } else {
-      console.log(`nothing happening...., playingId: ${playingId}, playerId: ${playerId}`)
-      console.log(episodes[playingId])
+      // console.log(`nothing happening...., playingId: ${playingId}, playerId: ${playerId}`)
+      // console.log(episodes[playingId])
       setChapters([])
     }    
   }, [playerId, playingId, episodes[playingId]])

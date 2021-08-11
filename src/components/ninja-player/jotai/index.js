@@ -4,7 +4,8 @@ import {
   updatePlayingIdAtom,
   updatePlayerAtom,
   togglePlayPauseAtom,
-  updatePlayedTimeAtom
+  updatePlayedTimeAtom,
+  resetPlayerAtom
 } from './playerAtom'
 
 import {
@@ -19,6 +20,7 @@ import {
 } from './podcastAtom'
 
 export {
+  resetPlayerAtom,
   tabAtom,
   playerAtom,
   playingIdAtom,

@@ -34,25 +34,27 @@ const NinjaPlayer = ({
   // }, [podcast])
 
   useEffect(() => {
-    if(playerId && episodes && episodes.length > 0) {
+    if(episodes && episodes.length > 0) {
       setEpisodes(episodes);      
     }    
-  }, [playerId, episodes])
+  }, [episodes])
   
   useEffect(() => {
     if(configs && Object.keys(configs).length > 0) {
       setPlayerSkin(configs); // TODO: use mapping to get the right fileds
     }
-  }, [playerId, configs])  
+  }, [configs])  
 
   return (
-    <div className="jc-player-wrapper">
-      {
-        tabState === 'main' ? <PlayerContainer playerId={playerId}/> : <MoreInfoSection/>
-      }      
-      <EpisodeList/>
-      <PlayerHolder/>
-    </div>
+
+      <div className="jc-player-wrapper">
+        {
+          tabState === 'main' ? <PlayerContainer playerId={playerId}/> : <MoreInfoSection/>
+        }      
+        <EpisodeList/>
+        <PlayerHolder/>
+      </div>
+   
   )
 }
 

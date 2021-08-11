@@ -1,4 +1,5 @@
 import React from 'react';
+import {Provider} from 'jotai'
 import {storiesOf} from '@storybook/react'
 import {NinjaPlayer} from '../components/ninja-player'
 
@@ -20,10 +21,12 @@ const configs = {
 
 stories.add('App', () => {
   return (
-    <NinjaPlayer 
-      playerId="example"
-      episodes={episodes}
-      configs={configs}
-    />
+    <Provider>
+      <NinjaPlayer 
+        playerId="example"
+        episodes={episodes}
+        configs={configs}
+      />
+    </Provider>
   );
 })
