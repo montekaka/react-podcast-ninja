@@ -1,26 +1,48 @@
 import React from "react";
 import { useAtom } from "jotai";
 import {Volume1, Volume2, VolumeX} from 'react-feather'
-import { playerSkinAtom} from './jotai'
+import { playerSkinAtom, playerAtom, updatePlayerAtom} from './jotai'
 import VolumeBars from './VolumeBars'
 
 const VolumeControls = () => {
   const [playerSkin] = useAtom(playerSkinAtom);
+  const [playerState] = useAtom(playerAtom);
+  const [, updatePlayerState] = useAtom(updatePlayerAtom)
   
-  const handleVolumeChange = (x) => {
-    console.log('hi')
+  const handleVolumeChange = (binIndex) => {
+    updatePlayerState({volume: binIndex / 10});
   }
+
+  const increaseVolumeClicked = () => {
+    if(playerState.volume < 1) {
+      updatePlayerState({volume: (playerState.volume * 10 + 1) / 10})
+    } else {
+      updatePlayerState({volume: 1})
+    }
+  }
+
+  const decreaseVolumeClicked = () => {
+    if(playerState.volume <= 0.1 ) {
+      updatePlayerState({volume: 0})
+    } else {
+      updatePlayerState({volume: (playerState.volume * 10 - 1) / 10});
+    }
+  }  
 
   return (
     <div className="volume-controls">      
-      <div onClick={handleVolumeChange} style={{
+      <div onClick={decreaseVolumeClicked} style={{
         cursor: 'pointer',
         display: 'flex',
         height: "24px",
         alignContent: 'center',        
-      }}><Volume1 style={{color: playerSkin.primaryTextColor}}/></div>
-      <VolumeBars volume={3} volumBinClicked={handleVolumeChange}/>
-      <div onClick={handleVolumeChange} style={{
+      }}>
+        {
+          playerState.volume > 0 ? <Volume1 style={{color: playerSkin.primaryTextColor}}/> : <VolumeX style={{color: playerSkin.primaryTextColor}}/>
+        }
+      </div>
+      <VolumeBars volume={playerState.volume} volumBinClicked={handleVolumeChange}/>
+      <div onClick={increaseVolumeClicked} style={{
         cursor: 'pointer',
         display: 'flex',
         height: "24px",

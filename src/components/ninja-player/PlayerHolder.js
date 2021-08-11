@@ -57,7 +57,8 @@ const PlayerHolder = () => {
             updatePlayingId(idx);
           }
         }}     
-        playing={playerState.playing}     
+        playing={playerState.playing}  
+        volume={playerState.volume}   
       />
     )
   }

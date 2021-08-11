@@ -8,7 +8,8 @@ export const playerAtom = atom({
   onSeeking: false,
   onReady: false,
   playing: false,
-  playerRef: null
+  playerRef: null,
+  volume: 0.3,
 })
 
 export const playingIdAtom = atom(-1);

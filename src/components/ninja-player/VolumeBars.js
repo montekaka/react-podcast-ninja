@@ -25,7 +25,7 @@ const VolumeBars = ({volume, volumBinClicked}) => {
           backgroundColor: playerSkin.primaryTextColor
         }}
         onClick={() => {
-          volumBinClicked(index)
+          volumBinClicked(index+1)
         }}
       />)
       }
