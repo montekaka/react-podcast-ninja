@@ -1,5 +1,6 @@
 import React from "react";
 import { playerSkinAtom} from './jotai'
+import { useAtom } from "jotai";
 
 const VolumeBars = ({volume, volumBinClicked}) => {
   const [playerSkin] = useAtom(playerSkinAtom);
@@ -8,9 +9,10 @@ const VolumeBars = ({volume, volumBinClicked}) => {
   return (
     <div style={{
       display: 'flex',
-      padding: "4px",
-      height: "18px",
-      alignContent: 'center',            
+      // padding: "4px",
+      height: "24px",
+      alignItems: 'center',
+      alignContent: 'center',
     }}>
       {
         volums.map((vol, index) => <span key={`vol-${index+1}`} style={{
@@ -20,7 +22,7 @@ const VolumeBars = ({volume, volumBinClicked}) => {
           marginRight: "2px",      
           cursor: 'pointer',    
           opacity: index < ( volume >= 0 ? (volume * 10) : 0)  ? "0.8" : "0.4",
-          backgroundColor: playerSkin.primaryButtonColor
+          backgroundColor: playerSkin.primaryTextColor
         }}
         onClick={() => {
           volumBinClicked(index)

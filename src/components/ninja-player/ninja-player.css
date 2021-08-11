@@ -59,11 +59,24 @@ body {
   display: grid;
   /* background-color: hotpink; */
   grid-template-columns: 160px auto;
-  grid-template-rows: 80px 80px auto;
+  grid-template-rows: 80px 80px 30px auto;
   grid-template-areas: 
   "artwork metas"
   "artwork player-controls"
+  ". misc"
   "chapters chapters";
+}
+
+.jc-player-container > .jc-control-misc {
+  grid-area: misc; 
+}
+
+.jc-player-container > .jc-control-misc > .volume-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 140px;
 }
 
 .jc-player-container > .artwork {

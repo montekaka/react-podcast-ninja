@@ -6,8 +6,9 @@ import Metas from './Metas'
 import Artwork from './Artwork';
 import PlayerControl from './PlayerControl'
 import ChaptersList from './ChaptersList'
+import VolumeControls from './VolumeControls'
 
-const PlayerContainer = () => {
+const PlayerContainer = (props) => {
   const [episodes] = useAtom(episodesAtom);
   const [playingId] = useAtom(playingIdAtom)
   const [playerSkin] = useAtom(playerSkinAtom);
@@ -45,6 +46,10 @@ const PlayerContainer = () => {
         <Metas title={title} podcastTitle={podcastTitle}/>        
         <PlayerControl/>
         <ChaptersList chapters={chapters}/>
+        <div className="jc-control-misc">
+          <div className="js-control-tabs">{props.children}</div>        
+          <VolumeControls/>
+        </div>        
       </div>
     )
 
