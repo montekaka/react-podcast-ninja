@@ -10,6 +10,10 @@
     "build-storybook": "build-storybook",
     "build-lib": "rollup -c"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/montekaka/react-podcast-ninja.git"
+  },  
   "author": "Josh Chen",
   "license": "MIT",
   "devDependencies": {
