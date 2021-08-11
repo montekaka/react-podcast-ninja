@@ -27,9 +27,9 @@ const NinjaPlayer = ({
     setPlayingId(0);
   }, [playerId])
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [podcast])
+  // }, [podcast])
 
   useEffect(() => {
     if(episodes && episodes.length > 0) {

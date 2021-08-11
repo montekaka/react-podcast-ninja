@@ -13,6 +13,7 @@ import {atom} from "jotai"
 // }
 
 export const playerSkinAtom = atom({
+  hidePubDate: true,
   primaryBackgroundColor: "#0c1824",
   primaryButtonColor: "#f7f8f9",
   primaryTextColor: "#f7f8f9",
