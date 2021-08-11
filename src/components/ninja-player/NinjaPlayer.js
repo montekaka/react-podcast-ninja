@@ -32,13 +32,13 @@ const NinjaPlayer = ({
     if(episodes && episodes.length > 0) {
       setEpisodes(episodes);      
     }    
-  }, [episodes])
+  }, [playerId, episodes])
   
   useEffect(() => {
     if(configs && Object.keys(configs).length > 0) {
       setPlayerSkin(configs); // TODO: use mapping to get the right fileds
     }
-  }, [configs])  
+  }, [playerId, configs])  
 
   return (
     <div className="jc-player-wrapper">

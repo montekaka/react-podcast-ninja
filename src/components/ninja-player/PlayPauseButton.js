@@ -17,7 +17,7 @@ const PlayPauseButton = () => {
       className="play-pause-button" 
       style={{background: playerSkin.primaryButtonColor}}
     >
-      {playing ? <Pause style={{color: playerSkin.primaryTextColor}} className="icon"/> : <Play style={{color: playerSkin.primaryTextColor}} className="icon"/>}
+      {playing ? <Pause style={{color: playerSkin.primaryBackgroundColor}} className="icon"/> : <Play style={{color: playerSkin.primaryBackgroundColor}} className="icon"/>}
     </div>    
   )
 }

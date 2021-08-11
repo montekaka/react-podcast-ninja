@@ -13,15 +13,15 @@ import {atom} from "jotai"
 // }
 
 export const playerSkinAtom = atom({
-  primaryBackgroundColor: "#3B1F50",
-  primaryButtonColor: "#D933C3",
+  primaryBackgroundColor: "#0c1824",
+  primaryButtonColor: "#f7f8f9",
   primaryTextColor: "#f7f8f9",
   progressBarFilledColor: "#D933C3",
   progressBarBackgroundColor: "#8A8175",
   // progressBarThumbColor: "#02030A",
-  playlistBackgroundColor: "#522657",
+  playlistBackgroundColor: "#30343c",
   playlistTextColor: "#f7f8f9",
-  chapterBackgroundColor: "#522657",
+  chapterBackgroundColor: "#30343c",
   chapterTextColor:  "#f7f8f9"
 });
 
