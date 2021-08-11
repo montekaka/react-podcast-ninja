@@ -75,6 +75,10 @@ body {
   font-size: 1em;  
 }
 
+.jc-more-info > .js-more-info-descripion {
+  padding: 10px;
+}
+
 .jc-more-info-header > .jc-more-info-header-meta > .js-more-info-link {
   margin-top: 5px;
   font-size: 0.7em;
