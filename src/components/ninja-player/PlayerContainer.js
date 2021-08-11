@@ -36,7 +36,7 @@ const PlayerContainer = ({playerId}) => {
       console.log(episodes[playingId])
       setChapters([])
     }    
-  }, [playingId.toString(), playerId])
+  }, [playerId, playingId, episodes[playingId]])
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
