@@ -5,7 +5,7 @@ import {
   episodesAtom,
   playerSkinAtom,
   playingIdAtom,
-  tabAtom
+  tabAtom,
 } from './jotai'
 import PlayerContainer from './PlayerContainer'
 import PlayerHolder from './PlayerHolder'
@@ -24,7 +24,9 @@ const NinjaPlayer = ({
   const [tabState]  = useAtom(tabAtom);
   
   useEffect(() => {
-    setPlayingId(0);
+    if(playerId) {
+      setPlayingId(0);      
+    }
   }, [playerId])
 
   // useEffect(() => {
@@ -32,7 +34,7 @@ const NinjaPlayer = ({
   // }, [podcast])
 
   useEffect(() => {
-    if(episodes && episodes.length > 0) {
+    if(playerId && episodes && episodes.length > 0) {
       setEpisodes(episodes);      
     }    
   }, [playerId, episodes])
@@ -46,7 +48,7 @@ const NinjaPlayer = ({
   return (
     <div className="jc-player-wrapper">
       {
-        tabState === 'main' ? <PlayerContainer/> : <MoreInfoSection/>
+        tabState === 'main' ? <PlayerContainer playerId={playerId}/> : <MoreInfoSection/>
       }      
       <EpisodeList/>
       <PlayerHolder/>

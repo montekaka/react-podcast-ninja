@@ -21,6 +21,7 @@ const configs = {
 stories.add('App', () => {
   return (
     <NinjaPlayer 
+      playerId="example"
       episodes={episodes}
       configs={configs}
     />

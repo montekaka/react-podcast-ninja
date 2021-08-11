@@ -8,21 +8,22 @@ import PlayerControl from './PlayerControl'
 import ChaptersList from './ChaptersList'
 import VolumeControls from './VolumeControls'
 
-const PlayerContainer = (props) => {
+const PlayerContainer = ({playerId}) => {
   const [episodes] = useAtom(episodesAtom);
   const [playingId] = useAtom(playingIdAtom)
   const [playerSkin] = useAtom(playerSkinAtom);
   const [chapters, setChapters] = useState([]);
   const [, setTabName] = useAtom(tabAtom);
 
-  useEffect(() => {    
-    if(playingId >= 0 && episodes && episodes.length && episodes[playingId] && episodes[playingId].chaptersUrl) {
+  useEffect(() => {        
+    if(playerId && playingId >= 0 && episodes && episodes.length && episodes[playingId] && episodes[playingId].chaptersUrl) {
       const url = episodes[playingId].chaptersUrl;
       axios.get(url).then((res) => {
         const data = res.data;
         if(data.chapters && data.chapters.length > 0) {
           setChapters(data.chapters)
         } else {
+          console.log(`empty...., playingId: ${playingId}, playerId: ${playerId}`)
           setChapters([]);
         }
       })
@@ -31,9 +32,10 @@ const PlayerContainer = (props) => {
         console.log(err)
       })      
     } else {
+      console.log(`nothing happening...., playingId: ${playingId}, playerId: ${playerId}`)
       setChapters([])
-    }
-  }, [playingId])
+    }    
+  }, [playingId, playerId])
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
