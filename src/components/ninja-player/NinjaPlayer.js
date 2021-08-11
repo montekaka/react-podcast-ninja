@@ -12,7 +12,7 @@ import EpisodeList from './EpisodeList';
 import './ninja-player.css';
 
 const NinjaPlayer = ({
-  playerId, podcast, episodes, configs
+  playerId, podcast, episodes, configs, ...props
 }) => {
 
   // set jotai state
@@ -45,6 +45,9 @@ const NinjaPlayer = ({
       <PlayerContainer/>
       <EpisodeList/>
       <PlayerHolder/>
+      <span>
+        {props.children}
+      </span>
     </div>
   )
 }
