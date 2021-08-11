@@ -54,7 +54,7 @@ body {
 }
 
 .jc-more-info {
-  max-height: 350px;
+  height: 330px;
   overflow: scroll;
   padding: 10px;
 }
