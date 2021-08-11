@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useAtom} from "jotai"
-import axios from 'axios'
+const axios = require('axios');
 import {episodesAtom, playingIdAtom, playerSkinAtom} from './jotai'
 import Metas from './Metas'
 import Artwork from './Artwork';
