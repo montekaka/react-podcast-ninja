@@ -27,6 +27,9 @@ const MoreInfoSection = () => {
           }}>{title}</div>
           {link ? <div className="js-more-info-link" style={{color: playerSkin.primaryTextColor}} onClick={openLink}>View the website</div> : null}
         </MoreInfoSectionHeader>
+        <div>
+          {description ? <div dangerouslySetInnerHTML={{__html: description}}></div> : null}
+        </div>
       </div>
     )
   }
