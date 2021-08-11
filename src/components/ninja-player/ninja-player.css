@@ -68,7 +68,7 @@ body {
 }
 
 .jc-player-container > .jc-control-misc {
-  grid-area: misc; 
+  grid-area: misc;
 }
 
 .jc-player-container > .jc-control-misc > .volume-controls {
@@ -287,7 +287,7 @@ body {
   }
 
   .jc-player-wrapper > .episodes-list {
-    height: 300px;
+    height: 330px;
     overflow: scroll;    
   }
   
@@ -299,10 +299,11 @@ body {
     grid-template-columns: auto;
     /* grid-template-rows: 260px 400px; */
     grid-template-rows: auto;
-    grid-template-areas: 
+    grid-template-areas:     
     "artwork"
-    "metas"
+    "metas"    
     "chapters"
+    "misc"    
     "player-controls";    
   }
 
@@ -362,4 +363,9 @@ body {
     grid-area: 1 / 1;
     font-size: 0.3em;
   }
+
+  .jc-player-wrapper > .episodes-list {
+    max-height: 330px;
+    overflow: scroll;    
+  }  
 }

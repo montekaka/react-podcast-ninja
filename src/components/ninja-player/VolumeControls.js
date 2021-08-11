@@ -48,9 +48,6 @@ const VolumeControls = () => {
         height: "24px",
         alignContent: 'center',        
       }}><Volume2 style={{color: playerSkin.primaryTextColor}}/></div>
-      {/* <span className={`volume-control fe fe-volume-${volume > 0 ? "1" : "x"}`} onClick={handleVolumeChange}/>
-      <VolumeBars volume={volume} volumBinClicked={handleVolumeChange}/>
-      <span className="volume-control fe fe-volume-2" onClick={handleVolumeChange}/> */}
     </div>    
   )
 }
