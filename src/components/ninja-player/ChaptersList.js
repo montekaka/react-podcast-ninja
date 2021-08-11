@@ -13,10 +13,10 @@ const ChaptersList = ({chapters}) => {
   }
 
   return (
-    <div className="jc-chapters">
+    <div className="jc-chapters">      
       {
         chapters.map((chapter, idx) => {
-          if(chapter.title && chapter.startTime) {
+          if(chapter.title && chapter.startTime !== undefined) {
             return <ChaptersListItem
               id={idx}
               key={`chapter-${idx+1}`}

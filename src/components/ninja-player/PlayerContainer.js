@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {episodesAtom, playingIdAtom, playerSkinAtom} from './jotai'
 import {useAtom} from "jotai"
+import axios from 'axios'
+import {episodesAtom, playingIdAtom, playerSkinAtom} from './jotai'
 import Metas from './Metas'
 import Artwork from './Artwork';
 import PlayerControl from './PlayerControl'
@@ -15,9 +16,8 @@ const PlayerContainer = () => {
   useEffect(() => {    
     if(playingId >= 0 && episodes && episodes.length && episodes[playingId] && episodes[playingId].chaptersUrl) {
       const url = episodes[playingId].chaptersUrl;
-      fetch(url).then((response) => {
-        console.log(response)
-        const data = response.json();
+      axios.get(url).then((res) => {
+        const data = res.data;
         if(data.chapters && data.chapters.length > 0) {
           setChapters(data.chapters)
         } else {
@@ -42,7 +42,7 @@ const PlayerContainer = () => {
         background: playerSkin.primaryBackgroundColor
       }}>
         <Artwork artworkUrl={artworkUrl}/>
-        <Metas title={title} podcastTitle={chaptersUrl}/>        
+        <Metas title={title} podcastTitle={podcastTitle}/>        
         <PlayerControl/>
         <ChaptersList chapters={chapters}/>
       </div>
