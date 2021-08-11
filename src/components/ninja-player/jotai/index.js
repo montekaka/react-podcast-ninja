@@ -14,10 +14,12 @@ import {
 } from './playerSkinAtom'
 
 import {
+  tabAtom,
   episodesAtom,
 } from './podcastAtom'
 
 export {
+  tabAtom,
   playerAtom,
   playingIdAtom,
   updatePlayingIdAtom,

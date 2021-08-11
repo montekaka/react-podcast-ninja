@@ -16,7 +16,7 @@ export const playerSkinAtom = atom({
   primaryBackgroundColor: "#0c1824",
   primaryButtonColor: "#f7f8f9",
   primaryTextColor: "#f7f8f9",
-  progressBarFilledColor: "#D933C3",
+  progressBarFilledColor: "#f7f8f9",
   progressBarBackgroundColor: "#8A8175",
   // progressBarThumbColor: "#02030A",
   playlistBackgroundColor: "#30343c",

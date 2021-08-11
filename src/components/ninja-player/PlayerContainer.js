@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useAtom} from "jotai"
 const axios = require('axios');
-import {episodesAtom, playingIdAtom, playerSkinAtom} from './jotai'
+import {episodesAtom, playingIdAtom, playerSkinAtom, tabAtom} from './jotai'
 import Metas from './Metas'
 import Artwork from './Artwork';
 import PlayerControl from './PlayerControl'
@@ -13,6 +13,7 @@ const PlayerContainer = (props) => {
   const [playingId] = useAtom(playingIdAtom)
   const [playerSkin] = useAtom(playerSkinAtom);
   const [chapters, setChapters] = useState([]);
+  const [, setTabName] = useAtom(tabAtom);
 
   useEffect(() => {    
     if(playingId >= 0 && episodes && episodes.length && episodes[playingId] && episodes[playingId].chaptersUrl) {
@@ -36,7 +37,12 @@ const PlayerContainer = (props) => {
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
-    const {title, podcastTitle, artworkUrl, chaptersUrl} = episode;
+    const {
+      title, 
+      podcastTitle, 
+      artworkUrl, 
+      chaptersUrl
+    } = episode;
     
     return (
       <div className="jc-player-container" style={{
@@ -47,9 +53,18 @@ const PlayerContainer = (props) => {
         <PlayerControl/>
         <ChaptersList chapters={chapters}/>
         <div className="jc-control-misc">
-          <div className="js-control-tabs">{props.children}</div>        
           <VolumeControls/>
-        </div>        
+          <div className="js-control-tabs">
+            <div  
+              onClick={() => {
+                setTabName('more-info')
+              }}             
+              style={{
+                cursor: 'pointer',
+                color: playerSkin.primaryTextColor
+              }}>MORE INFO</div>
+          </div>          
+        </div>       
       </div>
     )
 

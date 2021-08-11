@@ -8,7 +8,9 @@ import {atom} from "jotai"
 //   chaptersUrl?: string;
 //   podcastTitle: string;
 //   link: string;
+//   description: stirng;
 // }
 
+export const tabAtom = atom('main');
 export const episodesAtom = atom([]);
 // export const 
