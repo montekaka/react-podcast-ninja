@@ -31,7 +31,9 @@ const PlaylistPlayer = ({
   }, [playerId])
 
   useEffect(() => {
+    console.log(playingId)
     if(playingId >= 0) {
+      console.log(playingId)
       fetchChapters()
     }
   }, [playingId])
