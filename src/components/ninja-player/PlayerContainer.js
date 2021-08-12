@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {useAtom} from "jotai"
-const axios = require('axios');
 import {episodesAtom, playingIdAtom, playerSkinAtom, tabAtom} from './jotai'
 import Metas from './Metas'
 import Artwork from './Artwork';
@@ -13,7 +12,6 @@ const PlayerContainer = () => {
   const [playingId] = useAtom(playingIdAtom)
   const [playerSkin] = useAtom(playerSkinAtom);
   const [, setTabName] = useAtom(tabAtom);
-
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];

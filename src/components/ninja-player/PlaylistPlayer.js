@@ -6,6 +6,7 @@ import {
   playerSkinAtom,
   playingIdAtom,
   tabAtom,
+  fetchChaptersAtom
 } from './jotai'
 import PlayerContainer from './PlayerContainer'
 import PlayerHolder from './PlayerHolder'
@@ -19,14 +20,21 @@ const PlaylistPlayer = ({
   // set jotai state
   const [, setEpisodes] = useAtom(episodesAtom);
   const [, setPlayerSkin] = useAtom(playerSkinAtom)
-  const [, setPlayingId] = useAtom(playingIdAtom)
+  const [playingId, setPlayingId] = useAtom(playingIdAtom)
   const [tabState]  = useAtom(tabAtom);
+  const [, fetchChapters] = useAtom(fetchChaptersAtom)
   
   useEffect(() => {
     if(playerId) {
       setPlayingId(0);      
     }
   }, [playerId])
+
+  useEffect(() => {
+    if(playingId >= 0) {
+      fetchChapters()
+    }
+  }, [playingId])
 
   // useEffect(() => {
 
