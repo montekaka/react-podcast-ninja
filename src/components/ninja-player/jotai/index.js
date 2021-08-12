@@ -17,9 +17,11 @@ import {
 import {
   tabAtom,
   episodesAtom,
+  fetchChaptersAtom
 } from './podcastAtom'
 
 export {
+  fetchChaptersAtom,
   resetPlayerAtom,
   tabAtom,
   playerAtom,

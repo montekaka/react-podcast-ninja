@@ -8,35 +8,12 @@ import PlayerControl from './PlayerControl'
 import ChaptersList from './ChaptersList'
 import VolumeControls from './VolumeControls'
 
-const PlayerContainer = ({playerId}) => {
+const PlayerContainer = () => {
   const [episodes] = useAtom(episodesAtom);
   const [playingId] = useAtom(playingIdAtom)
   const [playerSkin] = useAtom(playerSkinAtom);
-  const [chapters, setChapters] = useState([]);
   const [, setTabName] = useAtom(tabAtom);
 
-  useEffect(() => {        
-    if(playerId && playingId >= 0 && episodes && episodes.length && episodes[playingId] && episodes[playingId].chaptersUrl) {
-      const url = episodes[playingId].chaptersUrl;
-      axios.get(url).then((res) => {
-        const data = res.data;
-        if(data.chapters && data.chapters.length > 0) {
-          setChapters(data.chapters)
-        } else {
-          // console.log(`empty...., playingId: ${playingId}, playerId: ${playerId}`)
-          setChapters([]);
-        }
-      })
-      .catch((err) => {
-        setChapters([]);
-        // console.log(err)
-      })      
-    } else {
-      // console.log(`nothing happening...., playingId: ${playingId}, playerId: ${playerId}`)
-      // console.log(episodes[playingId])
-      setChapters([])
-    }    
-  }, [playerId, playingId, episodes[playingId]])
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
@@ -54,7 +31,7 @@ const PlayerContainer = ({playerId}) => {
         <Artwork artworkUrl={artworkUrl}/>
         <Metas title={title} podcastTitle={podcastTitle}/>        
         <PlayerControl/>
-        <ChaptersList chapters={chapters}/>
+        <ChaptersList/>
         <div className="jc-control-misc">
           <VolumeControls/>
           <div className="js-control-tabs">

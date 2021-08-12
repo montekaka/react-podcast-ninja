@@ -1,12 +1,13 @@
 import React from 'react'
 import {useAtom} from "jotai"
 import ChaptersListItem from './ChaptersListItem'
-import { updatePlayedTimeAtom} from './jotai'
+import { updatePlayedTimeAtom, fetchChaptersAtom} from './jotai'
 
-const ChaptersList = ({chapters}) => {
+const ChaptersList = () => {
 
   // const [chapters] = useAtom(chaptersAtom);
   const [_, updatePlayTime] = useAtom(updatePlayedTimeAtom);
+  const [chapters] = useAtom(fetchChaptersAtom);
 
   const handleClick = (id) => {
     updatePlayTime(chapters[id].startTime);
