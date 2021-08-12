@@ -18,7 +18,7 @@ const PlaylistPlayer = ({
 }) => {
 
   // set jotai state
-  const [, setEpisodes] = useAtom(episodesAtom);
+  const [episodesState, setEpisodes] = useAtom(episodesAtom);
   const [, setPlayerSkin] = useAtom(playerSkinAtom)
   const [playingId, setPlayingId] = useAtom(playingIdAtom)
   const [tabState]  = useAtom(tabAtom);
@@ -31,12 +31,10 @@ const PlaylistPlayer = ({
   }, [playerId])
 
   useEffect(() => {
-    console.log(playingId)
     if(playingId >= 0) {
-      console.log(playingId)
       fetchChapters()
     }
-  }, [playingId])
+  }, [playingId, episodesState])
 
   // useEffect(() => {
 

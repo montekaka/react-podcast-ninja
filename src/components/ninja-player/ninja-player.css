@@ -337,6 +337,7 @@ body {
 @media (max-width: 500px) {
   .jc-player-container {
     padding: 20px;
+    height: 720px;
     grid-template-columns: auto;
     /* grid-template-rows: 260px 400px; */
     grid-template-rows: auto;
@@ -409,4 +410,10 @@ body {
     max-height: 330px;
     overflow: scroll;    
   }  
+
+  .jc-more-info {
+    height: 720px;
+    overflow: scroll;
+    padding: 10px;
+  }
 }

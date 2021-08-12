@@ -26,15 +26,13 @@ export const fetchChaptersAtom = atom((get) => get(chaptersAtom), (_get, set, _)
       const chapters = data.chapters // data.chapters && data.chapters.length > 0 ? data.chapters : [];
       set(chaptersAtom, chapters);
     } catch (err) {
-      console.log(err);
       set(chaptersAtom, [])
     }
   }
 
   if(episodes.length > 0 && episodes[playingId] && episodes[playingId]['chaptersUrl']) {
     fetchDate()
-  } else {    
-    console.log('nothing...')
+  } else {
     set(chaptersAtom, [])    
     // set(chaptersAtom, [])
   }
