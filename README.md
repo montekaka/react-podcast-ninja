@@ -39,9 +39,16 @@ episodes | Episodes to play. | `[] // empty array`
 configs  | player colors | `{ hidePubDate: false, primaryBackgroundColor: "#0c1824", primaryButtonColor: "#f7f8f9", primaryTextColor: "#f7f8f9", progressBarFilledColor: "#f7f8f9",progressBarBackgroundColor: "#8A8175",playlistBackgroundColor: "#30343c",playlistTextColor: "#f7f8f9", chapterBackgroundColor: "#30343c",chapterTextColor:  "#f7f8f9"  }`
 singleEpisode | Set to `true` or `false` to display the playlist panel | `false`
 
-### Example of episode instance
+### Episode structure
 
-```
-{
-  "title":String ,"podcastTitle":String ,"artworkUrl": String,"pubDate": DateTime,"link": String,"audioUrl":String,"chaptersUrl": String}
-```
+Name | Data type | Option
+---- | ----------- | -------
+title | String  | must
+podcastTitle | String  | must
+artworkUrl | String  | must
+pubDate | DateTime  | must
+link | String  | optional
+audioUrl | String  | must
+chaptersUrl | String  | optional
+
+
