@@ -41,14 +41,32 @@ singleEpisode | Set to `true` or `false` to display the playlist panel | `false`
 
 ### Episode structure
 
-Name | Data type | Option
+Name | Type | Required
 ---- | ----------- | -------
-title | String  | must
-podcastTitle | String  | must
-artworkUrl | String  | must
-pubDate | DateTime  | must
-link | String  | optional
-audioUrl | String  | must
-chaptersUrl | String  | optional
+title | String  | yes
+podcastTitle | String  | yes
+artworkUrl | String  | yes
+pubDate | DateTime  | yes
+link | String  | no
+audioUrl | String  | yes
+chaptersUrl | String  | no
 
 
+## Podcast player (using RSS feed)
+
+```jsx
+import React from 'react'
+import {NinjaPodcastPlayer} from 'react-podcast-ninja'
+
+// Render a podcast player with multiple episodes
+  <NinjaPodcastPlayer 
+    playerId="podcast-example"
+    rssFeedUrl={rssFeedUrl}
+    configs={configs}
+  />
+```
+
+Similar to the `<NinjaPlayer/>`, except it requires the RSS feed.
+
+## Motivation and history
+I've created this code because I want to help promote the PodcastIndex chapters namespaces.  After a quick search, I found most of podcast widget player haven't support the chapters namespace yet.

@@ -4,7 +4,7 @@ import {storiesOf} from '@storybook/react'
 import {NinjaPodcastPlayer} from '../components/ninja-player'
 
 const stories = storiesOf('Podcast Player Test', module);
-const rssFeedUrl = 'https://feed.justcast.com/shows/jia-chen-chinaconscience/audioposts.rss'
+const rssFeedUrl = 'https://anchor.fm/s/6ccfb04/podcast/rss'
 const configs = {
   hidePubDate: false,
   primaryBackgroundColor: "#0c1824",
