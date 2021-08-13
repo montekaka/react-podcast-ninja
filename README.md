@@ -38,3 +38,10 @@ playerId | id for the player
 episodes | Episodes to play. | `[] // empty array`
 configs  | player colors | `{ hidePubDate: false, primaryBackgroundColor: "#0c1824", primaryButtonColor: "#f7f8f9", primaryTextColor: "#f7f8f9", progressBarFilledColor: "#f7f8f9",progressBarBackgroundColor: "#8A8175",playlistBackgroundColor: "#30343c",playlistTextColor: "#f7f8f9", chapterBackgroundColor: "#30343c",chapterTextColor:  "#f7f8f9"  }`
 singleEpisode | Set to `true` or `false` to display the playlist panel | `false`
+
+### Example of episode instance
+
+```
+{
+  "title":String ,"podcastTitle":String ,"artworkUrl": String,"pubDate": DateTime,"link": String,"audioUrl":String,"chaptersUrl": String}
+```
