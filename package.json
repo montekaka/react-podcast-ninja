@@ -42,6 +42,13 @@
   },
   "peerDependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-feather": "^2.0.9",
+    "react-player": "^2.9.0",    
+    "date-fns": "^2.23.0",
+    "jotai": "^1.2.2",
+    "prop-types": "^15.7.2",
+    "axios": "^0.21.1",
+    "rss-parser": "^3.12.0"  
   }
 }
