@@ -26,6 +26,7 @@ stories.add('App', () => {
         playerId="example"
         episodes={episodes}
         configs={configs}
+        singleEpisode={true}
       />
     </Provider>
   );

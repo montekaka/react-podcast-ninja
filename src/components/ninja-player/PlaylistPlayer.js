@@ -14,7 +14,7 @@ import EpisodeList from './EpisodeList';
 import MoreInfoSection from './MoreInfoSection';
 
 const PlaylistPlayer = ({
-  playerId, podcast, episodes, configs, ...props
+  playerId, podcast, episodes, configs, singleEpisode, ...props
 }) => {
 
   // set jotai state
@@ -53,15 +53,13 @@ const PlaylistPlayer = ({
   }, [configs])  
 
   return (
-
-      <div className="jc-player-wrapper">
-        {
-          tabState === 'main' ? <PlayerContainer/> : <MoreInfoSection/>
-        }      
-        <EpisodeList/>
-        <PlayerHolder/>
-      </div>
-   
+    <div className={singleEpisode ? 'jc-player-wrapper single-episode-player-wrapper' : 'jc-player-wrapper'}>
+      {
+        tabState === 'main' ? <PlayerContainer/> : <MoreInfoSection/>
+      }      
+      {singleEpisode ? null : <EpisodeList/> }
+      <PlayerHolder/>
+    </div>
   )
 }
 

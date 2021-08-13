@@ -327,6 +327,11 @@ body {
     grid-template-columns: 680px auto;
   }
 
+  .single-episode-player-wrapper {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
   .jc-player-wrapper > .episodes-list {
     height: 330px;
     overflow: scroll;    
