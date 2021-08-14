@@ -9,15 +9,13 @@ const NinjaPlayer = ({
   return (    
     <Suspense fallback={<></>}>
       <Provider>
-        <div style={{height: "100vh", width: "100%", margin: 0, padding: 0, boxSizing: 'border-box'}}>
-          <PlaylistPlayer 
-            playerId={playerId} 
-            podcast={podcast} 
-            episodes={episodes} 
-            configs={configs}
-            singleEpisode={singleEpisode}
-          />
-        </div>
+        <PlaylistPlayer 
+          playerId={playerId} 
+          podcast={podcast} 
+          episodes={episodes} 
+          configs={configs}
+          singleEpisode={singleEpisode}
+        />
       </Provider>  
     </Suspense>
   )
