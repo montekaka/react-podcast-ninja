@@ -20,7 +20,7 @@ const useFetchRss = (rssFeed) => {
       setLoading(true);
       parser.parseURL(rssFeed)
       .then((feed) => {
-        const feedArtwork = feed.image?.url;
+        const feedArtwork = feed.image.url;
         const podcastTitle = feed.title;
         const items = [];
         
