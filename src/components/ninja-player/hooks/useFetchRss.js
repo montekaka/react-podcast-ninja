@@ -12,6 +12,7 @@ const useFetchRss = (rssFeed, proxy) => {
       setLoading(true);
       feedParser(rssFeed, proxy)
       .then((feed) => {
+        console.log(feed)
         const feedArtwork = feed.image.url;
         const podcastTitle = feed.title;
         const items = [];
@@ -44,13 +45,13 @@ const useFetchRss = (rssFeed, proxy) => {
       .catch((err) => {
         setLoading(false);
         setEpisodes([]);
-        setErrorMessage(`${rssFeed} is not able to reach.  Please try again later.`)
+        setErrorMessage(`${rssFeed} is not able to reach.  Please try again later. ${JSON.stringify(err)}`)
         // setErrorMessage(JSON.stringify(err))
       })
     } else {
       setEpisodes([]);
     }
-  }, [rssFeed]) 
+  }, [rssFeed, proxy]) 
 
   return [episodes, loading, errorMessage];
 }

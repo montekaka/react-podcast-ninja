@@ -23,7 +23,7 @@ const NinjaPodcastPlayer = ({
   if(errorMessage && errorMessage.length > 0) {
     return (
       <LoadingScreenContainer>
-        <h3>{errorMessage}</h3>
+        <h3 style={{color: '000'}}>{errorMessage}</h3>
       </LoadingScreenContainer>
     )
   }
