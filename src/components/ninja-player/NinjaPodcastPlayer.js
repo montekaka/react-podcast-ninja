@@ -5,7 +5,7 @@ import {useFetchRss} from './hooks'
 import LoadingBouncing from './LoadingBouncing'
 
 const NinjaPodcastPlayer = ({
-  rssFeedUrl, playerId, configs, ...props
+  rssFeedUrl, playerId, configs
 }) => {
 
   // const [episodes, setEpisodes] = useState([]);
