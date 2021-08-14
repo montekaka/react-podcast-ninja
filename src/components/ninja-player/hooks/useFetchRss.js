@@ -12,10 +12,16 @@ const useFetchRss = (rssFeed, proxy) => {
       setLoading(true);
       feedParser(rssFeed, proxy)
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         const feed = proxy && proxy.length > 0 ? res.data : res;
         // console.log(feed)
-        const feedArtwork = feed.image.url;
+        let feedArtwork = ""
+        if (feed.image && feed.image.url) {
+          feedArtwork = feed.image.url;
+        } else if (feed.itunes && feed.itunes.image) {
+          feedArtwork = feed.itunes.image;
+        }
+        // const feedArtwork = feed.image.url;
         const podcastTitle = feed.title;
         const items = [];
         
