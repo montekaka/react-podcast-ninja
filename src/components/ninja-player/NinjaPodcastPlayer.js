@@ -29,12 +29,14 @@ const NinjaPodcastPlayer = ({
   }
 
   return (
+    
     <NinjaPlayer
       playerId={playerId}
       episodes={episodes}
       configs={configs}
       singleEpisode={singleEpisode}    
     />
+  
   )
 }
 
