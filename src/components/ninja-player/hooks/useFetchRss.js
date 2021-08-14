@@ -11,8 +11,9 @@ const useFetchRss = (rssFeed, proxy) => {
     if(rssFeed && rssFeed.length > 1) {
       setLoading(true);
       feedParser(rssFeed, proxy)
-      .then((feed) => {
-        console.log(feed)
+      .then((res) => {
+        const feed = proxy && proxy.length > 0 ? res.data : res;
+        // console.log(feed)
         const feedArtwork = feed.image.url;
         const podcastTitle = feed.title;
         const items = [];
