@@ -12,6 +12,7 @@ const useFetchRss = (rssFeed, proxy) => {
       setLoading(true);
       feedParser(rssFeed, proxy)
       .then((res) => {
+        console.log(res)
         const feed = proxy && proxy.length > 0 ? res.data : res;
         // console.log(feed)
         const feedArtwork = feed.image.url;
@@ -37,11 +38,13 @@ const useFetchRss = (rssFeed, proxy) => {
             pubDate: item.pubDate,
             link: item.link,
             audioUrl: item.enclosure.url,
-            chaptersUrl: chaptersUrl
+            chaptersUrl: chaptersUrl,
+            description: item.content
           })
         })  
         setLoading(false);
         setEpisodes(items);
+        setErrorMessage('')
       })
       .catch((err) => {
         setLoading(false);
@@ -50,6 +53,7 @@ const useFetchRss = (rssFeed, proxy) => {
         // setErrorMessage(JSON.stringify(err))
       })
     } else {
+      setLoading(false);
       setEpisodes([]);
     }
   }, [rssFeed, proxy]) 
