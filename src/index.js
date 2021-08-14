@@ -1,6 +1,7 @@
-import {NinjaPlayer} from './components/ninja-player'
+import {NinjaPlayer, NinjaPodcastPlayer} from './components/ninja-player'
 
 export {
-  NinjaPlayer
+  NinjaPlayer,
+  NinjaPodcastPlayer
 }
 
