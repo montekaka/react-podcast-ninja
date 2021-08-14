@@ -1,3 +1,5 @@
+export {feedParser} from './parser'
+
 export const getHHMMSSFromSeconds = (position) => {
   let totalSeconds = Math.round(position);
   
@@ -30,3 +32,4 @@ export const getSecondsFromHHMMSS = (positionString) => {
 
   return seconds;
 }
+

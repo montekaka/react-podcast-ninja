@@ -4,7 +4,7 @@ import {storiesOf} from '@storybook/react'
 import {NinjaPodcastPlayer} from '../components/ninja-player'
 
 const stories = storiesOf('Podcast Player Test', module);
-const rssFeedUrl = 'https://anchor.fm/s/6ccfb04/podcast/rss'
+const rssFeedUrl = 'https://anchor.fm/s/5a91cae4/podcast/rss'
 const configs = {
   hidePubDate: false,
   primaryBackgroundColor: "#0c1824",
@@ -26,7 +26,8 @@ stories.add('App', () => {
         playerId="podcast-example"
         rssFeedUrl={rssFeedUrl}
         configs={configs}
-        singleEpisode={true}
+        singleEpisode={false}
+        proxy={''}
       />
     </Provider>
   );

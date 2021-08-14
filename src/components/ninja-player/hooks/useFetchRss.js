@@ -1,15 +1,7 @@
 import { useState, useEffect } from "react";
-import Parser from 'rss-parser';
+import {feedParser} from './../libs'
 
-const parser = new Parser({
-  customFields: {
-    item: [
-      ["podcast:chapters", "chapters"] // rename the filed to chapters
-    ]
-  }
-})
-
-const useFetchRss = (rssFeed) => {
+const useFetchRss = (rssFeed, proxy) => {
   // const [rssFeed, setRssFeed] = useState('');
   const [episodes, setEpisodes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,7 +10,7 @@ const useFetchRss = (rssFeed) => {
   useEffect(() => {
     if(rssFeed && rssFeed.length > 1) {
       setLoading(true);
-      parser.parseURL(rssFeed)
+      feedParser(rssFeed, proxy)
       .then((feed) => {
         const feedArtwork = feed.image.url;
         const podcastTitle = feed.title;
@@ -52,10 +44,12 @@ const useFetchRss = (rssFeed) => {
       .catch((err) => {
         setLoading(false);
         setEpisodes([]);
-        // setErrorMessage(`${rssFeed} is not able to reach.  Please try again later.`)
-        setErrorMessage(JSON.stringify(err))
+        setErrorMessage(`${rssFeed} is not able to reach.  Please try again later.`)
+        // setErrorMessage(JSON.stringify(err))
       })
-    }    
+    } else {
+      setEpisodes([]);
+    }
   }, [rssFeed]) 
 
   return [episodes, loading, errorMessage];

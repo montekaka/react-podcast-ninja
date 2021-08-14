@@ -5,11 +5,11 @@ import {useFetchRss} from './hooks'
 import LoadingBouncing from './LoadingBouncing'
 
 const NinjaPodcastPlayer = ({
-  rssFeedUrl, playerId, configs
+  rssFeedUrl, playerId, configs, proxy,singleEpisode
 }) => {
 
   // const [episodes, setEpisodes] = useState([]);
-  const [episodes, loading, errorMessage] = useFetchRss(rssFeedUrl)
+  const [episodes, loading, errorMessage] = useFetchRss(rssFeedUrl, proxy)
 
   if(loading) {
     return (
@@ -33,7 +33,7 @@ const NinjaPodcastPlayer = ({
       playerId={playerId}
       episodes={episodes}
       configs={configs}
-      singleEpisode={false}    
+      singleEpisode={singleEpisode}    
     />
   )
 }
