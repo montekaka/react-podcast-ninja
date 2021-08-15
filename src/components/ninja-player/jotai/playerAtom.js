@@ -14,17 +14,18 @@ export const playerAtom = atom({
   volume: 0.3,
 })
 
-export const resetPlayerAtom = atom(null, (get, set, _) => {
-  set(playerAtom, {
+export const resetPlayerAtom = atom((get) => get(playerAtom), (_get, set, _) => {
+  set(playerAtom, (prev) =>({
+    ...prev,
     durationSeconds: 0,
     playedSeconds: 0,
     seekSeconds: 0,
     onSeeking: false,
     onReady: false,
     playing: false,
-    playerRef: null,
+    // playerRef: null,
     volume: 0.3,
-  })
+  }))
 }) 
 
 export const updatePlayingIdAtom = atom((get) => get(playingIdAtom), (_get, set, id) => {

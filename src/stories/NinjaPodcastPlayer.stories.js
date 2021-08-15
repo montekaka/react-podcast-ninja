@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Provider} from 'jotai'
 import {storiesOf} from '@storybook/react'
 import {NinjaPodcastPlayer} from '../components/ninja-player'
 
 const stories = storiesOf('Podcast Player Test', module);
-const rssFeedUrl = 'https://anchor.fm/s/5a91cae4/podcast/rss'
+const rssFeedUrl = 'https://feed.justcast.com/shows/jia-chen-chinaarchive/audioposts.rss'
+const links = [rssFeedUrl, 'https://feed.justcast.com/shows/readcast/audioposts.rss']
+
 const configs = {
   hidePubDate: false,
   primaryBackgroundColor: "#0c1824",
@@ -20,11 +22,16 @@ const configs = {
 }
 
 stories.add('App', () => {
+  const [link, setLink] = useState(0);
+
   return (
     <Provider>
+      <div onClick={() => {
+        setLink((link+1) % 2)
+      }}>click</div>
       <NinjaPodcastPlayer 
         playerId="podcast-example"
-        rssFeedUrl={rssFeedUrl}
+        rssFeedUrl={links[link]}
         configs={configs}
         singleEpisode={false}
         proxy={''}

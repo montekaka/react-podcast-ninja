@@ -15,6 +15,9 @@ import {
 } from './playerSkinAtom'
 
 import {
+  errorMessageAtom,
+  loadingAtom,
+  fetchEpisodesAtom,
   tabAtom,
   episodesAtom,
   fetchChaptersAtom,
@@ -22,6 +25,9 @@ import {
 } from './podcastAtom'
 
 export {
+  errorMessageAtom,
+  loadingAtom,  
+  fetchEpisodesAtom,
   chaptersAtom,
   fetchChaptersAtom,
   resetPlayerAtom,

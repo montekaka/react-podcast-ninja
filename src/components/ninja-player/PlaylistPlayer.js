@@ -2,55 +2,72 @@ import React, {useEffect} from 'react';
 import {useAtom} from 'jotai'
 // import PropTypes from 'prop-types';
 import {
-  episodesAtom,
   playerSkinAtom,
   playingIdAtom,
   tabAtom,
-  fetchChaptersAtom
+  fetchChaptersAtom,
+  fetchEpisodesAtom,
+  errorMessageAtom,
+  loadingAtom,  
 } from './jotai'
 import PlayerContainer from './PlayerContainer'
 import PlayerHolder from './PlayerHolder'
 import EpisodeList from './EpisodeList';
 import MoreInfoSection from './MoreInfoSection';
+import LoadingScreenContainer from './LoadingScreenContainer'
+import LoadingBouncing from './LoadingBouncing'
 
 const PlaylistPlayer = ({
-  playerId, podcast, episodes, configs, singleEpisode, ...props
+  playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
 }) => {
 
   // set jotai state
-  const [episodesState, setEpisodes] = useAtom(episodesAtom);
+  const [episodesState, fetchEpisodes] = useAtom(fetchEpisodesAtom);
   const [, setPlayerSkin] = useAtom(playerSkinAtom)
   const [playingId, setPlayingId] = useAtom(playingIdAtom)
   const [tabState]  = useAtom(tabAtom);
   const [, fetchChapters] = useAtom(fetchChaptersAtom)
+  const [errorMessage] = useAtom(errorMessageAtom)
+  const [loading] = useAtom(loadingAtom)
   
   useEffect(() => {
-    if(playerId) {
-      setPlayingId(0);      
-    }
-  }, [playerId])
+    fetchEpisodes({
+      rssFeedUrl,
+      proxy, 
+      episodes
+    })
+    setPlayingId(0);
+  }, [rssFeedUrl, episodes])
 
   useEffect(() => {
     if(playingId >= 0) {
       fetchChapters()
     }
   }, [playingId, episodesState])
-
-  // useEffect(() => {
-
-  // }, [podcast])
-
-  useEffect(() => {
-    if(episodes && episodes.length > 0) {
-      setEpisodes(episodes);      
-    }    
-  }, [episodes])
   
   useEffect(() => {
     if(configs && Object.keys(configs).length > 0) {
       setPlayerSkin(configs); // TODO: use mapping to get the right fileds
     }
   }, [configs])  
+
+
+  if(loading) {
+    return (
+      <LoadingScreenContainer>        
+        <LoadingBouncing/>
+        <h2>Loading....</h2>
+      </LoadingScreenContainer>
+    )
+  }
+
+  if(errorMessage && errorMessage.length > 0) {
+    return (
+      <LoadingScreenContainer>
+        <h3>{errorMessage}</h3>
+      </LoadingScreenContainer>
+    )
+  }  
 
   return (
     <div className={singleEpisode ? 'jc-player-wrapper single-episode-player-wrapper' : 'jc-player-wrapper'}>

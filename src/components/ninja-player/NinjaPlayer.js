@@ -4,7 +4,7 @@ import PlaylistPlayer from './PlaylistPlayer';
 import './ninja-player.css';
 
 const NinjaPlayer = ({
-  playerId, podcast, episodes, configs, singleEpisode
+  playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
 }) => {
   return (    
     <Suspense fallback={<></>}>
@@ -12,7 +12,9 @@ const NinjaPlayer = ({
         <PlaylistPlayer 
           playerId={playerId} 
           podcast={podcast} 
-          episodes={episodes} 
+          episodes={episodes}
+          rssFeedUrl={rssFeedUrl} 
+          proxy={proxy}
           configs={configs}
           singleEpisode={singleEpisode}
         />
