@@ -1,5 +1,5 @@
 import {atom} from "jotai"
-import {playingIdAtom} from './playerAtom'
+import {playingIdAtom, playerAtom} from './playerAtom'
 import {feedParser} from './../libs'
 
 // export interface Episode {
@@ -103,6 +103,8 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
     set(episodesAtom, episodes);
     set(errorMessageAtom, '');
   }
+  const playerState = _get(playerAtom);
+  set(playerAtom, {...playerState, playing: false})
 })
 
 
