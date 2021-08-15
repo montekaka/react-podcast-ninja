@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import NinjaPlayer from './NinjaPlayer'
 import LoadingScreenContainer from './LoadingScreenContainer'
 import {useFetchRss} from './hooks'
@@ -28,15 +28,13 @@ const NinjaPodcastPlayer = ({
     )
   }
 
-  return (
-    
+  return (    
     <NinjaPlayer
       playerId={playerId}
       episodes={episodes}
       configs={configs}
       singleEpisode={singleEpisode}    
-    />
-  
+    />  
   )
 }
 

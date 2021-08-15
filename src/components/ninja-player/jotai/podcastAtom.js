@@ -31,6 +31,8 @@ export const fetchChaptersAtom = atom((get) => get(chaptersAtom), (_get, set, _)
     }
   }
 
+  console.log(episodes[0])
+
   if(episodes.length > 0 && episodes[playingId] && episodes[playingId]['chaptersUrl']) {
     fetchDate()
   } else {
