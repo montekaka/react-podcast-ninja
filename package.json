@@ -1,6 +1,6 @@
 {
   "name": "react-podcast-ninja",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "A simple react component that plays back podcast",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
