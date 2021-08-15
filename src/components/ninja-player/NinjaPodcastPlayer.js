@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import NinjaPlayer from './NinjaPlayer'
 import LoadingScreenContainer from './LoadingScreenContainer'
 import {useFetchRss} from './hooks'
 import LoadingBouncing from './LoadingBouncing'
+import { useAtom } from 'jotai';
+import {chaptersAtom} from './jotai'
 
 const NinjaPodcastPlayer = ({
   rssFeedUrl, playerId, configs, proxy,singleEpisode
@@ -10,6 +12,11 @@ const NinjaPodcastPlayer = ({
 
   // const [episodes, setEpisodes] = useState([]);
   const [episodes, loading, errorMessage] = useFetchRss(rssFeedUrl, proxy)
+  const [, setChapters] = useAtom(chaptersAtom)
+
+  useEffect(() =>{ 
+    setChapters([]);
+  }, [rssFeedUrl])
 
   if(loading) {
     return (
