@@ -23,16 +23,20 @@ const configs = {
 
 stories.add('App', () => {
   const [link, setLink] = useState(0);
+  const [primaryBackgroundColor, setColor] = useState("#0c1824")
 
   return (
     <Provider>
       <div onClick={() => {
         setLink((link+1) % 2)
       }}>click</div>
+      <input value={primaryBackgroundColor} onChange={(e) => {
+        setColor(e.target.value)
+      }}/>
       <NinjaPodcastPlayer 
         playerId="podcast-example"
         rssFeedUrl={links[link]}
-        configs={configs}
+        configs={{...configs, primaryBackgroundColor}}
         singleEpisode={false}
         proxy={''}
       />

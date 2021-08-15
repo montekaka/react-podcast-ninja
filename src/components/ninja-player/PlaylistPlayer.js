@@ -37,19 +37,19 @@ const PlaylistPlayer = ({
       episodes
     })
     setPlayingId(0);
-  }, [rssFeedUrl, episodes])
+  }, [rssFeedUrl, JSON.stringify(episodes)])
 
   useEffect(() => {
     if(playingId >= 0) {
       fetchChapters()
     }
-  }, [playingId, episodesState])
+  }, [playingId, JSON.stringify(episodesState)])
   
   useEffect(() => {
     if(configs && Object.keys(configs).length > 0) {
       setPlayerSkin(configs); // TODO: use mapping to get the right fileds
     }
-  }, [configs])  
+  }, [JSON.stringify(configs)])  
 
 
   if(loading) {
