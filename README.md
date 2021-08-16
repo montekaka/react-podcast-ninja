@@ -27,8 +27,7 @@ import {NinjaPlayer} from 'react-podcast-ninja'
 
 By default, NinjaPlayer comes with a playlist.  You can disable the playlist by setting `singleEpisode` props to true.
 
-Demo page: [`https://cookpete.com/react-player`](https://cookpete.com/react-player)
-
+[`Demo page`](https://widget.justcast.com/widget?rss=https://podnews.net/rss&primaryBackgroundColor=0c1824&primaryButtonColor=f7f8f9&primaryTextColor=f7f8f9&progressBarFilledColor=f7f8f9&progressBarBackgroundColor=8A8175&playlistBackgroundColor=30343c&playlistTextColor=f7f8f9&chapterBackgroundColor=30343c&chapterTextColor=f7f8f9)
 
 ### Props
 
@@ -69,4 +68,9 @@ import {NinjaPodcastPlayer} from 'react-podcast-ninja'
 Similar to the `<NinjaPlayer/>`, except it requires the RSS feed.
 
 ## Motivation and history
-I've created this code because I want to help promote the PodcastIndex chapters namespaces.  After a quick search, I found most of podcast widget player haven't support the chapters namespace yet.
+While adding the PodcastIndex chapters namespace support to  [`JustCast`](https://justcast.com), I began noticing most of podcast widget players haven't support the chapters namespace yet.  
+
+I hope more podcasters can enbrace the chapters namespace, and someone can use it to get a head start into building something amazing!
+
+## Contributions
+If you would like to contribute to this open source project, please feel free to submit a PR.
