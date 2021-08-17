@@ -2,6 +2,7 @@ import React from 'react'
 import {useAtom} from "jotai"
 import {format} from 'date-fns'
 import {playerSkinAtom} from './jotai'
+import WaveSvg from './WaveSvg'
 
 const EpisodeListItem = (props) => {
   const {pubDate, id, title, onClick} = props;
@@ -14,7 +15,7 @@ const EpisodeListItem = (props) => {
       }}
     >
       {hidePubDate ? null : <div className="subtitle">{pubDate ? <div>{format(new Date(pubDate), 'MM/dd/yyyy')}</div> : null}</div>}
-      <div className="title">{title}</div>
+      <div className="title">{title}</div>    
     </div>
   )
 

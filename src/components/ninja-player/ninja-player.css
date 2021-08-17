@@ -168,7 +168,7 @@ body {
   padding: 10px;
   display: flex;
   /* flex-wrap: nowrap; */
-  overflow-x: auto;
+  overflow-x: scroll;
   /* min-width: 100%; */
 }
 

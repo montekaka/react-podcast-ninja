@@ -2,6 +2,7 @@ import React, {Suspense} from 'react';
 import {Provider} from 'jotai'
 import PlaylistPlayer from './PlaylistPlayer';
 import './ninja-player.css';
+import WaveSvg from './WaveSvg';
 
 const NinjaPlayer = ({
   playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
@@ -18,6 +19,7 @@ const NinjaPlayer = ({
           configs={configs}
           singleEpisode={singleEpisode}
         />
+        {/* <WaveSvg/> */}
       </Provider>  
     </Suspense>
   )
