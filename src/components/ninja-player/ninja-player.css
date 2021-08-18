@@ -109,7 +109,8 @@ body {
 }
 
 .jc-player-container > .jc-control-misc > .js-control-tabs {
-  font-size: 0.6em;
+  font-size: 0.6em;  
+  display: flex;
 }
 
 .jc-player-container > .jc-control-misc > .volume-controls {

@@ -19,10 +19,19 @@ const configs = {
   chapterTextColor:  "#f7f8f9"  
 }
 
+const podcast = {
+  menuItems: [{id:'subscribe', label: 'SUBSCRIBE'}, {id: 'social', label: "SOCIAL"}],
+  'subscribe': [{id: 'rss', url: 'https://feed.justcast.com/shows/inside-the-aluminum-tube-with-shanon-baker/audioposts.rss'}],
+  'social': [
+    {id: 'twitter', url: 'https://twitter.com/thejustcast'}
+  ]
+}
+
 stories.add('App', () => {
   return (
     <Provider>
-      <NinjaPlayer 
+      <NinjaPlayer
+        podcast={podcast} 
         playerId="example"
         episodes={episodes}
         configs={configs}

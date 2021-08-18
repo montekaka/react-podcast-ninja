@@ -13,7 +13,17 @@ import {feedParser} from './../libs'
 //   description: stirng;
 // }
 
+// const podcast = {
+//   menuItems: [{id:'subscribe', label: 'Subscribe', id: 'social', label: "Social"}],
+//   'subscribe': [{id: 'rss', url: 'https://feed.justcast.com/shows/inside-the-aluminum-tube-with-shanon-baker/audioposts.rss'}],
+//   'social': [
+//     {id: 'twitter', url: 'https://twitter.com/thejustcast'}
+//   ]
+// }
+
 export const tabAtom = atom('main');
+export const tabsAtom = atom({});
+export const tabsMenuAtom = atom([]);
 export const episodesAtom = atom([]);
 export const chaptersAtom = atom([]);
 export const loadingAtom = atom(false);

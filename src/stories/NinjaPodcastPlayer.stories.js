@@ -27,9 +27,6 @@ stories.add('App', () => {
 
   return (
     <Provider>
-      <div onClick={() => {
-        setLink((link+1) % 2)
-      }}>click</div>
       <input value={primaryBackgroundColor} onChange={(e) => {
         setColor(e.target.value)
       }}/>

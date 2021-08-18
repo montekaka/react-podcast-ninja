@@ -5,6 +5,8 @@ import {
   playerSkinAtom,
   playingIdAtom,
   tabAtom,
+  tabsAtom,
+  tabsMenuAtom,
   fetchChaptersAtom,
   fetchEpisodesAtom,
   errorMessageAtom,
@@ -25,6 +27,8 @@ const PlaylistPlayer = ({
   const [episodesState, fetchEpisodes] = useAtom(fetchEpisodesAtom);
   const [, setPlayerSkin] = useAtom(playerSkinAtom)
   const [playingId, setPlayingId] = useAtom(playingIdAtom)
+  const [, setTabsState] = useAtom(tabsAtom);
+  const [, setTabsMenuState] = useAtom(tabsMenuAtom);
   const [tabState]  = useAtom(tabAtom);
   const [, fetchChapters] = useAtom(fetchChaptersAtom)
   const [errorMessage] = useAtom(errorMessageAtom)
@@ -44,6 +48,13 @@ const PlaylistPlayer = ({
       fetchChapters()
     }
   }, [playingId, JSON.stringify(episodesState)])
+
+  useEffect(() => {
+    if(podcast && podcast.menuItems) {
+      setTabsState(podcast);
+      setTabsMenuState(podcast.menuItems)
+    }
+  }, [podcast])
   
   useEffect(() => {
     if(configs && Object.keys(configs).length > 0) {

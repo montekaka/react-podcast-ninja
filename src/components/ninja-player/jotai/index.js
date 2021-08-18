@@ -21,7 +21,9 @@ import {
   tabAtom,
   episodesAtom,
   fetchChaptersAtom,
-  chaptersAtom
+  chaptersAtom,
+  tabsAtom,
+  tabsMenuAtom
 } from './podcastAtom'
 
 export {
@@ -31,6 +33,8 @@ export {
   chaptersAtom,
   fetchChaptersAtom,
   resetPlayerAtom,
+  tabsMenuAtom,
+  tabsAtom,
   tabAtom,
   playerAtom,
   playingIdAtom,
