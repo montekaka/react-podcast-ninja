@@ -1,14 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useAtom} from "jotai"
 import {tabAtom, tabsAtom, playerSkinAtom} from './jotai'
 import MoreInfoSectionHeader from './MoreInfoSectionHeader'
 
 const SubscribeSection = () => {
-
+  const [copyButtonLabel, setCopyButtonLabel] = useState('Copy')
   const [playerSkin] = useAtom(playerSkinAtom);
   const [tabName] = useAtom(tabAtom);
   const [tabContents] = useAtom(tabsAtom);
   const handleChange = (event) => {}
+
+  const handleClickCopy = () => {
+    // setRssFeed(value);
+    // const copyText = document.querySelector(`#input-widget-code`);
+    const copyText = document.querySelector(`#input-rss`);
+    copyText.select();
+    document.execCommand("Copy");
+    setCopyButtonLabel('Copied');
+    // change back to Copy in 3 seconds
+    setTimeout(() => {
+      setCopyButtonLabel("Copy");
+    }, 3000)        
+  }  
 
   return (
     <div className="jc-more-info" style={{
@@ -34,13 +47,18 @@ const SubscribeSection = () => {
                     height: 40,
                     display: 'flex',
                     alignItems: 'center'
-                  }}>{item.label}</div>
-                  <input style={{
-                    flexGrow: 2, 
-                    marginLeft: 10, 
-                    marginRight: 10,
-                    borderRadius: 6
-                  }} value={item.url} onChange={handleChange}/>
+                  }}                  
+                  >{item.label}</div>
+                  <input 
+                    id="input-rss"
+                    style={{
+                      flexGrow: 2, 
+                      marginLeft: 10, 
+                      marginRight: 10,
+                      borderRadius: 6
+                    }} 
+                    value={item.url} 
+                    onChange={handleChange}/>
                   <button style={{
                     width: 90,
                     height: 40,
@@ -51,10 +69,12 @@ const SubscribeSection = () => {
                     borderRadius: 6,
                     appearance: 'none',
                     cursor: 'pointer',
-                    padding: "4px 8px",
+                    // padding: "4px 8px",
                     backgroundColor: playerSkin.primaryButtonColor,
                     color: playerSkin.primaryBackgroundColor
-                  }}>Copy</button>
+                  }}
+                  onClick={handleClickCopy}
+                  >{copyButtonLabel}</button>
                 </div>
               })
             }
