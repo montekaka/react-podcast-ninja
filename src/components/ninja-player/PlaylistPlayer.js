@@ -12,10 +12,11 @@ import {
   errorMessageAtom,
   loadingAtom,  
 } from './jotai'
-import PlayerContainer from './PlayerContainer'
+// import PlayerContainer from './PlayerContainer'
+// import MoreInfoSection from './MoreInfoSection';
 import PlayerHolder from './PlayerHolder'
 import EpisodeList from './EpisodeList';
-import MoreInfoSection from './MoreInfoSection';
+import MainSectionSwitch from './MainSectionSwitch'
 import LoadingScreenContainer from './LoadingScreenContainer'
 import LoadingBouncing from './LoadingBouncing'
 
@@ -82,9 +83,10 @@ const PlaylistPlayer = ({
 
   return (
     <div className={singleEpisode ? 'jc-player-wrapper single-episode-player-wrapper' : 'jc-player-wrapper'}>
-      {
+      {/* {
         tabState === 'main' ? <PlayerContainer/> : <MoreInfoSection/>
-      }      
+      }       */}
+      <MainSectionSwitch/>
       {singleEpisode ? null : <EpisodeList/> }
       <PlayerHolder/>
     </div>

@@ -9,6 +9,7 @@ const configs = {
   hidePubDate: false,
   primaryBackgroundColor: "#0c1824",
   primaryButtonColor: "#f7f8f9",
+  // primaryButtonColor: "black",
   primaryTextColor: "#f7f8f9",
   progressBarFilledColor: "#f7f8f9",
   progressBarBackgroundColor: "#8A8175",
@@ -21,7 +22,7 @@ const configs = {
 
 const podcast = {
   menuItems: [{id:'subscribe', label: 'SUBSCRIBE'}, {id: 'social', label: "SOCIAL"}],
-  'subscribe': [{id: 'rss', url: 'https://feed.justcast.com/shows/inside-the-aluminum-tube-with-shanon-baker/audioposts.rss'}],
+  'subscribe': [{id: 'rss', label: "RSS" , url: 'https://feed.justcast.com/shows/inside-the-aluminum-tube-with-shanon-baker/audioposts.rss'}],
   'social': [
     {id: 'twitter', url: 'https://twitter.com/thejustcast'}
   ]
