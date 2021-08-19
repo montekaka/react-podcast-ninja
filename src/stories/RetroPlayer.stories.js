@@ -32,6 +32,7 @@ stories.add('App', () => {
   return (
     <Provider>
       <NinjaPlayer
+        themeName={"retro"}
         // podcast={podcast} 
         playerId="example"
         episodes={episodes}
