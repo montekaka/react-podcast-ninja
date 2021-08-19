@@ -21,8 +21,7 @@ const ChaptersList = () => {
 
   if(chapters) {
     return (
-      <>
-      <div onClick={handleShift} style={{color: 'white'}}>Click</div> 
+      <>      
       <div className="jc-chapters" ref={chaptersRef}>   
           
         {

@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import {Provider} from 'jotai'
 import PlaylistPlayer from './PlaylistPlayer';
-import './ninja-player.css';
+import './retro-player.css';
 
 const RetroPlayer = ({
   playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
