@@ -14,7 +14,7 @@ body {
   font-weight: 500;
   cursor: pointer;
   padding: 10px;  
-  max-height: 400px;
+  max-height: 330px;
   overflow: scroll;
 }
 
@@ -90,13 +90,15 @@ body {
 .retro-player-container {
   display: grid;
   /* background-color: hotpink; */
-  grid-template-columns: 160px auto;
-  grid-template-rows: 80px 80px 30px auto;
-  grid-template-areas: 
-  "artwork metas"
-  "artwork player-controls"
-  ". misc"
-  "chapters chapters";
+  grid-template-columns: auto;
+  /* grid-template-rows: 260px 400px; */
+  grid-template-rows: auto;
+  grid-template-areas:     
+  "artwork"
+  "metas"    
+  "chapters"
+  "misc"
+  "player-controls";  
 }
 
 .retro-player-container > .retro-control-misc {
@@ -104,8 +106,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 5px;
-  padding-right: 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .retro-player-container > .retro-control-misc > .retro-control-tabs {
@@ -132,7 +133,7 @@ body {
 .retro-player-container > .retro-artwork > .retro-artwork-image {
   width: 134px;
   height: 134px;
-  border-radius: 8px;
+  border-radius: 134px;
 }
 
 .retro-player-container > .retro-metas {
@@ -140,9 +141,10 @@ body {
   font-size: 20px;
   line-height: 22px;
   font-weight: 800;
+  justify-items: center;
   display: grid;
   grid-template-rows: 30px auto;
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
   grid-area: metas;
 }
 
@@ -166,7 +168,7 @@ body {
 
 .retro-player-container > .retro-chapters {
   grid-area: chapters;
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
   display: flex;
   /* flex-wrap: nowrap; */
   overflow-x: scroll;
@@ -213,16 +215,21 @@ body {
 
 .retro-player-control {
   display: grid;
-  /* background-color: black; */
-  grid-template-columns: 100px auto;
   grid-area: player-controls;
+  /* background-color: black; */
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  /* grid-template-areas: 
+    "play-pause-button"
+    "progress-bar-control"; */
+  
 }
 
 .retro-player-control > .retro-controls {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;    
-  order: 1;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  order: 2;
 }
 
 .retro-player-control > .retro-controls > .retro-play-pause-button {
@@ -235,6 +242,8 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .retro-player-control > .retro-controls > .retro-play-pause-button > .retro-icon{
@@ -272,7 +281,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  order: 2;
+  order: 1;
 }
 
 .retro-player-control > .retro-progress-bar > .retro-progress-time {
@@ -325,101 +334,19 @@ body {
 @media (min-width: 1200px) {
   .retro-player-wrapper {
     display: grid;
-    grid-template-columns: 680px auto;
+    grid-template-columns: auto;
   }
 
   .retro-single-episode-player-wrapper {
     display: grid;
     grid-template-columns: auto;
   }
-
-  .retro-player-wrapper > .retro-episodes-list {
-    height: 330px;
-    overflow: scroll;    
-  }
-  
 }
-
 @media (max-width: 500px) {
-  .retro-player-container {
-    padding: 20px;
-    height: 720px;
-    grid-template-columns: auto;
-    /* grid-template-rows: 260px 400px; */
-    grid-template-rows: auto;
-    grid-template-areas:     
-    "artwork"
-    "metas"    
-    "chapters"
-    "misc"    
-    "player-controls";    
-  }
-
-  .retro-player-container > .retro-metas > .retro-title {
-    text-align: center;
-  }
-
-  .retro-player-container > .retro-metas > .retro-subtitle {
-    text-align: center;
-  }  
-
   .retro-player-container > .retro-artwork > .retro-artwork-image {
-    width: 220px;
-    height: 220px;
-    border-radius: 14px;
-  }  
-
-  .retro-player-control {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-  }  
-
-  .retro-player-control > .retro-controls {
-    order: 2;
-  }
-
-  .retro-player-control > .retro-progress-bar {
-    order: 1;
-  }  
-
-  .retro-player-control > .retro-controls > .retro-play-pause-button {
-    width: 100px;
-    height: 100px;
-    font-size: 100px;
-    border-radius: 100px;
-  }  
-
-  .retro-player-control > .retro-controls > .retro-progress-control {
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
   }
   
-  .retro-player-control > .retro-controls > .retro-progress-control > .retro-icon{
-    grid-area: 1 / 1;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .retro-player-control > .retro-controls > .retro-progress-control > .retro-label{
-    grid-area: 1 / 1;
-    font-size: 0.3em;
-  }
-
-  .retro-player-wrapper > .retro-episodes-list {
-    max-height: 330px;
-    overflow: scroll;    
-  }  
-
-  .retro-more-info {
-    height: 720px;
-    overflow: scroll;
-    padding: 10px;
-  }
 }
