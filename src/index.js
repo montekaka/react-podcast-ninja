@@ -1,12 +1,10 @@
 import {
   NinjaPlayer, 
-  NinjaPodcastPlayer,
-  RetroPlayer
+  NinjaPodcastPlayer
 } from './components/ninja-player'
 
 export {
   NinjaPlayer,
-  NinjaPodcastPlayer,
-  RetroPlayer
+  NinjaPodcastPlayer
 }
 
