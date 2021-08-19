@@ -1,13 +1,14 @@
 import React, { useRef } from 'react'
 import {useAtom} from "jotai"
 import ChaptersListItem from './ChaptersListItem'
-import { updatePlayedTimeAtom, fetchChaptersAtom} from './jotai'
+import { updatePlayedTimeAtom, fetchChaptersAtom, themeNameAtom} from './jotai'
 
 const ChaptersList = () => {
   const chaptersRef = useRef(null);
   // const [chapters] = useAtom(chaptersAtom);
   const [_, updatePlayTime] = useAtom(updatePlayedTimeAtom);
   const [chapters] = useAtom(fetchChaptersAtom);
+  const [themeName] = useAtom(themeNameAtom);
 
   // fetchChapters()
   const handleClick = (id) => {
@@ -22,7 +23,7 @@ const ChaptersList = () => {
   if(chapters) {
     return (
       <>      
-      <div className="jc-chapters" ref={chaptersRef}>   
+      <div className={`${themeName}-chapters`} ref={chaptersRef}>   
           
         {
           chapters.map((chapter, idx) => {

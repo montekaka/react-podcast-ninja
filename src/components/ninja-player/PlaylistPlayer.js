@@ -11,6 +11,7 @@ import {
   fetchEpisodesAtom,
   errorMessageAtom,
   loadingAtom,  
+  themeNameAtom
 } from './jotai'
 // import PlayerContainer from './PlayerContainer'
 // import MoreInfoSection from './MoreInfoSection';
@@ -21,7 +22,7 @@ import LoadingScreenContainer from './LoadingScreenContainer'
 import LoadingBouncing from './LoadingBouncing'
 
 const PlaylistPlayer = ({
-  playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
+  themeName, playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
 }) => {
 
   // set jotai state
@@ -34,6 +35,7 @@ const PlaylistPlayer = ({
   const [, fetchChapters] = useAtom(fetchChaptersAtom)
   const [errorMessage] = useAtom(errorMessageAtom)
   const [loading] = useAtom(loadingAtom)
+  const [themeNameState, setThemeNameState] = useAtom(themeNameAtom);
   
   useEffect(() => {
     fetchEpisodes({
@@ -63,6 +65,12 @@ const PlaylistPlayer = ({
     }
   }, [JSON.stringify(configs)])  
 
+  useEffect(() => {
+    if(themeName) {
+      setThemeNameState(themeName)
+    }
+  }, [themeName])
+
 
   if(loading) {
     return (
@@ -82,7 +90,7 @@ const PlaylistPlayer = ({
   }  
 
   return (
-    <div className={singleEpisode ? 'jc-player-wrapper single-episode-player-wrapper' : 'jc-player-wrapper'}>
+    <div className={singleEpisode ? `${themeNameState}-player-wrapper ${themeNameState}-single-episode-player-wrapper` : `${themeNameState}-player-wrapper`}>
       {/* {
         tabState === 'main' ? <PlayerContainer/> : <MoreInfoSection/>
       }       */}

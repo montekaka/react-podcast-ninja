@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useAtom} from "jotai"
-import {tabAtom, tabsAtom, playerSkinAtom} from './jotai'
+import {tabAtom, tabsAtom, playerSkinAtom, themeNameAtom} from './jotai'
 import MoreInfoSectionHeader from './MoreInfoSectionHeader'
 
 const SubscribeSection = () => {
@@ -8,6 +8,8 @@ const SubscribeSection = () => {
   const [playerSkin] = useAtom(playerSkinAtom);
   const [tabName] = useAtom(tabAtom);
   const [tabContents] = useAtom(tabsAtom);
+  const [themeName] = useAtom(themeNameAtom);
+
   const handleChange = (event) => {}
 
   const handleClickCopy = () => {
@@ -24,16 +26,16 @@ const SubscribeSection = () => {
   }  
 
   return (
-    <div className="jc-more-info" style={{
+    <div className={`${themeName}-more-info`} style={{
       backgroundColor: playerSkin.primaryBackgroundColor,
       color: playerSkin.primaryTextColor
     }}>
       <MoreInfoSectionHeader>
-        <div className="js-more-info-title" style={{
+        <div className={`${themeName}-more-info-title`} style={{
           color: playerSkin.primaryTextColor
         }}>Subscribe</div>        
       </MoreInfoSectionHeader>
-      <div className="js-more-info-descripion">
+      <div className={`${themeName}-more-info-descripion`}>
         {
           tabContents && tabName && tabContents[tabName] ? <div>
             {

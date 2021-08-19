@@ -11,7 +11,8 @@ import {
 import {
   playerSkinAtom,
   playerSkinOptions,
-  updateColorAtom
+  updateColorAtom,
+  themeNameAtom
 } from './playerSkinAtom'
 
 import {
@@ -45,5 +46,6 @@ export {
   playerSkinAtom,
   playerSkinOptions,
   updateColorAtom,
-  episodesAtom  
+  episodesAtom,
+  themeNameAtom
 }

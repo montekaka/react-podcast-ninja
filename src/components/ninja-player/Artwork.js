@@ -1,25 +1,18 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { useAtom } from 'jotai';
+import {themeNameAtom} from './jotai'
 
 const Artwork = ({artworkUrl}) => {
+  const [themeName] = useAtom(themeNameAtom)
   return (
-    <div className="artwork">
+    <div className={`${themeName}-artwork`}>
       <img 
-        className="artwork-image"
+        className={`${themeName}-artwork-image`}
         src={artworkUrl} 
         title="artwork"
       />
     </div>
   )
 }
-
-// Artwork.propTypes = {
-//   artworkUrl: PropTypes.string
-// }
-
-// Artwork.defaultProps = {
-//   artworkUrl: null,
-// };
-
 
 export default Artwork;

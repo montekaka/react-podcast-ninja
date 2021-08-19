@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useAtom} from "jotai"
 import {episodesAtom, playingIdAtom, 
-  playerSkinAtom, tabAtom, tabsMenuAtom
+  playerSkinAtom, tabAtom, tabsMenuAtom, themeNameAtom
 } from './jotai'
 import Metas from './Metas'
 import Artwork from './Artwork';
@@ -16,6 +16,7 @@ const PlayerContainer = () => {
   const [playerSkin] = useAtom(playerSkinAtom);
   const [, setTabName] = useAtom(tabAtom);
   const [tabsMenuState] = useAtom(tabsMenuAtom);
+  const [themeName] = useAtom(themeNameAtom)
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
@@ -27,16 +28,16 @@ const PlayerContainer = () => {
     } = episode;
     
     return (
-      <div className="jc-player-container" style={{
+      <div className={`${themeName}-player-container`} style={{
         background: playerSkin.primaryBackgroundColor
       }}>
         <Artwork artworkUrl={artworkUrl}/>
         <Metas title={title} podcastTitle={podcastTitle}/>        
         <PlayerControl/>
         <ChaptersList/>
-        <div className="jc-control-misc">
+        <div className={`${themeName}-control-misc`}>
           <VolumeControls/>
-          <div className="js-control-tabs">
+          <div className={`${themeName}-control-tabs`}>
             {
               tabsMenuState.map((menu) => {
                 return (

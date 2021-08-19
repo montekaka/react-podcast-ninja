@@ -1,14 +1,15 @@
 import React from 'react'
 import {getHHMMSSFromSeconds} from './libs'
 import {useAtom} from "jotai"
-import {playerSkinAtom} from './jotai'
+import {playerSkinAtom, themeNameAtom} from './jotai'
 
 const ChaptersListItem = (props) => {
   const {title, startTime, id, onClick} = props;
-  const [playerSkin] = useAtom(playerSkinAtom)
+  const [playerSkin] = useAtom(playerSkinAtom);
+  const [themeName] = useAtom(themeNameAtom)
 
   return (
-    <div className="jc-chapter" onClick={() => {
+    <div className={`${themeName}-chapter`} onClick={() => {
       onClick(id);
       }}
       style={{
@@ -16,8 +17,8 @@ const ChaptersListItem = (props) => {
         color: playerSkin.chapterTextColor
       }}
     >
-      <div className="jc-chapter-title">{title}</div>
-      <div className="jc-chapter-subtitle">{getHHMMSSFromSeconds(startTime)}</div>
+      <div className={`${themeName}-chapter-title`}>{title}</div>
+      <div className={`${themeName}-chapter-subtitle`}>{getHHMMSSFromSeconds(startTime)}</div>
     </div>
   )
 }

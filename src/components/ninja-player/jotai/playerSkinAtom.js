@@ -12,6 +12,8 @@ import {atom} from "jotai"
 //   chapterTextColor: string;
 // }
 
+export const themeNameAtom = atom('jc');
+
 export const playerSkinAtom = atom({
   hidePubDate: true,
   primaryBackgroundColor: "#0c1824",

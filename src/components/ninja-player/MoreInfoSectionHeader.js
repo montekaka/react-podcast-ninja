@@ -1,15 +1,16 @@
 import React from 'react';
 import {useAtom} from "jotai"
 import {XCircle} from 'react-feather'
-import {tabAtom, playerSkinAtom} from './jotai'
+import {tabAtom, playerSkinAtom, themeNameAtom} from './jotai'
 
 const MoreInfoSectionHeader = (props) => {
   const [, setTabName] = useAtom(tabAtom);
   const [playerSkin] = useAtom(playerSkinAtom);
+  const [themeName] = useAtom(themeNameAtom);
 
   return (
-    <div className="jc-more-info-header">
-      <div className="jc-more-info-header-meta">
+    <div className={`${themeName}-more-info-header`}>
+      <div className={`${themeName}-more-info-header-header-meta`}>
         {props.children}
       </div>
       <div 

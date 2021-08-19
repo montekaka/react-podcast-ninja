@@ -1,13 +1,14 @@
 import React from "react";
 import { useAtom } from "jotai";
 import {Volume1, Volume2, VolumeX} from 'react-feather'
-import { playerSkinAtom, playerAtom, updatePlayerAtom} from './jotai'
+import { playerSkinAtom, playerAtom, updatePlayerAtom, themeNameAtom} from './jotai'
 import VolumeBars from './VolumeBars'
 
 const VolumeControls = () => {
   const [playerSkin] = useAtom(playerSkinAtom);
   const [playerState] = useAtom(playerAtom);
   const [, updatePlayerState] = useAtom(updatePlayerAtom)
+  const [themeName] = useAtom(themeNameAtom);
   
   const handleVolumeChange = (binIndex) => {
     updatePlayerState({volume: binIndex / 10});
@@ -30,7 +31,7 @@ const VolumeControls = () => {
   }  
 
   return (
-    <div className="volume-controls">      
+    <div className={`${themeName}-volume-controls`}>      
       <div onClick={decreaseVolumeClicked} style={{
         cursor: 'pointer',
         display: 'flex',

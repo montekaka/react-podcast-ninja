@@ -7,6 +7,7 @@ import WaveSvg from './WaveSvg';
 const NinjaPlayer = ({
   playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
 }) => {
+
   return (    
     <Suspense fallback={<></>}>
       <Provider>

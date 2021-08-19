@@ -1,9 +1,9 @@
 import React from 'react'
 import {useAtom} from "jotai"
 import ReactPlayer from 'react-player'
-// import { playerAtom, episodesAtom, updatePlayerAtom, updatePlayingIdAtom, playingIdAtom} from '../../jotai/widget-player'
 import {
-  playerAtom, episodesAtom, updatePlayerAtom, updatePlayingIdAtom, playingIdAtom
+  playerAtom, episodesAtom, updatePlayerAtom, 
+  updatePlayingIdAtom, playingIdAtom
 } from './jotai'
 
 const PlayerHolder = () => {

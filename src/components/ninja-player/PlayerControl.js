@@ -1,7 +1,7 @@
 import React from 'react';
 import {RotateCcw, RotateCw} from 'react-feather'
 import {useAtom} from "jotai"
-import { playerAtom, updatePlayerAtom, updatePlayedTimeAtom, playerSkinAtom} from './jotai'
+import { playerAtom, updatePlayerAtom, updatePlayedTimeAtom, themeNameAtom, playerSkinAtom} from './jotai'
 import PlayPauseButton from "./PlayPauseButton";
 import ProgressChangeButton from './ProgressChangeButton'
 import {getHHMMSSFromSeconds} from './libs'
@@ -13,17 +13,18 @@ const PlayerControl = () => {
   const {durationSeconds, playedSeconds, playerRef} = playerState;
   const [, updatePlayedTime] = useAtom(updatePlayedTimeAtom)
   const [playerSkin] = useAtom(playerSkinAtom);
+  const [themeName] = useAtom(themeNameAtom);
 
   return (
-    <div className="jc-player-control">
+    <div className={`${themeName}-player-control`}>
       {/* <Camera style={{color: '#ACDAF5'}}/> */}
-      <div className="controls">
+      <div className={`${themeName}-controls`}>
         <ProgressChangeButton label="5" 
           onClick={() => {
             updatePlayedTime(playedSeconds-5)
           }}
         >
-          <RotateCcw className="icon" 
+          <RotateCcw className={`${themeName}-icon`}
             style={{
                 color: playerSkin.primaryButtonColor
             }}
@@ -35,7 +36,7 @@ const PlayerControl = () => {
             updatePlayedTime(playedSeconds+30)
           }}        
         >
-          <RotateCw className="icon"
+          <RotateCw className={`${themeName}-icon`}
             style={{
               color: playerSkin.primaryButtonColor
             }}          
@@ -44,14 +45,14 @@ const PlayerControl = () => {
         {/* <ProgressBackward/>
         <ProgressForward/> */}
       </div>
-      <div className="jc-progress-bar">
-        <div className="progress-time" style={{
+      <div className={`${themeName}-progress-bar`}>
+        <div className={`${themeName}-progress-time`} style={{
           color: playerSkin.primaryTextColor
         }}>
-          <div className="time">{getHHMMSSFromSeconds(playedSeconds)}</div>
-          <div className="time">{getHHMMSSFromSeconds(durationSeconds)}</div>
+          <div className={`${themeName}-time`}>{getHHMMSSFromSeconds(playedSeconds)}</div>
+          <div className={`${themeName}-time`}>{getHHMMSSFromSeconds(durationSeconds)}</div>
         </div>
-        <div className="slide-container">
+        <div className={`${themeName}-slide-container`}>
           <input 
             type="range" 
             min={0} 
@@ -68,7 +69,7 @@ const PlayerControl = () => {
             onChange={(e) => {
               updatePlayer({playedSeconds: Number(e.target.value)})
             }}
-            className="slider"
+            className={`${themeName}-slider`}
             id="time-progress-bar"
             style={{
               background: `linear-gradient(90deg, ${playerSkin.progressBarFilledColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}%, ${playerSkin.progressBarBackgroundColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}% )`

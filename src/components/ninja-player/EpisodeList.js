@@ -5,12 +5,14 @@ import {
   updatePlayerAtom, 
   updatePlayingIdAtom, 
   playerSkinAtom,
+  themeNameAtom
 } from './jotai'
 import EpisodeListItem from './EpisodeListItem'
 
 const EpisodeList = () => {
 
   const [episodes] = useAtom(episodesAtom);
+  const [themeName] = useAtom(themeNameAtom);
   const [, updatePlayer] = useAtom(updatePlayerAtom);
   const [, updatePlayingId] = useAtom(updatePlayingIdAtom);
   const [playerSkin] = useAtom(playerSkinAtom)
@@ -27,7 +29,7 @@ const EpisodeList = () => {
   }
 
   return (
-    <div className="episodes-list" style={{
+    <div className={`${themeName}-episodes-list`} style={{
       // background: `linear-gradient(0deg, ${playerSkin.primaryBackgroundColor} ,${playerSkin.primaryBackgroundColor} 54px)`,
       backgroundColor: playerSkin.playlistBackgroundColor,
       color: playerSkin.playlistTextColor
