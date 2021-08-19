@@ -90,16 +90,15 @@ body {
 .retro-player-container {
   display: grid;
   /* background-color: hotpink; */
-  grid-template-columns: auto;
-  /* grid-template-rows: 260px 400px; */
-  grid-template-rows: auto;
-  grid-template-areas:     
-  "artwork"
-  "metas"    
-  "chapters"
-  "misc"
-  "player-controls";  
+  grid-template-columns: 160px auto;
+  grid-template-rows: 80px 80px 30px auto;
+  grid-template-areas: 
+  "artwork metas"
+  "artwork player-controls"
+  ". misc"
+  "chapters chapters";
 }
+
 
 .retro-player-container > .retro-control-misc {
   grid-area: misc;
@@ -133,7 +132,7 @@ body {
 .retro-player-container > .retro-artwork > .retro-artwork-image {
   width: 134px;
   height: 134px;
-  border-radius: 134px;
+  border-radius: 8px;
 }
 
 .retro-player-container > .retro-metas {
@@ -141,12 +140,12 @@ body {
   font-size: 20px;
   line-height: 22px;
   font-weight: 800;
-  justify-items: center;
   display: grid;
   grid-template-rows: 30px auto;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 0px 10px 0px;
   grid-area: metas;
 }
+
 
 
 .retro-player-container > .retro-metas > .retro-title{
@@ -215,21 +214,17 @@ body {
 
 .retro-player-control {
   display: grid;
-  grid-area: player-controls;
   /* background-color: black; */
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  /* grid-template-areas: 
-    "play-pause-button"
-    "progress-bar-control"; */
-  
+  grid-template-columns: 100px auto;
+  grid-area: player-controls;
 }
 
+
 .retro-player-control > .retro-controls {
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  order: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;    
+  order: 1;
 }
 
 .retro-player-control > .retro-controls > .retro-play-pause-button {
@@ -242,8 +237,6 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-left: 40px;
-  margin-right: 40px;
 }
 
 .retro-player-control > .retro-controls > .retro-play-pause-button > .retro-icon{
@@ -343,10 +336,56 @@ body {
   }
 }
 @media (max-width: 500px) {
+
+  .retro-player-container {
+    display: grid;
+    /* background-color: hotpink; */
+    grid-template-columns: auto;
+    /* grid-template-rows: 260px 400px; */
+    grid-template-rows: auto;
+    grid-template-areas:     
+    "artwork"
+    "metas"    
+    "chapters"
+    "misc"
+    "player-controls";
+    padding: 20px 0px 20px 0px;
+  }
+
   .retro-player-container > .retro-artwork > .retro-artwork-image {
-    width: 64px;
-    height: 64px;
-    border-radius: 64px;
+    width: 90px;
+    height: 90px;
+    border-radius: 7px;
+  }
+
+  .retro-player-container > .retro-metas {
+    /* background-color: beige; */
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 800;
+    justify-items: center;
+    display: grid;
+    grid-template-rows: 30px auto;
+    padding: 10px 20px 10px 20px;
+    grid-area: metas;
+  }  
+  
+  .retro-player-control {
+    display: grid;
+    grid-area: player-controls;
+    grid-template-columns: auto;
+    grid-template-rows: auto;  
   }
   
+  .retro-player-control > .retro-controls {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    order: 2;
+  }  
+
+  .retro-player-control > .retro-controls > .retro-play-pause-button {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
 }
