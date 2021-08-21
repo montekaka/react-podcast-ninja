@@ -3,7 +3,7 @@ import {Provider} from 'jotai'
 import Main from './Main'
 
 const Discast = ({
-  title, enclosureUrl, configs, soundBites
+  title, enclosureUrl, configs, comments
 }) => {
   return (
     <Suspense fallback={<></>}>
@@ -12,7 +12,7 @@ const Discast = ({
           title={title}
           enclosureUrl={enclosureUrl}
           configs={configs}
-          soundBites={soundBites}
+          comments={comments}
         />
       </Provider>
     </Suspense>

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAtom} from 'jotai'
 
-const Main = ({}) => {
+const Main = ({title, enclosureUrl, configs, comments}) => {
   return (
     <div>Hello world</div>
   )
