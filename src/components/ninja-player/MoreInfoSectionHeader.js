@@ -10,7 +10,7 @@ const MoreInfoSectionHeader = (props) => {
 
   return (
     <div className={`${themeName}-more-info-header`}>
-      <div className={`${themeName}-more-info-header-header-meta`}>
+      <div className={`${themeName}-more-info-header-meta`}>
         {props.children}
       </div>
       <div 
