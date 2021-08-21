@@ -4,7 +4,7 @@ import {storiesOf} from '@storybook/react'
 import {NinjaPodcastPlayer} from '../components/ninja-player'
 
 const stories = storiesOf('Podcast Player Test', module);
-const rssFeedUrl = 'https://feed.justcast.com/shows/jia-chen-chinaarchive/audioposts.rss'
+const rssFeedUrl = 'https://feed.justcast.com/shows/readcast/audioposts.rss'
 const links = [rssFeedUrl, 'https://feed.justcast.com/shows/readcast/audioposts.rss']
 
 const configs = {
@@ -27,12 +27,12 @@ stories.add('App', () => {
 
   return (
     <Provider>
-      <input value={primaryBackgroundColor} onChange={(e) => {
+      {/* <input value={primaryBackgroundColor} onChange={(e) => {
         setColor(e.target.value)
-      }}/>
+      }}/> */}
       <NinjaPodcastPlayer 
         playerId="podcast-example"
-        rssFeedUrl={links[link]}
+        rssFeedUrl={rssFeedUrl}
         configs={{...configs, primaryBackgroundColor}}
         singleEpisode={false}
         proxy={''}
