@@ -1,8 +1,9 @@
 import {atom} from "jotai"
 
+export const enclosureUrlAtom = atom('');
+
 export const playerAtom = atom({
   // playingId: 0,
-  enclosureUrl: '',
   durationSeconds: 0,
   playedSeconds: 0,
   seekSeconds: 0,
@@ -10,6 +11,7 @@ export const playerAtom = atom({
   onReady: false,
   playing: false,
   playerRef: null,
+  playIconId: null,
   volume: 0.3,
 })
 
@@ -23,7 +25,10 @@ export const updatePlayerAtom = atom(
 
 export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, _) => {
   const currentState = _get(playerAtom);
-  const {playing} = currentState
+  const {playing, playIconId, onReady} = currentState;
+  if(onReady !== true) {
+    document.getElementById(playIconId).click();
+  }
   set(playerAtom, {...currentState, playing: !playing});
 })
 
