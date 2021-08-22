@@ -6,11 +6,12 @@ import {
   enclosureUrlAtom,
   updatePlayerAtom
 } from './jotai'
+import './light-playerholder.css'
 
 const PlayIconPlaceholder = ({id}) => {
 
   return (
-    <div id={id}></div>
+    <span id={id}/>
   )
 }
 
