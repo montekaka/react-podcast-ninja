@@ -9,6 +9,7 @@ import {
 import PlayPauseButton from './PlayPauseButton'
 import Artwork from './Artwork'
 import ForwardBackwardButton from './ForwardBackwardButton'
+import Metas from './Metas'
 
 const PlayerContainer = () => {
 
@@ -24,7 +25,10 @@ const PlayerContainer = () => {
           <PlayPauseButton/>
         </Artwork>
       </div>
-      <div>Title</div>
+      <Metas>
+        <div className="title">Title</div>
+        <div className="subtitle">Title</div>
+      </Metas>      
     </div>
   )
 }

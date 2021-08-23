@@ -5,7 +5,7 @@ body {
 .bh-main-wrapper {
   display: grid;
   background-color: blanchedalmond;
-  grid-template-rows: 160px auto 30px;
+  grid-template-rows: 240px auto 30px;
   grid-template-areas: 
   "player"
   "comments"
@@ -15,11 +15,21 @@ body {
 .bh-player-container {
   background-color: cadetblue;
   display: grid;
-  grid-template-rows: 120px 40px;
+  grid-template-rows: 120px 60px 60px;
   grid-template-areas: 
   "player-main-controls"
-  "player-main-metas";
+  "player-main-metas"
+  "player-main-progress-bar";
   grid-area: player;
+}
+
+.bh-player-container > .bh-player-metas {
+  background-color: darkmagenta;
+  grid-area: player-main-metas;
+  display: grid;
+  justify-content: center;
+  /* align-items: center; */
+  /* justify-items: center; */
 }
 
 .bh-player-container > .bh-player-controllers {
@@ -71,9 +81,9 @@ body {
 }
 
 .bh-player-container > .bh-player-controllers > .bh-main-artwork > .bh-main-play-pause-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
   background-color: cornflowerblue;
   grid-row: 2 / 3;
   grid-column: 2 / 3;  
