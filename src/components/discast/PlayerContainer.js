@@ -10,6 +10,7 @@ import PlayPauseButton from './PlayPauseButton'
 import Artwork from './Artwork'
 import ForwardBackwardButton from './ForwardBackwardButton'
 import Metas from './Metas'
+import ProgressControl from './ProgressControl'
 
 const PlayerContainer = () => {
 
@@ -28,7 +29,8 @@ const PlayerContainer = () => {
       <Metas>
         <div className="title">Title</div>
         <div className="subtitle">Title</div>
-      </Metas>      
+      </Metas> 
+      <ProgressControl/>     
     </div>
   )
 }

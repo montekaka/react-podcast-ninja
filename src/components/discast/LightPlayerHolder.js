@@ -28,8 +28,8 @@ const LightPlayerHolder = () => {
   if(playerState && url && url.length > 0) {
     return (
       <ReactPlayer  
-        height={"20px"}
-        width={"100%"} 
+        height={"0px"}
+        width={"0px"} 
         controls={true}        
         url={url}
         playIcon={<PlayIconPlaceholder id={playIconId}/>} // to hide the play icon

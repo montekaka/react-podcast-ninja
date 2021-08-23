@@ -4,3 +4,5 @@ export const metasAtom = atom({
   src: '',
   title: ''
 })
+
+export const configsAtom = atom({})
