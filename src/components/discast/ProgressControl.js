@@ -26,7 +26,9 @@ const ProgressControl = () => {
               if(onReady) {
                 playerRef.seekTo(playedSeconds)
                 updatePlayer({onSeeking: false})
-              }         
+              } 
+              // todo, handle the player has not yet ready
+              // just update the played secs
             }}
             onChange={(e) => {
               updatePlayer({playedSeconds: Number(e.target.value)})
