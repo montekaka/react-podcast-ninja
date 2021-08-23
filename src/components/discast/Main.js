@@ -11,7 +11,7 @@ import {
 const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
   const [, setUrl] = useAtom(enclosureUrlAtom);
   const [, setMetas] = useAtom(metasAtom);
-  const [, setConfigs] = useAtom(configsAtom);
+  const [configsState, setConfigs] = useAtom(configsAtom);
 
   useEffect(() => {
     setUrl(enclosureUrl)
@@ -26,7 +26,7 @@ const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
   }, [configs])
 
   return (
-    <div className="bh-main-wrapper">
+    <div className="bh-main-wrapper" style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
       <PlayerContainer/>
       <LightPlayerHolder/>
     </div>
