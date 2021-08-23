@@ -102,6 +102,12 @@ body {
   background-color: cornflowerblue;
   grid-row: 2 / 3;
   grid-column: 2 / 3;  
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 /* Progress bar section */
