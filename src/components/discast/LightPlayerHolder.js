@@ -2,7 +2,6 @@ import React, {useRef, useEffect} from 'react'
 import {useAtom} from "jotai"
 import ReactPlayer from 'react-player'
 import {
-  playerAtom,
   enclosureUrlAtom,
   updatePlayerAtom
 } from './jotai'

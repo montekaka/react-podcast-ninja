@@ -37,6 +37,10 @@ const ProgressControl = () => {
             }}
           />
         </div>
+        <div className="bn-playing-time-label">
+          <div>{playedSeconds}</div>
+          <div>{durationSeconds}</div>
+        </div>        
       </div>
     </div>
   )

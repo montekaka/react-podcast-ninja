@@ -93,12 +93,12 @@ body {
   /* background-color: darkorange; */
 }
 
-.bh-player-progress-container > .bh-player-progress-content {
+/* .bh-player-progress-container > .bh-player-progress-content {
   opacity: 0.6;
   background-color: black;
   border-radius: 6px;
   height: 60px;  
-}
+} */
 
 .bh-slide-container {
   width: 100%;  
@@ -135,6 +135,12 @@ body {
   background: white;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.bn-playing-time-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
 }
 
 /* end progress bar section */
