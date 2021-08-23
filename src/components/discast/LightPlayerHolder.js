@@ -43,6 +43,19 @@ const LightPlayerHolder = () => {
               playerRef: res
             })
           }
+        }} 
+        onError={(err) =>{ 
+          // TODO: some sort of callback
+          console.log('can not load', err);
+        }}
+        onEnded={() => {
+          updatePlayer({playing: false})
+        }}
+        onProgress={(res) => {
+          if(playerState.onSeeking === false) {
+            const playedSeconds = res.playedSeconds;
+            updatePlayer({playedSeconds})
+          }
         }}        
       />
     )
