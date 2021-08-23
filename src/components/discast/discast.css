@@ -61,10 +61,27 @@ body {
 }
 
 .bh-player-container > .bh-player-controllers > .bh-forward-backward-button {
-  background-color: darkgray;
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;  
+  /* background-color: darkgray; */
+  width: 20px;
+  height: 20px;
+  font-size: 20px;  
+  display: grid;
+  cursor: pointer;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  grid-template-areas: "forward-backward-icon";
+}
+
+.bh-player-container > .bh-player-controllers > .bh-forward-backward-button > .bh-button-icon{
+  /* grid-area: 1/1;  */
+  grid-area: forward-backward-icon;
+}
+
+.bh-player-container > .bh-player-controllers > .bh-forward-backward-button > .bh-button-label{
+  grid-area: forward-backward-icon;
+  text-align: center;
+  font-size: 0.5em;
 }
 
 .bh-player-container > .bh-player-controllers > .bh-forward-backward-button#backward {
