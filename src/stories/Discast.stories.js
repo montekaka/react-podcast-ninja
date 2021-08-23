@@ -20,6 +20,7 @@ const configs = {
 stories.add('App', () => {
   return (
     <Discast
+      artworkUrl="https://content.production.cdn.art19.com/images/e9/95/72/33/e9957233-ba82-4fe4-8a56-efbd175ae7f5/0ff3126d11502fa0291bc5c44fd0ae9528c8cc0a4098a571f4fe83d8fd29305b65f35d670c52518e2258d8133a961450b23fbc00527c54156dc3bec1918b63dc.jpeg"
       title="Fri. 08/20 – OnlyFans Pulls A Tumblr"
       enclosureUrl="https://rss.art19.com/episodes/906658fc-d3cc-4ebb-a0ec-4d1f561e3a13.mp3?rss_browser=BAhJIgtDaHJvbWUGOgZFVA%3D%3D--d05363d83ce333c74f32188013892b2863ad051c"
       configs={configs}

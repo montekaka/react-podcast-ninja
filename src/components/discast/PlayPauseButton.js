@@ -10,7 +10,7 @@ const PlayPuaseButton = () => {
   const [playerState, togglePlayPause] = useAtom(togglePlayPauseAtom);
 
   return (
-    <div onClick={togglePlayPause}>
+    <div onClick={togglePlayPause} className="bh-main-play-pause-button">
       Play
     </div>
   )  
