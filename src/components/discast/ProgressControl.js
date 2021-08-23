@@ -1,6 +1,7 @@
 import React from 'react';
 import {useAtom} from "jotai"
 import {configsAtom, playerAtom} from './jotai'
+import {getHHMMSSFromSeconds} from './libs'
 
 const ProgressControl = () => {
   const [playerSkin] = useAtom(configsAtom)
@@ -38,9 +39,9 @@ const ProgressControl = () => {
           />
         </div>
         <div className="bn-playing-time-label">
-          <div>{playedSeconds}</div>
-          <div>{durationSeconds}</div>
-        </div>        
+          <div>{getHHMMSSFromSeconds(playedSeconds)}</div>
+          <div>{getHHMMSSFromSeconds(durationSeconds)}</div>
+        </div>
       </div>
     </div>
   )

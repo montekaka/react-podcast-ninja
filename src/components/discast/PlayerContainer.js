@@ -16,6 +16,7 @@ const PlayerContainer = () => {
 
   const [playerState] = useAtom(playerAtom);
   const [metaState] = useAtom(metasAtom);
+  const {title, subtitle} = metaState;
 
   return (
     <div className="bh-player-container">
@@ -27,8 +28,8 @@ const PlayerContainer = () => {
         </Artwork>
       </div>
       <Metas>
-        <div className="title">Title</div>
-        <div className="subtitle">Title</div>
+        {title && <div className="bh-title">{title}</div>}
+        {subtitle && <div className="bh-subtitle">{subtitle}</div>}
       </Metas> 
       <ProgressControl/>     
     </div>

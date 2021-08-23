@@ -28,6 +28,26 @@ body {
   /* background-color: darkmagenta; */
   grid-area: player-main-metas;
   text-align: center;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 600;  
+}
+
+.bh-player-container > .bh-player-metas > .bh-title { 
+  font-size: 1em;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  white-space: nowrap;  
+}
+
+.bh-player-container > .bh-player-metas > .bh-subtitle{
+  font-size: 0.7em;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.6;
 }
 
 .bh-player-container > .bh-player-controllers {
