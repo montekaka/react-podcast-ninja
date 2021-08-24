@@ -5,12 +5,20 @@ body {
 .bh-main-wrapper {
   display: grid;
   height: 100vh;
-  background-color: blanchedalmond;
-  grid-template-rows: 260px 1fr 80px;
+  /* background-color: blanchedalmond; */
+  grid-template-rows: 1fr 80px;
+  grid-template-areas: 
+  "main-display"
+  "input-box";
+}
+
+.bh-main-display-container {
+  display: grid;
+  grid-template-rows: 260px 1fr;  
   grid-template-areas: 
   "player"
-  "comments"
-  "input-box";
+  "comments";  
+  grid-area: 'main-display';
 }
 
 .bh-player-container {
@@ -191,7 +199,7 @@ body {
 /* Comments section */
 
 .bh-comments {
-  /* background-color: white; */
+  background-color: white;
   grid-area: comments;
 }
 
