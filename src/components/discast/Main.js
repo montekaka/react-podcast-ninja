@@ -28,12 +28,14 @@ const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
   }, [configs])
 
   return (
-    <div className="bh-main-wrapper" style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
-      <PlayerContainer/>
-      <Comments/>
-      <InputTextBox/>
+    <>
+      <div className="bh-main-wrapper" style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
+        <PlayerContainer/>
+        <Comments/>
+        <InputTextBox/>
+      </div>
       <LightPlayerHolder/>
-    </div>
+    </>
   )
 }
 

@@ -13,6 +13,7 @@ import Artwork from './Artwork'
 import ForwardBackwardButton from './ForwardBackwardButton'
 import Metas from './Metas'
 import ProgressControl from './ProgressControl'
+import ProgressControlSlider from './ProgressControlSlider'
 
 const PlayerContainer = () => {
 
@@ -62,7 +63,9 @@ const PlayerContainer = () => {
         {title && <div className="bh-title">{title}</div>}
         {subtitle && <div className="bh-subtitle">{subtitle}</div>}
       </Metas> 
-      <ProgressControl/>     
+      <ProgressControl>
+        <ProgressControlSlider/>     
+      </ProgressControl>
     </div>
   )
 }
