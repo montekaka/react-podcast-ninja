@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import {useAtom} from 'jotai'
 import LightPlayerHolder from './LightPlayerHolder'
 import PlayerContainer from './PlayerContainer'
+import Comments from './Comments'
+import InputTextBox from './InputTextBox'
 import {
   enclosureUrlAtom,
   metasAtom,
@@ -28,6 +30,8 @@ const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
   return (
     <div className="bh-main-wrapper" style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
       <PlayerContainer/>
+      <Comments/>
+      <InputTextBox/>
       <LightPlayerHolder/>
     </div>
   )

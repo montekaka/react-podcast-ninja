@@ -6,7 +6,7 @@ body {
   display: grid;
   height: 100vh;
   background-color: blanchedalmond;
-  grid-template-rows: 260px auto 30px;
+  grid-template-rows: 260px 1fr 80px;
   grid-template-areas: 
   "player"
   "comments"
@@ -188,3 +188,38 @@ body {
 
 /* end progress bar section */
 
+/* Comments section */
+
+.bh-comments {
+  /* background-color: white; */
+  grid-area: comments;
+}
+
+/* Comments section */
+
+.bh-input-text-box {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 1fr 40px;
+  align-items: center;
+  grid-area: input-box;
+  /* padding: 10px; */
+  /* height: 80px; */
+  /* background-color: blanchedalmond; */
+}
+
+.bh-input-placeholder {
+  border-radius: 15px;
+  height: 40px;
+  border-style: solid;
+  border-width: 1px;  
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bn-input-send-button {
+  display: flex;
+  justify-content: center;
+}
