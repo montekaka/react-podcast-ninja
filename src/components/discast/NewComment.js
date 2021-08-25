@@ -16,10 +16,15 @@ const NewComment = () => {
   const [metaState] = useAtom(metasAtom);
   const [playerState] = useAtom(playerAtom);
   const {durationSeconds, playedSeconds} = playerState;
+  const [themeState] = useAtom(configsAtom)
 
   return (
-    <div>
-      <div style={{display: 'flex'}}>
+    <div style={{
+      height: '100vh',
+      padding: '10px',
+      backgroundColor: themeState.primaryBackgroundColor
+    }}>
+      <div style={{display: 'flex', marginBottom: 20}}>
         <Artwork src={metaState.src} style={{
           width: "40px",
           height: "40px",
@@ -46,7 +51,8 @@ const NewComment = () => {
           <div style={{
             display: 'flex',
             fontSize: "10px",
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            color: themeState.primaryTextColor
           }}>
             <div>{getHHMMSSFromSeconds(playedSeconds)}</div>
             <div>{getHHMMSSFromSeconds(durationSeconds)}</div>
@@ -55,14 +61,18 @@ const NewComment = () => {
         </div>        
       </div>
       <div>
-        <input placeholder="00:00"/>
-        <input placeholder="00:00"/>
+        <div>
+          <input placeholder="00:00"/>
+          <input placeholder="00:00"/>
+        </div>
       </div>
-      <div>
+      <div style={{marginTop: "10px"}}>
         <textarea type="textarea" rows="5" 
           style={{
             width: "100%", 
-            borderRadius: "8px"
+            borderRadius: "8px",
+            backgroundColor: themeState.primaryBackgroundColor,
+            color: themeState.primaryTextColor
           }}/>
       </div>
     </div>
