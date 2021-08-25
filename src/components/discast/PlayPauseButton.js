@@ -8,17 +8,18 @@ import {
   togglePlayPauseAtom
 } from './jotai'
 
-const PlayPuaseButton = () => {
+const PlayPuaseButton = (props) => {
   const [playerState, togglePlayPause] = useAtom(togglePlayPauseAtom);
   const {playing} = playerState;
   const [playerSkin] = useAtom(configsAtom);
+  const {style, size} = props;
 
   return (
     <div onClick={togglePlayPause} 
       className="bh-main-play-pause-button"
-      style={{background: playerSkin.primaryButtonColor}}
+      style={{background: playerSkin.primaryButtonColor, ...style}}
     >
-      {playing ? <Pause style={{color: playerSkin.primaryBackgroundColor}} className="icon"/> : <Play style={{color: playerSkin.primaryBackgroundColor}} className="icon"/>}
+      {playing ? <Pause style={{color: playerSkin.primaryBackgroundColor}} className="icon" size={size ? size : 24}/> : <Play style={{color: playerSkin.primaryBackgroundColor}} className="icon" size={size ? size : 24}/>}
     </div>
   )  
 

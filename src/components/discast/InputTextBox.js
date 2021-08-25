@@ -11,10 +11,8 @@ const InputTextBox = () => {
     updateScreen({main: false});
   }
 
-
   return (
     <div className="bh-input-text-box">
-      {/* <input/> */}
       <div className="bh-input-placeholder" 
         onClick={handleClick}
         style={{borderColor: playerSkin.primaryButtonColor}}>

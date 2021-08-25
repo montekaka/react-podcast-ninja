@@ -1,11 +1,15 @@
 import React from 'react';
 
 const Artwork = (props) => {
-  const {src} = props;
+  const {src, style} = props;
 
   return (
-    <div className="bh-main-artwork">
-      <img src={src} className="bnt-main-artwork-image" name="artwork"/>
+    <div className="bh-main-artwork" style={style}>
+      <img src={src} 
+        className="bt-main-artwork-image" 
+        name="artwork"
+        style={style}
+      />
       {props.children}        
     </div>
   )
