@@ -11,8 +11,9 @@ export const playerAtom = atom({
   onReady: false,
   playing: false,
   playerRef: null,
-  playIconId: null,
+  playIconId: null,  
   volume: 0.3,
+  playCommentSection: false
 })
 
 export const updatePlayerAtom = atom(
@@ -29,7 +30,7 @@ export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, _)
   if(onReady !== true) {
     document.getElementById(playIconId).click();
   }
-  set(playerAtom, {...currentState, playing: !playing});
+  set(playerAtom, {...currentState, playing: !playing, playCommentSection: false});
 })
 
 export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, seconds) => {
@@ -56,5 +57,6 @@ export const resetPlayerAtom = atom((get) => get(playerAtom), (_get, set, _) => 
     playing: false,
     // playerRef: null,
     volume: 0.3,
+    playCommentSection: false
   }))
 }) 
