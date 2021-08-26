@@ -9,6 +9,7 @@ import {
   configsAtom,
   playerAtom,
   metasAtom,
+  updateNewCommentAtom,
   togglePlayPauseAtom,
   updatePlayedTimeAtom
 } from './jotai'
@@ -18,6 +19,12 @@ const NewComment = () => {
   const [playerState] = useAtom(playerAtom);
   const {durationSeconds, playedSeconds} = playerState;
   const [themeState] = useAtom(configsAtom)
+  const [comment, updateComment] = useAtom(updateNewCommentAtom)
+
+  const handleMessageChange = (e) => {
+    const val = e.target.value;
+    updateComment({message: val})
+  }
 
   return (
     <div style={{
@@ -73,6 +80,8 @@ const NewComment = () => {
       </div>
       <div>        
         <textarea type="textarea" rows="5"
+          value={comment.message}
+          onChange={handleMessageChange}
           placeholder="leave a comment" 
           style={{
             width: "100%", 

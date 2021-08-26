@@ -1,10 +1,16 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useAtom} from "jotai"
-import {configsAtom} from './jotai'
+import {configsAtom, updateNewCommentAtom} from './jotai'
 
 const TimeInputBox = (props) => {
   const {id, label, placeholder } = props;
   const [themeState] = useAtom(configsAtom)
+  const [comment, updateComment] = useAtom(updateNewCommentAtom)
+
+  const handleInputChange = (evt) => {
+    const val = evt.target.value;
+    updateComment({[id]: val})
+  }
 
   return (
     <div className="bn-time-input-container">
@@ -17,6 +23,8 @@ const TimeInputBox = (props) => {
         className="bn-time-input-label">{label}</label>
       <input 
         id={id}
+        onChange={handleInputChange}
+        value={comment[id]}
         placeholder={placeholder}
         className="bh-time-input"
         autoComplete="off"
