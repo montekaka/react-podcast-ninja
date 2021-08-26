@@ -2,12 +2,14 @@ import React from 'react';
 import {useAtom} from "jotai"
 import {configsAtom, updatePlayerAtom} from './jotai'
 
-const ProgressControlSlider = () => {
+const ProgressControlSlider = (props) => {
   const [playerSkin] = useAtom(configsAtom)
   const [playerState, updatePlayer] = useAtom(updatePlayerAtom);
   const {durationSeconds, playedSeconds, playerRef, onReady} = playerState;  
+  
   return (
     <div className={`bh-slide-container`}>
+  
       <input 
         type="range" 
         min={0} 
@@ -32,8 +34,10 @@ const ProgressControlSlider = () => {
         id="time-progress-bar"
         style={{
           background: `linear-gradient(90deg, ${playerSkin.progressBarFilledColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}%, ${playerSkin.progressBarBackgroundColor} ${durationSeconds <= 1 ? 0 : playedSeconds * 100 / durationSeconds}% )`
+          // background: `linear-gradient(90deg, ${playerSkin.progressBarFilledColor} 80%, ${playerSkin.progressBarBackgroundColor} 0% )`
         }}
       />
+      {props.children}
     </div>    
   )
 }

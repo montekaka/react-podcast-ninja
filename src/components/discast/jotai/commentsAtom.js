@@ -4,9 +4,9 @@ export const commentsAtom = atom([]);
 
 export const commentAtom = atom({
   startSecond: 0,
-  endSecond: 0,
+  endSecond: 120,
   startTime: "00:00:00",
-  endTime: "00:00:00",
+  endTime: "00:02:00",
   message: "",
   author: "",
 })

@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAtom} from "jotai"
 import ProgressControlSlider from './ProgressControlSlider'
+import ProgressControlSliderBookmark from './ProgressControlSliderBookmark'
 import PlayPauseButton from './PlayPauseButton'
 import TimeInputBox from './TimeInputBox'
 import Artwork from './Artwork'
@@ -65,7 +66,9 @@ const NewComment = () => {
             <div>{getHHMMSSFromSeconds(playedSeconds)}</div>
             <div>{getHHMMSSFromSeconds(durationSeconds)}</div>
           </div>
-          <ProgressControlSlider/>
+          <ProgressControlSlider>
+            <ProgressControlSliderBookmark/>
+          </ProgressControlSlider>
         </div>
       </div>
       <div style={{marginBottom: "40px"}}>

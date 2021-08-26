@@ -153,6 +153,8 @@ body {
 
 .bh-slide-container {
   width: 100%;  
+  display: grid;
+  grid-template: 1fr / 1fr;
 }
 
 .bh-slide-container > .bh-slider {
@@ -160,15 +162,17 @@ body {
   width: 100%;
   height: 12px;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.4;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   border-radius: 8px;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;  
 }
 
-.bh-slide-container > .bh-slider:hover {
+/* .bh-slide-container > .bh-slider:hover {
   opacity: 1;
-}
+} */
 
 .bh-slide-container > .bh-slider::-webkit-slider-thumb {
   -webkit-appearance: none;  
@@ -193,6 +197,35 @@ body {
   justify-content: space-between;
   font-size: 0.8em;
 }
+
+.bh-slide-container > .bh-slider-bookmark {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 12px;
+  outline: none;
+  background: none;
+  border-radius: 8px;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;  
+}
+
+.bh-slide-container > .bh-slider-bookmark::-webkit-slider-thumb {
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 4px;
+  height: 12px;
+  background: yellow;
+  /* border-radius: 50%; */
+  /* cursor: pointer; */
+}
+
+.bh-slide-container > .bh-slider-bookmark::-moz-range-thumb {
+  width: 4px;
+  height: 12px;
+  background: yellow;
+  /* cursor: pointer; */
+}
+
 
 /* end progress bar section */
 
