@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useAtom} from "jotai"
 import ProgressControlSlider from './ProgressControlSlider'
 import PlayPauseButton from './PlayPauseButton'
+import TimeInputBox from './TimeInputBox'
 import Artwork from './Artwork'
 import {getHHMMSSFromSeconds} from './libs'
 import {
@@ -58,19 +59,25 @@ const NewComment = () => {
             <div>{getHHMMSSFromSeconds(durationSeconds)}</div>
           </div>
           <ProgressControlSlider/>
-        </div>        
-      </div>
-      <div>
-        <div>
-          <input placeholder="00:00"/>
-          <input placeholder="00:00"/>
         </div>
       </div>
-      <div style={{marginTop: "10px"}}>
-        <textarea type="textarea" rows="5" 
+      <div style={{marginBottom: "40px"}}>
+        <div style={{
+          display: 'flex',
+          width: "300px",
+          justifyContent: 'space-between'
+        }}>
+          <TimeInputBox label="Start" id="startTime" placeholder="00:00:00"/>
+          <TimeInputBox label="End" id="endTime" placeholder="00:00:00"/>
+        </div>
+      </div>
+      <div>        
+        <textarea type="textarea" rows="5"
+          placeholder="leave a comment" 
           style={{
             width: "100%", 
             borderRadius: "8px",
+            outline: "none",
             backgroundColor: themeState.primaryBackgroundColor,
             color: themeState.primaryTextColor
           }}/>

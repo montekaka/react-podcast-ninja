@@ -231,3 +231,8 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.bn-time-input-container {
+  width: 140px;
+  height: 30px;
+}

@@ -1,4 +1,4 @@
 export * from './playerAtom'
-export * from './messagesAtom'
+export * from './commentsAtom'
 export * from './metasAtom'
 export * from './screenAtom'
