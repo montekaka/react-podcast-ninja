@@ -14,16 +14,25 @@ const MessagePlayPreviewButton = (props) => {
   const [playerState, togglePlayPause] = useAtom(messagePlayPreview);
   const {playing} = playerState;
   const [playerSkin] = useAtom(configsAtom);
-  const [commentState] = useAtom(commentAtom);
-  const {startSecond, endSecond} = commentState;
   const {style, size} = props;
 
+  // TODO: change the prview text to loading when the player is not yet ready
   return (
     <div onClick={togglePlayPause} 
-      className="bh-main-play-pause-button"
-      style={{background: playerSkin.primaryButtonColor, ...style}}
+      style={{
+        backgroundColor: playerSkin.primaryButtonColor, 
+        color: playerState.primaryTextColor,
+        width: '80px',
+        height: '30px',
+        borderRadius: '10px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        ...style
+      }}
     >
-      {playing ? <Pause style={{color: playerSkin.primaryBackgroundColor}} className="icon" size={size ? size : 24}/> : <Play style={{color: playerSkin.primaryBackgroundColor}} className="icon" size={size ? size : 24}/>}
+      Preview
     </div>
   )  
 
