@@ -5,6 +5,7 @@ import ProgressControlSliderBookmark from './ProgressControlSliderBookmark'
 import PlayPauseButton from './PlayPauseButton'
 import TimeInputBox from './TimeInputBox'
 import Artwork from './Artwork'
+import MessagePlayPreviewButton from './MessagePlayPreviewButton';
 import {getHHMMSSFromSeconds} from './libs'
 import {
   configsAtom,
@@ -71,15 +72,24 @@ const NewComment = () => {
           </ProgressControlSlider>
         </div>
       </div>
-      <div style={{marginBottom: "40px"}}>
+      <div style={{
+        marginBottom: "20px",         
+        width: "100%", 
+        height: '60px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }}>
         <div style={{
           display: 'flex',
-          width: "300px",
-          justifyContent: 'space-between'
+          width: "260px",
+          height: '60px',
+          justifyContent: 'space-between',
         }}>
           <TimeInputBox label="Start" id="startTime" placeholder="00:00:00"/>
-          <TimeInputBox label="End" id="endTime" placeholder="00:00:00"/>
+          <TimeInputBox label="End" id="endTime" placeholder="00:00:00"/>          
         </div>
+        <MessagePlayPreviewButton/>
       </div>
       <div>        
         <textarea type="textarea" rows="5"

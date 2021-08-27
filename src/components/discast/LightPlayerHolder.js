@@ -4,7 +4,6 @@ import ReactPlayer from 'react-player'
 import {
   enclosureUrlAtom,
   updatePlayerAtom,
-  commentAtom
 } from './jotai'
 import './light-playerholder.css'
 
@@ -19,8 +18,6 @@ const LightPlayerHolder = () => {
   
   const [playerState, updatePlayer] = useAtom(updatePlayerAtom);
   const [url] = useAtom(enclosureUrlAtom);
-  const [comment] = useAtom(commentAtom);
-  const {endSecond} = comment;
 
   const playIconId = 'light-play-icon'
 
@@ -40,10 +37,14 @@ const LightPlayerHolder = () => {
         playing={playerState.playing}
         onReady={(res) => {
           if(res) {
+            if(playerState.previewStartSeconds) {
+              res.seekTo(playerState.previewStartSeconds);
+            }
             updatePlayer({
               onReady: true, 
               durationSeconds: res.getDuration(),
-              playerRef: res
+              playerRef: res,
+              previewStartSeconds: null
             })
           }
         }} 
@@ -60,7 +61,7 @@ const LightPlayerHolder = () => {
             updatePlayer({playedSeconds})
           }
           // stop playing when the play time hit the comment end second
-          if(res.playedSeconds >= endSecond && playerState.playCommentSection) {
+          if(playerState.playStopSeconds && res.playedSeconds >= playerState.playStopSeconds) {
             const playedSeconds = res.playedSeconds;
             updatePlayer({playedSeconds, playing: false})
           }

@@ -31,8 +31,10 @@ const TimeInputBox = (props) => {
         style={{
           color: themeState.primaryTextColor,          
           backgroundColor: themeState.primaryBackgroundColor,
-          height: "100%",
-          width: "100%",
+          height: '30px',
+          width: '120px',
+          // height: "100%",
+          // width: "100%",
           borderRadius: '4px',
           border:  `1px solid ${themeState.primaryButtonColor}`,
         }}

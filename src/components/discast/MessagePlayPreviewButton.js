@@ -5,13 +5,17 @@ import {
   enclosureUrlAtom,
   playerAtom,
   configsAtom,
-  togglePlayPauseAtom
+  togglePlayPauseAtom,
+  messagePlayPreview,
+  commentAtom
 } from './jotai'
 
-const PlayPauseButton = (props) => {
-  const [playerState, togglePlayPause] = useAtom(togglePlayPauseAtom);
+const MessagePlayPreviewButton = (props) => {
+  const [playerState, togglePlayPause] = useAtom(messagePlayPreview);
   const {playing} = playerState;
   const [playerSkin] = useAtom(configsAtom);
+  const [commentState] = useAtom(commentAtom);
+  const {startSecond, endSecond} = commentState;
   const {style, size} = props;
 
   return (
@@ -25,4 +29,4 @@ const PlayPauseButton = (props) => {
 
 }
 
-export default PlayPauseButton
+export default MessagePlayPreviewButton

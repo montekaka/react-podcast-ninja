@@ -1,4 +1,5 @@
 import {atom} from "jotai"
+import {commentAtom} from './commentsAtom'
 
 export const enclosureUrlAtom = atom('');
 
@@ -13,7 +14,8 @@ export const playerAtom = atom({
   playerRef: null,
   playIconId: null,  
   volume: 0.3,
-  playCommentSection: false
+  playStopSeconds: null,
+  previewStartSeconds: null,
 })
 
 export const updatePlayerAtom = atom(
@@ -24,13 +26,13 @@ export const updatePlayerAtom = atom(
   }
 )
 
-export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, _) => {
+export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, playStopSeconds) => {
   const currentState = _get(playerAtom);
   const {playing, playIconId, onReady} = currentState;
   if(onReady !== true) {
     document.getElementById(playIconId).click();
   }
-  set(playerAtom, {...currentState, playing: !playing, playCommentSection: false});
+  set(playerAtom, {...currentState, playing: !playing, playStopSeconds, previewStartSeconds: null});
 })
 
 export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, seconds) => {
@@ -46,6 +48,26 @@ export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, 
   set(playerAtom, {...currentState, playedSeconds});
 })
 
+export const messagePlayPreview = atom((get) => get(playerAtom), (_get, set, _) => {
+  const currentState = _get(playerAtom);
+  const comment = _get(commentAtom);
+  const {startSecond, endSecond} = comment;
+  const {playing, playIconId, onReady, playerRef} = currentState;
+
+  if(onReady !== true) {
+    document.getElementById(playIconId).click();
+    set(playerAtom, {...currentState, playing: true, playedSeconds: startSecond, playStopSeconds: endSecond, previewStartSeconds: startSecond});
+  } else {
+    playerRef.seekTo(startSecond);
+
+    if(playing === false) {      
+      set(playerAtom, {...currentState, playing: true, playStopSeconds: endSecond, previewStartSeconds: null});
+    } else {
+      set(playerAtom, {...currentState, playStopSeconds: endSecond, previewStartSeconds: null});
+    }
+  }
+})
+
 export const resetPlayerAtom = atom((get) => get(playerAtom), (_get, set, _) => {
   set(playerAtom, (prev) =>({
     ...prev,
@@ -57,6 +79,6 @@ export const resetPlayerAtom = atom((get) => get(playerAtom), (_get, set, _) => 
     playing: false,
     // playerRef: null,
     volume: 0.3,
-    playCommentSection: false
+    playStopSeconds: null
   }))
 }) 
