@@ -146,14 +146,12 @@ body {
   grid-area: metas;
 }
 
-
-
 .retro-player-container > .retro-metas > .retro-title{
   font-size: 1em;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;  
-  white-space: nowrap;    
+  white-space: nowrap;
 }
 
 .retro-player-container > .retro-metas > .retro-subtitle{
@@ -363,12 +361,19 @@ body {
     font-size: 20px;
     line-height: 22px;
     font-weight: 800;
-    justify-items: center;
+    /* justify-items: center; */
     display: grid;
     grid-template-rows: 30px auto;
     padding: 10px 20px 10px 20px;
     grid-area: metas;
-  }  
+  }   
+  .retro-player-container > .retro-metas > .retro-title {
+    text-align: center;
+  }
+
+  .retro-player-container > .retro-metas > .retro-subtitle {
+    text-align: center;
+  }    
   
   .retro-player-control {
     display: grid;
