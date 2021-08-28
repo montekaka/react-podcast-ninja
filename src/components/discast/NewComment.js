@@ -13,6 +13,7 @@ import {
   metasAtom,
   updateNewCommentAtom,
   cancelCommentAtom,
+  addCommentAtom
 } from './jotai'
 
 const NewComment = () => {
@@ -22,6 +23,7 @@ const NewComment = () => {
   const [themeState] = useAtom(configsAtom)
   const [comment, updateComment] = useAtom(updateNewCommentAtom)
   const [, cancelComment] = useAtom(cancelCommentAtom);
+  const [, addComment] = useAtom(addCommentAtom);
 
   const handleMessageChange = (e) => {
     const val = e.target.value;
@@ -130,7 +132,9 @@ const NewComment = () => {
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',          
-        }}>Save</div>        
+        }}
+          coClick={addComment}
+        >Save</div>        
       </div>
     </div>
   )

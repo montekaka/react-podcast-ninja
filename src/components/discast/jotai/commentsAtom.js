@@ -43,3 +43,10 @@ export const updateNewCommentTime = atom((get) => get(commentAtom), (_get, set, 
     set(commentAtom, {...currentState, ...newData, endSecond})
   }
 })
+
+export const addCommentAtom = atom((get) => get(commentsAtom), (_get, set, _) => {
+  const comments = _get(commentsAtom)
+  const comment = _get(commentAtom);
+  set(commentsAtom, [comment, ...comments])
+  set(screenAtom, 'main')
+})
