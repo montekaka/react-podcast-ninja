@@ -31,21 +31,21 @@ const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
     setConfigs(configs)
   }, [configs])
 
-  return <NewComment/>
+  // return <NewComment/>
 
-  // if(screenName === 'main') {
-  //   return (    
-  //     <div className={`bh-main-wrapper`} style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
-  //      <div className="bh-main-display-container">
-  //         <PlayerContainer/>
-  //         <Comments/>
-  //       </div>
-  //       <InputTextBox/>      
-  //     </div>
-  //   )
-  // } else {
-  //   return <NewComment/>
-  // }
+  if(screenName === 'main') {
+    return (    
+      <div className={`bh-main-wrapper`} style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
+       <div className="bh-main-display-container">
+          <PlayerContainer/>
+          <Comments/>
+        </div>
+        <InputTextBox/>      
+      </div>
+    )
+  } else {
+    return <NewComment/>
+  }
 }
 
 export default Main;

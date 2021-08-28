@@ -8,7 +8,7 @@ const InputTextBox = () => {
   const [, updateScreen] = useAtom(updateScreenAtom);
 
   const handleClick = () => {
-    updateScreen({main: false});
+    updateScreen('new-comment');
   }
 
   return (

@@ -21,7 +21,7 @@ const MessagePlayPreviewButton = (props) => {
     <div onClick={togglePlayPause} 
       style={{
         backgroundColor: playerSkin.primaryButtonColor, 
-        color: playerState.primaryTextColor,
+        color: playerSkin.primaryBackgroundColor,
         width: '80px',
         height: '30px',
         borderRadius: '10px',

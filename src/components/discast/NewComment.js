@@ -12,8 +12,7 @@ import {
   playerAtom,
   metasAtom,
   updateNewCommentAtom,
-  togglePlayPauseAtom,
-  updatePlayedTimeAtom
+  cancelCommentAtom,
 } from './jotai'
 
 const NewComment = () => {
@@ -22,6 +21,7 @@ const NewComment = () => {
   const {durationSeconds, playedSeconds} = playerState;
   const [themeState] = useAtom(configsAtom)
   const [comment, updateComment] = useAtom(updateNewCommentAtom)
+  const [, cancelComment] = useAtom(cancelCommentAtom);
 
   const handleMessageChange = (e) => {
     const val = e.target.value;
@@ -82,7 +82,7 @@ const NewComment = () => {
       }}>
         <div style={{
           display: 'flex',
-          width: "260px",
+          width: "220px",
           height: '60px',
           justifyContent: 'space-between',
         }}>
@@ -97,12 +97,40 @@ const NewComment = () => {
           onChange={handleMessageChange}
           placeholder="leave a comment" 
           style={{
-            width: "100%", 
+            width: '100%',
             borderRadius: "8px",
             outline: "none",
             backgroundColor: themeState.primaryBackgroundColor,
             color: themeState.primaryTextColor
           }}/>
+      </div>
+      <div style={{display: 'flex', marginTop: "10px", justifyContent: 'flex-end'}}>
+
+        <div style={{
+          backgroundColor: themeState.primaryButtonColor, 
+          color: themeState.primaryBackgroundColor,
+          width: '80px',
+          height: '30px',
+          borderRadius: '10px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          marginRight: '10px'
+        }}
+          onClick={cancelComment}
+        >Cancel</div>        
+        <div style={{
+          backgroundColor: themeState.primaryButtonColor, 
+          color: themeState.primaryBackgroundColor,
+          width: '80px',
+          height: '30px',
+          borderRadius: '10px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',          
+        }}>Save</div>        
       </div>
     </div>
   )
