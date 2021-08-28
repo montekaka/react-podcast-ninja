@@ -1,5 +1,5 @@
 import {atom} from "jotai"
-import {commentAtom} from './commentsAtom'
+import {commentAtom, commentsAtom} from './commentsAtom'
 
 export const enclosureUrlAtom = atom('');
 
@@ -16,6 +16,12 @@ export const playerAtom = atom({
   volume: 0.3,
   playStopSeconds: null,
   previewStartSeconds: null,
+  playingCommentIdx: null
+})
+
+export const playerIsLoadingAtom = atom((get) => {
+  const state = get(playerAtom);
+  return state.onReady === false && state.playing === true
 })
 
 export const updatePlayerAtom = atom(
@@ -32,7 +38,7 @@ export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, pl
   if(onReady !== true) {
     document.getElementById(playIconId).click();
   }
-  set(playerAtom, {...currentState, playing: !playing, playStopSeconds, previewStartSeconds: null});
+  set(playerAtom, {...currentState, playing: !playing, playStopSeconds, previewStartSeconds: null, playingCommentIdx: null});
 })
 
 export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, seconds) => {
@@ -56,14 +62,35 @@ export const messagePlayPreview = atom((get) => get(playerAtom), (_get, set, _) 
 
   if(onReady !== true) {
     document.getElementById(playIconId).click();
-    set(playerAtom, {...currentState, playing: true, playedSeconds: startSecond, playStopSeconds: endSecond, previewStartSeconds: startSecond});
+    set(playerAtom, {...currentState, playing: true, playedSeconds: startSecond, playStopSeconds: endSecond, previewStartSeconds: startSecond, playingCommentIdx: null});
   } else {
     playerRef.seekTo(startSecond);
 
     if(playing === false) {      
-      set(playerAtom, {...currentState, playing: true, playStopSeconds: endSecond, previewStartSeconds: null});
+      set(playerAtom, {...currentState, playing: true, playStopSeconds: endSecond, previewStartSeconds: null, playingCommentIdx: null});
     } else {
-      set(playerAtom, {...currentState, playStopSeconds: endSecond, previewStartSeconds: null});
+      set(playerAtom, {...currentState, playStopSeconds: endSecond, previewStartSeconds: null, playingCommentIdx: null});
+    }
+  }
+})
+
+export const playCommentAtom = atom(null, (get, set, idx) => {
+  const comments = get(commentsAtom);
+  const currentState = get(playerAtom);
+
+  const {playing, playIconId, onReady, playerRef} = currentState;
+  const {startSecond, endSecond} = comments[idx];
+
+  if(onReady !== true) {
+    document.getElementById(playIconId).click();
+    set(playerAtom, {...currentState, playing: true, playedSeconds: startSecond, playStopSeconds: endSecond, previewStartSeconds: startSecond, playingCommentIdx: idx});
+  } else {
+    playerRef.seekTo(startSecond);
+
+    if(playing === false) {      
+      set(playerAtom, {...currentState, playing: true, playStopSeconds: endSecond, previewStartSeconds: null, playingCommentIdx: idx});
+    } else {
+      set(playerAtom, {...currentState, playStopSeconds: endSecond, previewStartSeconds: null, playingCommentIdx: idx});
     }
   }
 })
@@ -79,6 +106,8 @@ export const resetPlayerAtom = atom((get) => get(playerAtom), (_get, set, _) => 
     playing: false,
     // playerRef: null,
     volume: 0.3,
+    previewStartSeconds: null,
+    playingCommentIdx: null,
     playStopSeconds: null
   }))
 }) 
