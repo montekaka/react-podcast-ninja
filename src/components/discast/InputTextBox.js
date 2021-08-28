@@ -18,9 +18,6 @@ const InputTextBox = () => {
         style={{borderColor: playerSkin.primaryButtonColor}}>
         <p style={{borderColor: playerSkin.primaryTextColor, opacity: 0.7}}>Write a comment</p>
       </div>
-      <div className="bn-input-send-button">
-        <Send style={{color: playerSkin.primaryButtonColor}}/>
-      </div>
     </div>
   )
 }

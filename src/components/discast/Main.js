@@ -41,12 +41,10 @@ const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
 
   if(screenName === 'main') {
     return (    
-      <div className={`bh-main-wrapper`} style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
-       <div className="bh-main-display-container">
-          <PlayerContainer/>
-          <Comments/>
-        </div>
-        <InputTextBox/>      
+      <div className={`bh-main-display-container`} style={{backgroundColor: configsState.primaryBackgroundColor, color: configsState.primaryTextColor}}>
+        <PlayerContainer/>
+        <InputTextBox/>
+        <Comments/>
       </div>
     )
   } else {

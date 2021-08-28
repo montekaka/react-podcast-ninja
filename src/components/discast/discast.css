@@ -2,29 +2,29 @@ body {
   margin: 0;
 }
 
-.bh-main-wrapper {
+/* .bh-main-wrapper {
   display: grid;
   height: 100vh;
-  /* background-color: blanchedalmond; */
   grid-template-rows: 1fr 80px;
   grid-template-areas: 
   "main-display"
   "input-box";
-}
-
+} */
+/* 
 .bh-main-display-container {
   display: grid;
-  grid-template-rows: 260px 1fr;  
+  height: 100vh;
+  grid-template-rows: 260px 80px 1fr;  
   grid-template-areas: 
   "player"
-  "comments";  
-  grid-area: 'main-display';
-}
+  "input-box"
+  "comments";
+} */
 
 .bh-player-container {
   /* background-color: cadetblue; */
   display: grid;
-  grid-template-rows: 120px 60px 80px;
+  grid-template-rows: 120px 60px 60px;
   grid-template-areas: 
   "player-main-controls"
   "player-main-metas"
@@ -232,7 +232,7 @@ body {
 /* Comments section */
 
 .bh-comments {
-  /* background-color: white; */
+  /* background-color: yellowgreen; */
   grid-area: comments;
   padding: 10px;
 }
@@ -240,11 +240,7 @@ body {
 /* Comments section */
 
 .bh-input-text-box {
-  display: grid;
   padding: 10px;
-  grid-template-columns: 1fr 40px;
-  align-items: center;
-  grid-area: input-box;
   /* padding: 10px; */
   /* height: 80px; */
   /* background-color: blanchedalmond; */
@@ -259,6 +255,7 @@ body {
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
+  cursor: pointer;
 }
 
 .bn-input-send-button {
