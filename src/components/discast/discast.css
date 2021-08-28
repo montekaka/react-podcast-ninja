@@ -232,7 +232,7 @@ body {
 /* Comments section */
 
 .bh-comments {
-  background-color: white;
+  /* background-color: white; */
   grid-area: comments;
 }
 

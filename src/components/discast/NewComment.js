@@ -133,7 +133,7 @@ const NewComment = () => {
           justifyContent: 'center',
           cursor: 'pointer',          
         }}
-          coClick={addComment}
+          onClick={addComment}
         >Save</div>        
       </div>
     </div>
