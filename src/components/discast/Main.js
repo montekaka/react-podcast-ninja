@@ -9,7 +9,8 @@ import {
   metasAtom,
   configsAtom,
   screenAtom,
-  getScreenNameAtom
+  getScreenNameAtom,
+  commentsAtom
 } from './jotai'
 
 const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
@@ -18,6 +19,7 @@ const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
   const [configsState, setConfigs] = useAtom(configsAtom);
   const [screenState] = useAtom(screenAtom);
   const [screenName] = useAtom(getScreenNameAtom);
+  const [commentsState, setCommentsState] = useAtom(commentsAtom);
 
   useEffect(() => {
     setUrl(enclosureUrl)
@@ -30,6 +32,10 @@ const Main = ({title, artworkUrl, enclosureUrl, configs, comments}) => {
   useEffect(() => {
     setConfigs(configs)
   }, [configs])
+
+  useEffect(() => {
+    setCommentsState(comments)
+  }, [comments])
 
   // return <NewComment/>
 

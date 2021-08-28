@@ -5,7 +5,10 @@ const Comment = (props) => {
 
   return (
     <div className="bh-comment">
-      <div>{author}</div>
+      <div>
+        <div>USER_NAME</div>
+      </div>      
+
       <div>
         <div>{startTime} - {endTime}</div>
         <div>{message}</div>

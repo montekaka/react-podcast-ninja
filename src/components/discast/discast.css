@@ -234,6 +234,7 @@ body {
 .bh-comments {
   /* background-color: white; */
   grid-area: comments;
+  padding: 10px;
 }
 
 /* Comments section */

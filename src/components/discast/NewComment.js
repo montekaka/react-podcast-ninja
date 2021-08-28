@@ -134,7 +134,7 @@ const NewComment = () => {
           cursor: 'pointer',          
         }}
           onClick={addComment}
-        >Save</div>        
+        >Post</div>        
       </div>
     </div>
   )

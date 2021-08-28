@@ -17,6 +17,15 @@ const configs = {
   chapterTextColor:  "#f7f8f9"  
 }
 
+const comments = [
+  {  startSecond: 120, endSecond: 180, startTime: "00:02:00", endTime: "00:03:00", message: "How can I remove these notifications on my pages? It has something to do with the wildcard subdomain", author: ""},
+  {  startSecond: 120, endSecond: 180, startTime: "00:02:00", endTime: "00:03:00", message: "How can I remove these notifications on my pages? It has something to do with the wildcard subdomain", author: ""},
+  {  startSecond: 120, endSecond: 180, startTime: "00:02:00", endTime: "00:03:00", message: "How can I remove these notifications on my pages? It has something to do with the wildcard subdomain", author: ""},
+  {  startSecond: 120, endSecond: 180, startTime: "00:02:00", endTime: "00:03:00", message: "How can I remove these notifications on my pages? It has something to do with the wildcard subdomain", author: ""},
+  {  startSecond: 120, endSecond: 180, startTime: "00:02:00", endTime: "00:03:00", message: "How can I remove these notifications on my pages? It has something to do with the wildcard subdomain", author: ""},
+  {  startSecond: 120, endSecond: 180, startTime: "00:02:00", endTime: "00:03:00", message: "How can I remove these notifications on my pages? It has something to do with the wildcard subdomain", author: ""}
+]
+
 stories.add('App', () => {
   return (
     <Discast
@@ -24,7 +33,7 @@ stories.add('App', () => {
       title="Fri. 08/20 – OnlyFans Pulls A Tumblr"
       enclosureUrl="https://rss.art19.com/episodes/906658fc-d3cc-4ebb-a0ec-4d1f561e3a13.mp3?rss_browser=BAhJIgtDaHJvbWUGOgZFVA%3D%3D--d05363d83ce333c74f32188013892b2863ad051c"
       configs={configs}
-      comments={[]}
+      comments={comments}
     />
   );
 })
