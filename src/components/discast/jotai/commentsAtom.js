@@ -5,20 +5,20 @@ import {screenAtom} from './screenAtom'
 export const commentsAtom = atom([]);
 
 export const commentAtom = atom({
-  startSecond: 120,
-  endSecond: 180,
-  startTime: "00:02:00",
-  endTime: "00:03:00",
+  startSecond: 0,
+  endSecond: 0,
+  startTime: "00:00:00",
+  endTime: "00:00:00",
   message: "",
   author: "",
 })
 
 export const cancelCommentAtom = atom(null, (get, set, _) => {
   set(commentAtom, {
-    startSecond: 120,
-    endSecond: 180,
-    startTime: "00:02:00",
-    endTime: "00:03:00",
+    startSecond: 0,
+    endSecond: 0,
+    startTime: "00:00:00",
+    endTime: "00:00:00",
     message: "",
     author: "",
   })

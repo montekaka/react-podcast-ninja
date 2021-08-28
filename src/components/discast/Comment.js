@@ -25,14 +25,14 @@ const Comment = (props) => {
         }}>
           {startTime} - {endTime}
         </div>
-        <div onClick={handleClickPlay}>Play</div>
+        <div onClick={handleClickPlay} style={{cursor: 'pointer'}}>Play</div>
       </div>      
 
       <div style={{color: themeState.primaryTextColor, marginBottom: '20px'}}>
         <div style={{marginBottom: '10px', marginTop: '5px', marginBottom: '20px', fontSize: '0.8em'}}>USER_NAME</div>
         <div>{message}</div>
       </div>
-      <hr style={{color: themeState.primaryTextColor, opacity: 0.6}}/>
+      <hr style={{color: themeState.primaryTextColor, opacity: 0.3}}/>
     </div>
   )
 }
