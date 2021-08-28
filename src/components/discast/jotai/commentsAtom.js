@@ -1,4 +1,5 @@
 import {atom} from "jotai"
+import {getSecondsFromHHMMSS} from '../libs'
 
 export const commentsAtom = atom([]);
 
@@ -14,4 +15,18 @@ export const commentAtom = atom({
 export const updateNewCommentAtom = atom((get) => get(commentAtom), (_get, set, newData) => {
   const currentState = _get(commentAtom);
   set(commentAtom, {...currentState, ...newData});
+})
+
+export const updateNewCommentTime = atom((get) => get(commentAtom), (_get, set, newData) => {
+  const currentState = _get(commentAtom);
+  const key = Object.keys(newData)[0];
+  const value = newData[key];
+  
+  if(key === "startTime") {
+    const startSecond = getSecondsFromHHMMSS(value);
+    set(commentAtom, {...currentState, ...newData, startSecond})
+  } else {
+    const endSecond = getSecondsFromHHMMSS(value);
+    set(commentAtom, {...currentState, ...newData, endSecond})
+  }
 })

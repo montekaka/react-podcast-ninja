@@ -1,15 +1,16 @@
 import React from 'react';
 import {useAtom} from "jotai"
-import {configsAtom, updateNewCommentAtom} from './jotai'
+import {configsAtom, updateNewCommentAtom, updateNewCommentTime} from './jotai'
 
 const TimeInputBox = (props) => {
   const {id, label, placeholder } = props;
   const [themeState] = useAtom(configsAtom)
   const [comment, updateComment] = useAtom(updateNewCommentAtom)
+  const [, updateCommentTime] = useAtom(updateNewCommentTime);
 
   const handleInputChange = (evt) => {
     const val = evt.target.value;
-    updateComment({[id]: val})
+    updateCommentTime({[id]: val})
   }
 
   return (
