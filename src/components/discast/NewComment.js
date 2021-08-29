@@ -13,7 +13,8 @@ import {
   metasAtom,
   updateNewCommentAtom,
   cancelCommentAtom,
-  addCommentAtom
+  addCommentAtom,
+  commentAtom
 } from './jotai'
 
 const NewComment = () => {
@@ -21,9 +22,24 @@ const NewComment = () => {
   const [playerState] = useAtom(playerAtom);
   const {durationSeconds, playedSeconds} = playerState;
   const [themeState] = useAtom(configsAtom)
-  const [comment, updateComment] = useAtom(updateNewCommentAtom)
+  const [comment, setComment] = useAtom(commentAtom)
+  const [, updateComment] = useAtom(updateNewCommentAtom)
   const [, cancelComment] = useAtom(cancelCommentAtom);
   const [, addComment] = useAtom(addCommentAtom);
+
+  useEffect(() => {
+    const startSecond = playedSeconds;
+    const endSecond =  Math.min(playedSeconds + 120 , durationSeconds);
+    const startTime = getHHMMSSFromSeconds(startSecond);
+    const endTime = getHHMMSSFromSeconds(endSecond);
+    setComment({
+      startSecond,
+      endSecond,
+      startTime,
+      endTime
+    })
+  }, [])
+
 
   const handleMessageChange = (e) => {
     const val = e.target.value;
