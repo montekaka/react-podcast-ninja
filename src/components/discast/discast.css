@@ -35,13 +35,16 @@ body {
 .bh-player-container > .bh-player-metas {
   /* background-color: darkmagenta; */
   grid-area: player-main-metas;
-  text-align: center;
+  text-align: center;   
   font-size: 20px;
   line-height: 22px;
   font-weight: 600;  
+  display: flex;
+  justify-content: center;
 }
 
-.bh-player-container > .bh-player-metas > .bh-title { 
+.bh-player-container > .bh-player-metas > .bh-title {
+  width: 90vw;
   font-size: 1em;
   display: block;
   overflow: hidden;
@@ -51,6 +54,7 @@ body {
 
 .bh-player-container > .bh-player-metas > .bh-subtitle{
   font-size: 0.7em;
+  width: 90vw;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
