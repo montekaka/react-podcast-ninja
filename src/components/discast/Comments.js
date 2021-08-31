@@ -2,6 +2,7 @@ import React from 'react';
 import {useAtom} from 'jotai'
 import {commentsAtom, configsAtom} from './jotai'
 import Comment from './Comment'
+import {getHHMMSSFromSeconds} from './libs'
 
 const Comments = () => {
   const [comments] = useAtom(commentsAtom);
@@ -23,8 +24,8 @@ const Comments = () => {
         comments.map((comment, idx) => <Comment 
           key={idx}
           idx={idx}
-          startTime={comment.startTime}
-          endTime={comment.endTime}
+          startTime={getHHMMSSFromSeconds(comment.startSecond)}
+          endTime={getHHMMSSFromSeconds(comment.endSecond)}
           message={comment.message}
         />)
       }
