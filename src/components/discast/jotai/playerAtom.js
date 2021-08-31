@@ -35,9 +35,9 @@ export const updatePlayerAtom = atom(
 export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, playStopSeconds) => {
   const currentState = _get(playerAtom);
   const {playing, playIconId, onReady} = currentState;
-  if(onReady !== true) {
-    document.getElementById(playIconId).click();
-  }
+  // if(onReady !== true) {
+  //   document.getElementById(playIconId).click();
+  // }
   set(playerAtom, {...currentState, playing: !playing, playStopSeconds, previewStartSeconds: null, playingCommentIdx: null});
 })
 
@@ -61,7 +61,7 @@ export const messagePlayPreview = atom((get) => get(playerAtom), (_get, set, _) 
   const {playing, playIconId, onReady, playerRef} = currentState;
 
   if(onReady !== true) {
-    document.getElementById(playIconId).click();
+    // document.getElementById(playIconId).click();
     set(playerAtom, {...currentState, playing: true, playedSeconds: startSecond, playStopSeconds: endSecond, previewStartSeconds: startSecond, playingCommentIdx: null});
   } else {
     playerRef.seekTo(startSecond);
@@ -82,7 +82,7 @@ export const playCommentAtom = atom(null, (get, set, idx) => {
   const {startSecond, endSecond} = comments[idx];
 
   if(onReady !== true) {
-    document.getElementById(playIconId).click();
+    // document.getElementById(playIconId).click();
     set(playerAtom, {...currentState, playing: true, playedSeconds: startSecond, playStopSeconds: endSecond, previewStartSeconds: startSecond, playingCommentIdx: idx});
   } else {
     playerRef.seekTo(startSecond);

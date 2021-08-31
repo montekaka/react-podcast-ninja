@@ -30,10 +30,10 @@ const LightPlayerHolder = () => {
       <ReactPlayer  
         height={"0px"}
         width={"0px"} 
-        controls={true}        
+        controls={false}        
         url={url}
-        playIcon={<PlayIconPlaceholder id={playIconId}/>} // to hide the play icon
-        light={true} // set light to true, so that we will not pre-load the file
+        // playIcon={<PlayIconPlaceholder id={playIconId}/>} // to hide the play icon
+        // light={true} // set light to true, so that we will not pre-load the file
         playing={playerState.playing}
         onReady={(res) => {
           if(res) {
