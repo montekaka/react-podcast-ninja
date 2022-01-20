@@ -59,10 +59,10 @@ const PlayerControl = () => {
             max={durationSeconds} 
             step={0.01}
             value={playedSeconds}
-            onMouseDown={() => {
+            onPointerDown={() => {
               updatePlayer({onSeeking: true})
             }}
-            onMouseUp={() => {
+            onPointerUp={() => {
               playerRef.seekTo(playedSeconds)
               updatePlayer({onSeeking: false})
             }}
