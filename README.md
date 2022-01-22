@@ -74,3 +74,18 @@ I hope more podcasters can enbrace the chapters namespace, and someone can use i
 
 ## Contributions
 If you would like to contribute to this open source project, please feel free to submit a PR.
+
+
+## Todo
+
+- Add support to person tag
+- Better integration with PodcastIndex
+  - fetch podcast per podcast_index_id
+  - handle query episode_id from the url
+  - handle query episode playing seconds from the url
+- Chapter
+  - add an indicator to playing chapter
+  - scroll to the right chapter position
+  - add support to chapter image
+  - add support to chapter link
+- Add support create share link
