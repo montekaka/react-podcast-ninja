@@ -164,11 +164,11 @@ body {
   opacity: 0.6;
 }
 
-.jc-player-container > .jc-chapters {
+.jc-player-container > .jc-chapters { 
   grid-area: chapters;
   width: 100%;
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  /* grid-template-columns: 40px 1fr 40px; */
   column-gap: 10px;
   padding: 10px 0 10px 0;
 }
@@ -380,6 +380,17 @@ body {
   
 }
 
+@media (min-width: 501px) {
+  .jc-player-container > .jc-chapters {
+    grid-area: chapters;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    column-gap: 10px;
+    padding: 10px 0 10px 0;
+  }
+}
+
 @media (max-width: 500px) {
   .jc-player-container {
     padding: 20px;
@@ -461,5 +472,9 @@ body {
     height: 720px;
     overflow: scroll;
     padding: 10px;
+  }
+
+  .jc-player-container > .jc-chapters > .jc-chapters-handle {
+    display: none;
   }
 }
