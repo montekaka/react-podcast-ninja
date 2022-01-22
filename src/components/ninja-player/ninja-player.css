@@ -166,38 +166,63 @@ body {
 
 .jc-player-container > .jc-chapters {
   grid-area: chapters;
-  padding: 10px;
-  display: flex;
-  /* flex-wrap: nowrap; */
-  overflow-x: scroll;
-  /* min-width: 100%; */
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  column-gap: 10px;
+  padding: 10px 0 10px 0;
 }
 
-.jc-player-container > .jc-chapters > .jc-chapter {
-  padding: 10px;
-  min-width: 100px;
-  width: 100px;
-  height: 120px;
-  margin-right: 10px;
-  border-radius: 10px;  
-  transition: transform 450ms;
+.jc-player-container > .jc-chapters > .jc-chapters-handle {
   display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 400;
-  /* background-color: #58564F; */
-  /* color: yellow; */
-  justify-content: space-between;
-  align-content: space-between;
+  justify-content: center;
+  /* background-color: antiquewhite; */
+  align-items: center;
+}
+
+.jc-player-container > .jc-chapters > .jc-chapters-handle:first-child {
   cursor: pointer;
 }
 
-.jc-player-container > .jc-chapters > .jc-chapter:hover {
+.jc-player-container > .jc-chapters > .jc-chapters-container {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE */
+  overflow: -moz-scrollbars-none; 
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  border-radius: 10px; /* should be the same as the card border-radius*/
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+}
+
+.jc-player-container > .jc-chapters > .jc-chapters-container::-webkit-scrollbar {
+  display: none;
+}
+
+.jc-chapter {
+  width: 100px;
+  min-width: 100px;
+  height: 120px;  
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;  
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;  
+  transition: transform 450ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  cursor: pointer;    
+}
+
+.jc-chapter:hover {
   transform: scale(1.04);
 }
 
-.jc-player-container > .jc-chapters > .jc-chapter > .jc-chapter-title {
+.jc-chapter > .jc-chapter-title {
   font-size: 1em;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -205,11 +230,26 @@ body {
   overflow: hidden;  
 }
 
-.jc-player-container > .jc-chapters > .jc-chapter > .jc-chapter-subtitle {
+.jc-chapter > .jc-chapter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.jc-chapter > .jc-chapter-footer > .jc-chapter-play {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jc-chapter > .jc-chapter-footer > .jc-chapter-duration {
   font-size: 0.7em; 
-  text-align: right;
   opacity: 0.7;
 }
+
 
 .jc-player-control {
   display: grid;

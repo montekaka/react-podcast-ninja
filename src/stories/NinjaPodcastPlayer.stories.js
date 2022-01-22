@@ -4,7 +4,7 @@ import {storiesOf} from '@storybook/react'
 import {NinjaPodcastPlayer} from '../components/ninja-player'
 
 const stories = storiesOf('Podcast Player Test', module);
-const rssFeedUrl = 'https://feed.justcast.com/shows/readcast/audioposts.rss'
+const rssFeedUrl = 'https://feeds.buzzsprout.com/1538779.rss'
 const links = [rssFeedUrl, 'https://feed.justcast.com/shows/readcast/audioposts.rss']
 
 const configs = {

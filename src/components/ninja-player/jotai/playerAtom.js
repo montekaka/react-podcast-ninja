@@ -56,5 +56,5 @@ export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, 
     playedSeconds = 0;
   }
   playerRef.seekTo(playedSeconds);
-  set(playerAtom, {...currentState, playedSeconds});
+  set(playerAtom, {...currentState, playedSeconds, playing: true});
 })
