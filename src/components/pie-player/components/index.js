@@ -1,5 +1,7 @@
 import PlayerContainer from './PlayerContainer'
+import EpisodeList from './EpisodeList'
 
 export {
-  PlayerContainer
+  PlayerContainer,
+  EpisodeList
 }
