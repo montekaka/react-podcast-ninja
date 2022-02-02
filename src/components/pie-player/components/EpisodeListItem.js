@@ -9,8 +9,7 @@ export default function EpisodeListItem(props) {
   
   const onClick = () => {
     const payload = {url, playingId: idx, playing: true};
-    setPlayerState(payload);
-
+    setPlayerState(payload);    
     // What is going on here?
     // because safari only allow autoplay with muted.
     // so that we will tell the player to muted first, then unmuted it after 500 ms

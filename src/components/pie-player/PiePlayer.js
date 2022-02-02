@@ -1,15 +1,14 @@
 import React from 'react';
-import {useAtom} from "jotai"
+import {Provider} from "jotai"
 import {PlayerContainer, EpisodeList} from './components'
 
 export default function PiePlayer(props) {
-  const {people, episodes, artwork, title, href } = props;
+  const {people, episodes, artwork, title, href, theme } = props;    
 
   return (
-    <div>
-      <p>Hello world</p>
-      <PlayerContainer/>
+    <Provider>      
+      <PlayerContainer theme={theme}/>
       <EpisodeList episodes={episodes}/>    
-    </div>
+    </Provider>
   );
 }

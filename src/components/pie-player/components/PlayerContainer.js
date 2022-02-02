@@ -1,20 +1,19 @@
 import React, {useEffect} from 'react';
 import ReactPlayer from 'react-player'
 import {useAtom} from "jotai"
-import {upatePlayerAtom} from '../jotai'
+import {upatePlayerAtom, setThemeAtom} from '../jotai'
 
-export default function PlayerContainer() {
+export default function PlayerContainer({theme}) {
 
   const [playerState, setPlayerState] = useAtom(upatePlayerAtom);
   const {url, playing, volume, muted, onReady } = playerState;  
+  const [_, setThemeState] = useAtom(setThemeAtom);
   
-  // useEffect(() => {
-  //   if(onReady && playing) {
-  //     setTimeout(() => {
-  //       setPlayerState({muted: false, playing: true})
-  //     }, 500)      
-  //   }
-  // }, [onReady, playing])
+  useEffect(() => {
+    if(theme) {
+      setThemeState(theme);
+    }
+  }, [theme.toString()])
 
   return (
     <ReactPlayer 
