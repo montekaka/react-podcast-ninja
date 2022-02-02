@@ -7,14 +7,15 @@ const stories = storiesOf('PiePlayer Test', module);
 // artwork
 // podcast-title
 // podcast-link
-// people
+// people?
 // on episode
 // title
-// img
+// img?
 // link
-// duration
+// duration?
 // publish-date
 // chapters?
+// render-type
 
 stories.add('App', () => {
   return (
