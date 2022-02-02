@@ -18,6 +18,7 @@ export const playerAtom = atom({
   playing: false,
   playerRef: null,
   volume: 0.3,
+  muted: true,
   url: null,
   playingId: -1,
 })
