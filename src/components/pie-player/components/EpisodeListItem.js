@@ -7,7 +7,7 @@ export default function EpisodeListItem(props) {
   const [playerState, setPlayerState] = useAtom(upatePlayerAtom);
 
   const onClick = () => {
-    const payload = {url, playingId: idx};
+    const payload = {url, playingId: idx, playing: true};
     setPlayerState(payload)
   }
 
