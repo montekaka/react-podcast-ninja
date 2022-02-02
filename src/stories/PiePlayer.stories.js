@@ -11,7 +11,7 @@ const theme = {
   cardTextColor: "",
   cardButtonColor: "",
   cardButtonTextColor: "",  
-  mainContainerClassName: "rnp-pie-player-container-card",
+  themeClassName: "jc-npp-container-card",
 }
 
 const episodes = [

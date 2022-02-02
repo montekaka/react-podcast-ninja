@@ -7,7 +7,7 @@ export const themeAtom = atom({
   cardTextColor: "",
   cardButtonColor: "",
   cardButtonTextColor: "",  
-  mainContainerClassName: "",
+  themeClassName: "",
 });
 
 export const setThemeAtom = atom((get) => {
