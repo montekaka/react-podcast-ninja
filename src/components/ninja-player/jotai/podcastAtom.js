@@ -35,11 +35,21 @@ export const fetchChaptersAtom = atom((get) => get(chaptersAtom), (_get, set, _)
   const playingId = _get(playingIdAtom);
   const fetchDate = async () => {
     const chaptersUrl = episodes[playingId]['chaptersUrl'];
+
     try {
       const response = await fetch(chaptersUrl);
       const data = await response.json()
       const chapters = data.chapters // data.chapters && data.chapters.length > 0 ? data.chapters : [];
-      set(chaptersAtom, chapters);
+      const _chapters = chapters.map((ch, idx) => {
+        const nextCh = chapters[idx+1];
+        if(nextCh) {
+          const endTime = nextCh['startTime'];
+          return {...ch, endTime}
+        } else {
+          return {...ch, endTime: ch['startTime'] + 100000000}; // end time is some large number
+        }
+      })
+      set(chaptersAtom, _chapters);
     } catch (err) {
       set(chaptersAtom, [])
     }
