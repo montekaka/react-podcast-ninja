@@ -4,6 +4,9 @@ import {PiePlayer} from '../components/pie-player'
 
 const stories = storiesOf('PiePlayer Test', module);
 
+const artwork = "https://justcast.sfo2.digitaloceanspaces.com/js-production/1643509880856-1400.png"
+const podcastTitle = "Inside the Aluminum Tube"
+
 const theme = {
   backgroundColor: "#123",
   textColor: "",
@@ -36,8 +39,10 @@ stories.add('App', () => {
   return (
     <div>
     <PiePlayer
+      artwork={artwork}
       theme={theme}
       episodes={episodes}
+      title={podcastTitle}
     />
     {/* <PiePlayer
       theme={{backgroundColor: "#2231"}}

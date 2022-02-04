@@ -1,7 +1,7 @@
 import React from 'react';
 import EpisodeListItem from './EpisodeListItem'
 
-export default function EpisodeList({episodes, podcastTitle, podcastArtwork}) {
+export default function EpisodeList({episodes, artwork, podcastTitle}) {
 
   if(episodes && episodes.length > 0) {
     
@@ -11,7 +11,7 @@ export default function EpisodeList({episodes, podcastTitle, podcastArtwork}) {
           key={`castpie-${idx+1}`} 
           title={e.title} 
           podcastTitle={podcastTitle}
-          podcastArtwork={podcastArtwork}
+          podcastArtwork={artwork}
           idx={idx} 
           link={e.link} 
           href={e.href}

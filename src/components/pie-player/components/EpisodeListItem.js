@@ -42,7 +42,12 @@ export default function EpisodeListItem(props) {
             <div className='jc-player-pp-button-container'></div>            
           </div>
           <div className='footer'>
-
+            <div className='artwork-wrapper'>
+              <div className='cover'/>
+              <img src={podcastArtwork} />
+            </div>  
+            <div className='title'>{podcastTitle}</div>
+            <a className='footer-button' href={link} target="_blank">OPEN</a>
           </div>
         </div>
       </div>

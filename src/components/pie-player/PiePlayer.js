@@ -11,7 +11,7 @@ export default function PiePlayer(props) {
     <Provider>
       <PlayerContainer theme={theme}/>
       <Container>
-        <EpisodeList episodes={episodes}/>
+        <EpisodeList episodes={episodes} artwork={artwork} podcastTitle={title}/>
       </Container>
     </Provider>
   );
