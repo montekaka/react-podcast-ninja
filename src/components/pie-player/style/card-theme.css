@@ -1,5 +1,125 @@
+
 .jc-npp-container-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
+.jc-npp-container-card * {
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;  
+}
+
+
+.jc-npp-container-card > .episodes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;  
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper {
+  height: 460px;
+  width: 380px;
+  border-radius: 10px;
+  padding: 10px 10px 0 10px;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  /* position: relative; */
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .background-img {
+  /* position: absolute; */
+  /* left: 0px;
+  right: 0px; */
+  border-radius: 10px;
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 1;
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .main-container {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 3;
+  /* position: absolute; */
+  /* backdrop-filter: blur(4px); */
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  /* background-color: bisque; */
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;  
+  /* padding: 10px; */
+  display: flex;  
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .main-container > .tags {
+  width: 200px;
+  height: 30px;
+  /* background-color: black;
+  color: white; */
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 0 0 20px 0;
+  text-align: center;
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .main-container > .controller {
+  width: 100%;
+  height: 140px;
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(40px);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  gap: 10px;
+  /* background-color: bisque; */
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .main-container > .controller > .meta {
+  width: 260px;
+  display: grid;
+  grid-template-rows: 40px 20px 1fr;
+  grid-template-columns: auto;
+  grid-template-areas: 
+    "title"
+    "publish-date"
+    "progress-time";
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .main-container > .controller > .meta > .title {
+  grid-area: title;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+} 
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .main-container > .controller > .meta > .publish-date {
+  grid-area: publish-date;
+  width: 100%;
+  font-size: 12px;
+}
+
+.jc-npp-container-card > .episodes > .episode-wrapper > .main-container > .controller > .meta > .progress-time {
+  grid-area: progress-time;
+  width: 100%;
+  font-size: 12px;
+}
+
+/* .jc-npp-container-card > .episodes > .episode-wrapper > .main-container > .meta-data > .meta-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+} */
