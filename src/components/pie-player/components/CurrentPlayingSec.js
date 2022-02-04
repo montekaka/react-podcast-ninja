@@ -10,9 +10,9 @@ const durationFormat = (sec) => {
 
 export default function CurrentPlayingSec({idx}) {
   const [playerState] = useAtom(playerAtom);
-  const {playingId, playedSeconds} = playerState;
+  const {playingId, playedSeconds, onReady} = playerState;
   
-  if((idx !== undefined || idx !== null) && playingId > -1 && playingId === idx) {
+  if(onReady && (idx !== undefined || idx !== null) && playingId > -1 && playingId === idx) {
     const sec = durationFormat(playedSeconds);
     
     return <div>{sec}</div>

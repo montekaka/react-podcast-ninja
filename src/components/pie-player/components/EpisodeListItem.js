@@ -18,17 +18,25 @@ export default function EpisodeListItem(props) {
     duration
   } = props;
   const [playerState, setPlayerState] = useAtom(upatePlayerAtom);
-  const {muted, playing} = playerState;
+  const {muted, playing, playingId} = playerState;
   
   const onClick = () => {
-    if(playing === true) {
+    if(playing === true && playingId === idx) {
       // pause
-      const payload = {url: null, playingId: null, playing: false, onReady: false};
+      const payload = {playing: false};
       setPlayerState(payload);
     } else {
       // play
-      const payload = {url, playingId: idx, playing: true};
-      setPlayerState(payload);
+      if(playingId === idx) {
+        // resume
+        const payload = {url, playingId: idx, playing: true};
+        setPlayerState(payload);        
+      } else {
+        // start playing another episode
+        const payload = {url, playingId: idx, playing: true, playedSeconds: 0};
+        setPlayerState(payload);        
+      }
+
       // What is going on here?
       // because safari only allow autoplay with muted.
       // so that we will tell the player to muted first, then unmuted it after 500 ms
