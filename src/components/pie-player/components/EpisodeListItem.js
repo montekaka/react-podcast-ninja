@@ -36,13 +36,12 @@ export default function EpisodeListItem(props) {
       <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
       <div className='main-container'>
         <div className='tags' style={{backgroundColor: "#123123", color: "#fff"}}>{pubDate}</div>
-        <div className='controller'>
+        <div className='jc-card-body'>
           <div className='meta'>
             <div className='title'>{title}</div>
-            <div className='publish-date'>{title}</div>
-            <div className='progress-time'>{title}</div>
+            <div className='jc-player-pp-button-container'></div>            
           </div>
-          <div className='play-pause-button'>
+          <div className='footer'>
 
           </div>
         </div>
