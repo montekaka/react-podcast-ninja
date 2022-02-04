@@ -1,6 +1,9 @@
 import React from 'react';
+import {format} from 'date-fns'
 import {useAtom} from "jotai"
 import {upatePlayerAtom} from '../jotai'
+import PlayPauseButton from './PlayPauseButton'
+import CurrentPlayingSec from './CurrentPlayingSec'
 
 export default function EpisodeListItem(props) {
   const {
@@ -18,36 +21,38 @@ export default function EpisodeListItem(props) {
   const {muted} = playerState;
   
   const onClick = () => {
-    // const payload = {url, playingId: idx, playing: true};
-    // setPlayerState(payload);    
-    // // What is going on here?
-    // // because safari only allow autoplay with muted.
-    // // so that we will tell the player to muted first, then unmuted it after 500 ms
-    // // https://github.com/CookPete/react-player/issues/338#issuecomment-382022759
-    // if(muted === true) {
-    //   setTimeout(() => {
-    //     setPlayerState({muted: false})
-    //   }, 500)
-    // }
+    const payload = {url, playingId: idx, playing: true};
+    setPlayerState(payload);    
+    // What is going on here?
+    // because safari only allow autoplay with muted.
+    // so that we will tell the player to muted first, then unmuted it after 500 ms
+    // https://github.com/CookPete/react-player/issues/338#issuecomment-382022759
+    if(muted === true) {
+      setTimeout(() => {
+        setPlayerState({muted: false})
+      }, 500)
+    }
   }
 
   return (
-    <div onClick={onClick} className='episode-wrapper' style={{backgroundColor: "#123123"}}>
+    <div className='episode-wrapper' style={{backgroundColor: "#123123"}}>
       <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
       <div className='main-container'>
-        <div className='tags' style={{backgroundColor: "#123123", color: "#fff"}}>{pubDate}</div>
+        <div className='tags' style={{backgroundColor: "#123123", color: "#fff"}}>{pubDate ? format(new Date(pubDate), 'MM/dd/yyyy') : ""}</div>
         <div className='jc-card-body'>
           <div className='meta'>
             <div className='main'>
               <div className='title'>{title}</div>
               <div className='progress-time'>
-                <div>00:00:00</div>
+                <CurrentPlayingSec idx={idx}/>
                 <div>/</div>
-                <div>00:23:12</div>
+                <div>{duration}</div>
               </div>
-            </div>
-            <div className='jc-player-pp-button-container'></div>            
-          </div>
+            </div>            
+            <div className='jc-player-pp-button-container' onClick={onClick}>
+              <PlayPauseButton idx={idx}/>
+            </div>            
+          </div>          
           <div className='footer'>
             <div className='footer-meta'>
               <div className='artwork-wrapper'>

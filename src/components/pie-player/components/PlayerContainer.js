@@ -19,9 +19,9 @@ export default function PlayerContainer({theme}) {
     <ReactPlayer 
       url={url}
       autoPlay={true}
-      width={"100%"}
-      height={"20px"}
-      controls={true}
+      width={"0%"}
+      height={"0px"}
+      controls={false}
       muted={muted}
       volume={volume}
       onError={(err) =>{ 
