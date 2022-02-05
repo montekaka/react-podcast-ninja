@@ -1,0 +1,177 @@
+
+.jc-podcast-people-wrapper {
+  margin: 20px 0 20px 0;
+}
+
+.jc-podcast-people-wrapper * {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;  
+}
+
+.jc-podcast-people-wrapper > .podcast-people-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jc-podcast-people-wrapper .podcast-people-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px; 
+}
+
+.jc-podcast-people-wrapper .podcast-people-container::-webkit-scrollbar {
+  display: none;
+}
+
+.jc-podcast-people-wrapper .people-nav-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card {
+  width: 260px;
+  height: 160px;
+  border-radius: 8px;
+  flex: 0 0 auto; /* This is essential */  
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card > .podcast-person-wrapper {
+  width: 260px;
+  height: 160px;  
+  border-radius: 8px;
+  display: grid;
+  grid-template: 1fr / 1fr;
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card > .podcast-person-wrapper > .background-img {
+  /* position: absolute; */
+  /* left: 0px;
+  right: 0px; */
+  border-radius: 10px;
+  width: 100%;
+  height: 160px;  
+  /* height: 100%; */
+  object-fit: cover;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 1;
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card > .podcast-person-wrapper > .main-container {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 3;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: bisque; */
+  border-radius: 10px;
+  height: 100%;
+  width: 100%; 
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;   
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card > .podcast-person-wrapper > .main-container > .person-avatar-container {
+  width: 90px;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  text-decoration: none;
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card > .podcast-person-wrapper > .main-container > .person-avatar-container > .person-avatar {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card > .podcast-person-wrapper > .main-container > .person-avatar-container > .person-avatar-placeholder {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  /* padding: 10px; */
+  backdrop-filter: blur(9px);
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+}
+
+.jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card > .podcast-person-wrapper > .main-container > .person-avatar-container > .person-avatar-placeholder > .name {
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.jc-podcast-people-wrapper .podcast-person-meta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.jc-podcast-people-wrapper .podcast-person-meta > .person-basic-info > .person-name {
+  overflow: hidden;  
+  border-radius: 10px;
+  padding: 0px 10px 0 10px;
+  width: 100%;
+  backdrop-filter: blur(9px);
+  background-color: rgba(255, 255, 255, 0.4);  
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;  
+  -webkit-box-orient: vertical;
+}
+
+.jc-podcast-people-wrapper .podcast-person-meta > .person-basic-info > .person-name > .person-name-text {
+  color: #fff;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;  
+  align-items: center;
+}
+
+.jc-podcast-people-wrapper .person-meta-roles {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jc-podcast-people-wrapper .person-meta-roles > .person-meta-role {
+  font-size: 9px;
+  font-weight: bold;
+  max-width: 80px;
+  min-height: 30px;
+  padding: 0 10px;
+  /* width: 100%; */
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* backdrop-filter: blur(9px); */
+  /* background-color: rgba(255, 255, 255, 0.3); */
+  background-color: #040404;
+  color: white;
+}

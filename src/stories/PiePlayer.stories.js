@@ -6,10 +6,15 @@ const stories = storiesOf('PiePlayer Test', module);
 
 const artwork = "https://justcast.sfo2.digitaloceanspaces.com/js-production/1643509880856-1400.png"
 const podcastTitle = "Inside the Aluminum Tube"
+const people = [
+  {name: "Shanon Baker", role: "Host", roles: ["Host", "Creator", "Producer", "Writer"], img: "https://justcast.sfo2.digitaloceanspaces.com/js-production/1643421327912-2020-10-08%25252012.56.25.jpg", host_href: "https://justcast.com/shows/44187/about_us" },
+  {name: "Mary Hall", role: "Co-Host", roles: ["Co-Host", "Associate Producer", "Social Media Manager"], img: "https://justcast.sfo2.digitaloceanspaces.com/js-production/1643422438462-2021-10-22%2013.52.48.jpg", host_href: "https://justcast.com/shows/44187/about_us" },
+  {name: "Josh Chen", role: "Co-Host", roles: ["Co-Host", "Associate Producer", "Social Media Manager"], host_href: "https://justcast.com/shows/44187/about_us", href: "https://justcast.com" }
+]
 
 const theme = {
   backgroundColor: "#123",
-  textColor: "",
+  textColor: "#123",
   cardBackgroundColor: "#9FDCB8",
   cardTextColor: "#030A04",
   cardButtonColor: "",
@@ -35,7 +40,7 @@ const episodes = [
 // chapters?
 // render-type
 
-stories.add('App', () => {
+stories.add('Card', () => {
   return (
     <div>
     <PiePlayer
@@ -44,11 +49,8 @@ stories.add('App', () => {
       theme={theme}
       episodes={episodes}
       title={podcastTitle}
+      people={people}
     />
-    {/* <PiePlayer
-      theme={{backgroundColor: "#2231"}}
-      episodes={episodes}
-    />     */}
     </div>
   );
 })
