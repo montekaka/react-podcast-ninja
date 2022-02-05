@@ -1,7 +1,7 @@
 import React from 'react';
 import {format} from 'date-fns'
 import {useAtom} from "jotai"
-import {upatePlayerAtom} from '../jotai'
+import {upatePlayerAtom, themeAtom} from '../jotai'
 import PlayPauseButton from './PlayPauseButton'
 import CurrentPlayingSec from './CurrentPlayingSec'
 
@@ -18,7 +18,10 @@ export default function EpisodeListItem(props) {
     duration
   } = props;
   const [playerState, setPlayerState] = useAtom(upatePlayerAtom);
+  const [themeState] = useAtom(themeAtom);
+
   const {muted, playing, playingId} = playerState;
+  const {cardBackgroundColor, cardTextColor} = themeState;
   
   const onClick = () => {
     if(playing === true && playingId === idx) {
@@ -51,10 +54,10 @@ export default function EpisodeListItem(props) {
   }
 
   return (
-    <div className='episode-wrapper' style={{backgroundColor: "#123123"}}>
+    <div className='episode-wrapper' style={{backgroundColor: cardBackgroundColor}}>
       <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
       <div className='main-container'>
-        <div className='tags' style={{backgroundColor: "#123123", color: "#fff"}}>{pubDate ? format(new Date(pubDate), 'MM/dd/yyyy') : ""}</div>
+        <div className='tags' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>{pubDate ? format(new Date(pubDate), 'MM/dd/yyyy') : ""}</div>
         <div className='jc-card-body'>
           <div className='meta'>
             <div className='main'>
@@ -65,9 +68,9 @@ export default function EpisodeListItem(props) {
                 <div>{duration}</div>
               </div>
             </div>            
-            <PlayPauseButton idx={idx} onClick={onClick}/>
-            
-          </div>          
+            <PlayPauseButton idx={idx} onClick={onClick}/>           
+          </div>  
+          <div className='break-line'/>
           <div className='footer'>
             <div className='footer-meta'>
               <div className='artwork-wrapper'>

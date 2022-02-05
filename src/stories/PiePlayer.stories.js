@@ -10,8 +10,8 @@ const podcastTitle = "Inside the Aluminum Tube"
 const theme = {
   backgroundColor: "#123",
   textColor: "",
-  cardBackgroundColor: "",
-  cardTextColor: "",
+  cardBackgroundColor: "#9FDCB8",
+  cardTextColor: "#030A04",
   cardButtonColor: "",
   cardButtonTextColor: "",  
   themeClassName: "jc-npp-container-card",
