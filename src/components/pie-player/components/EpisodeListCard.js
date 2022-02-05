@@ -5,7 +5,7 @@ import {upatePlayerAtom, themeAtom} from '../jotai'
 import PlayPauseButton from './PlayPauseButton'
 import CurrentPlayingSec from './CurrentPlayingSec'
 
-export default function EpisodeListItem(props) {
+export default function EpisodeListCard(props) {
   const {
     podcastTitle, 
     podcastArtwork, 

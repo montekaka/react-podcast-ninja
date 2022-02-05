@@ -1,5 +1,5 @@
 import React from 'react';
-import EpisodeListItem from './EpisodeListItem'
+import EpisodeListCard from './EpisodeListCard'
 import {useAtom} from "jotai"
 import {themeAtom} from '../jotai'
 
@@ -11,7 +11,7 @@ export default function EpisodeList({episodes, artwork, podcastTitle}) {
     
     return (
       <div className={themeState.themeClassName}>
-        { episodes.map((e, idx) => <EpisodeListItem 
+        { episodes.map((e, idx) => <EpisodeListCard 
           key={`castpie-${idx+1}`} 
           title={e.title} 
           podcastTitle={podcastTitle}

@@ -49,6 +49,21 @@ stories.add('Card', () => {
       theme={theme}
       episodes={episodes}
       title={podcastTitle}
+      people={[]}
+    />
+    </div>
+  );
+})
+
+stories.add('People', () => {
+  return (
+    <div>
+    <PiePlayer
+      sectionTitle="Latest episodes"
+      artwork={artwork}
+      theme={theme}
+      episodes={[]}
+      title={podcastTitle}
       people={people}
     />
     </div>

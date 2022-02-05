@@ -12,6 +12,7 @@
 .jc-podcast-people-wrapper > .podcast-people-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .jc-podcast-people-wrapper .podcast-people-container {

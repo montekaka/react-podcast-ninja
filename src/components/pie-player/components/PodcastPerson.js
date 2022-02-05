@@ -85,18 +85,4 @@ export default function PodcastPerson(props) {
       />
     </div>
   )
-
-
 }
-
-
-// <Avatar backgroundColor={textColor} textColor={backgroundColor} host_href={host_href}>
-//         <Image img={img} name={name} />
-//       </Avatar>
-//       <div className='podcast-person-meta'>
-//         <div className='person-basic-info'>
-//           <div style={{color: textColor}} className='person-name'>{name}</div>
-//           {(href && href.length > 5) ? <a href={href} target="_blank" style={{color: textColor}}>Home page</a> : null}
-//         </div>
-//         <PodcastPersonRoles roles={roles} role={role} color={backgroundColor} backgroundColor={textColor}/>
-//       </div>
