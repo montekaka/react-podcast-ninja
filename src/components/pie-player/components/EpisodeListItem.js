@@ -65,9 +65,8 @@ export default function EpisodeListItem(props) {
                 <div>{duration}</div>
               </div>
             </div>            
-            <div className='jc-player-pp-button-container' onClick={onClick}>
-              <PlayPauseButton idx={idx}/>
-            </div>            
+            <PlayPauseButton idx={idx} onClick={onClick}/>
+            
           </div>          
           <div className='footer'>
             <div className='footer-meta'>
