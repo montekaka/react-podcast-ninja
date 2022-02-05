@@ -39,6 +39,7 @@ stories.add('App', () => {
   return (
     <div>
     <PiePlayer
+      sectionTitle="Latest episodes"
       artwork={artwork}
       theme={theme}
       episodes={episodes}
