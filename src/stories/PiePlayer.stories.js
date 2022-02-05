@@ -19,7 +19,7 @@ const theme = {
   cardTextColor: "#030A04",
   cardButtonColor: "",
   cardButtonTextColor: "",  
-  themeClassName: "jc-npp-container-card",
+  themeClassName: "jc-npp-card-episodes",
 }
 
 const episodes = [

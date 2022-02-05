@@ -1,12 +1,16 @@
 import React from 'react';
 import EpisodeListItem from './EpisodeListItem'
+import {useAtom} from "jotai"
+import {themeAtom} from '../jotai'
 
 export default function EpisodeList({episodes, artwork, podcastTitle}) {
+
+  const [themeState] = useAtom(themeAtom);
 
   if(episodes && episodes.length > 0) {
     
     return (
-      <div className='episodes'>
+      <div className={themeState.themeClassName}>
         { episodes.map((e, idx) => <EpisodeListItem 
           key={`castpie-${idx+1}`} 
           title={e.title} 

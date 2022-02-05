@@ -1,6 +1,7 @@
 import React from 'react';
 import {Provider} from "jotai"
 import {Container, PlayerContainer, EpisodeList, SectionHeader, PodcastPeople} from './components'
+import './style/main.css';
 import './style/card-theme.css';
 import './style/people-theme.css';
 
