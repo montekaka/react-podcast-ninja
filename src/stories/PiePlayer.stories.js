@@ -12,24 +12,37 @@ const people = [
   {name: "Josh Chen", role: "Co-Host", roles: ["Co-Host", "Associate Producer", "Social Media Manager"], host_href: "https://justcast.com/shows/44187/about_us", href: "https://justcast.com" }
 ]
 
-const theme = {
+const cardTheme = {
   backgroundColor: "#123",
   textColor: "#123",
-  cardBackgroundColor: "#9FDCB8",
+  cardBackgroundColor: "#97CADB",
   cardTextColor: "#030A04",
   cardButtonColor: "",
   cardButtonTextColor: "",  
   themeClassName: "jc-npp-card",
+  navControler: false
 }
 
 const thumnailTheme = {
   backgroundColor: "#123",
   textColor: "#123",
-  cardBackgroundColor: "#9FDCB8",
+  cardBackgroundColor: "#97CADB",
   cardTextColor: "#030A04",
   cardButtonColor: "",
   cardButtonTextColor: "",  
   themeClassName: "jc-npp-thumnail",
+  navControler: false
+}
+
+const tileTheme = {
+  backgroundColor: "#123",
+  textColor: "#123",
+  cardBackgroundColor: "#97CADB",
+  cardTextColor: "#030A04",
+  cardButtonColor: "",
+  cardButtonTextColor: "",  
+  themeClassName: "jc-npp-tile",
+  navControler: true
 }
 
 const episodes = [
@@ -52,45 +65,56 @@ const episodes = [
 
 stories.add('Card', () => {
   return (
-    <div>
     <PiePlayer
       sectionTitle="Latest episodes"
       artwork={artwork}
-      theme={theme}
+      theme={cardTheme}
       episodes={episodes}
       title={podcastTitle}
       people={[]}
     />
-    </div>
   );
 })
 
 stories.add('Thumnail', () => {
   return (
-    <div>
     <PiePlayer
       sectionTitle="Latest episodes"
       artwork={artwork}
       theme={thumnailTheme}
       episodes={episodes}
       title={podcastTitle}
+      peopleTitle={"Meet the hosts"}
       people={[]}
     />
-    </div>
+  );
+})
+
+
+stories.add('Tile', () => {
+  return (
+    <PiePlayer
+      sectionTitle="Latest episodes"
+      artwork={artwork}
+      theme={tileTheme}
+      episodes={episodes}
+      title={podcastTitle}
+      peopleTitle={"Meet the hosts"}
+      people={[]}
+    />
   );
 })
 
 stories.add('People', () => {
   return (
-    <div>
     <PiePlayer
       sectionTitle="Latest episodes"
       artwork={artwork}
-      theme={theme}
+      theme={cardTheme}
       episodes={[]}
       title={podcastTitle}
       people={people}
+      peopleTitle={"Meet the hosts"}
     />
-    </div>
   );
 })

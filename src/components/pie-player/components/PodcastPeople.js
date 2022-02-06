@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import PodcastPeopleNav from './PodcastPeopleNav'
+import PodcastNav from './PodcastNav'
 import PodcastPerson from './PodcastPerson'
 
 export default function PodcastPeople({people, artwork, textColor, peopleTitle}) {
@@ -26,7 +26,7 @@ export default function PodcastPeople({people, artwork, textColor, peopleTitle})
       <div className='jc-podcast-people-wrapper'>
         <div className='podcast-people-header'>
           <h3 style={{color: textColor}}>{peopleTitle ? peopleTitle : "Meet the Hosts"}</h3>
-          {people && people.length > 1 ? <PodcastPeopleNav sliderToLeft={sliderToLeft} sliderToRight={sliderToRight} iconColor={textColor}/> : null}
+          {people && people.length > 1 ? <PodcastNav sliderToLeft={sliderToLeft} sliderToRight={sliderToRight} iconColor={textColor}/> : null}
         </div>
         <div className='podcast-people-container' ref={ref}>
           {

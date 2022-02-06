@@ -22,11 +22,6 @@
   display: none;
 }
 
-.jc-podcast-people-wrapper .people-nav-buttons {
-  display: flex;
-  gap: 20px;
-}
-
 .jc-podcast-people-wrapper .podcast-people-container > .podcast-person-card {
   width: 260px;
   height: 160px;

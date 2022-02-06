@@ -69,34 +69,42 @@ export default function EpisodeListCard(props) {
         </div>
       </div>
     );
-  }
-
-  return (
-    <div className='episode-wrapper' style={{backgroundColor: cardBackgroundColor}}>
-      <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
-      <div className='main-container'>
-        <div className='tags' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>{pubDate ? format(new Date(pubDate), 'MM/dd/yyyy') : ""}</div>
-        <div className='jc-card-body'>
-          <div className='meta'>
-            <div className='main'>
-              <div className='title'>{title}</div>
-              <CurrentPlayingSec idx={idx} duration={duration}/>
-            </div>            
-            <PlayPauseButton idx={idx} onClick={onClick}/>
-          </div>  
-          <div className='break-line'/>
-          <div className='footer'>
-            <div className='footer-meta'>
-              <div className='artwork-wrapper'>
-                <div className='cover'/>
-                <img src={podcastArtwork} />
-              </div>  
-              <div className='title'>{podcastTitle}</div>
+  } else if (themeClassName === 'jc-npp-tile') {
+    return (
+      <div className='episode-wrapper'>
+        <div>{title}</div>        
+      </div>
+    )
+  } else if (themeClassName === 'jc-npp-card') {
+    return (
+      <div className='episode-wrapper' style={{backgroundColor: cardBackgroundColor}}>
+        <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
+        <div className='main-container'>
+          <div className='tags' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>{pubDate ? format(new Date(pubDate), 'MM/dd/yyyy') : ""}</div>
+          <div className='jc-card-body'>
+            <div className='meta'>
+              <div className='main'>
+                <div className='title'>{title}</div>
+                <CurrentPlayingSec idx={idx} duration={duration}/>
+              </div>            
+              <PlayPauseButton idx={idx} onClick={onClick}/>
+            </div>  
+            <div className='break-line'/>
+            <div className='footer'>
+              <div className='footer-meta'>
+                <div className='artwork-wrapper'>
+                  <div className='cover'/>
+                  <img src={podcastArtwork} />
+                </div>  
+                <div className='title'>{podcastTitle}</div>
+              </div>
+              <a className='footer-button' href={link} target="_blank">OPEN</a>
             </div>
-            <a className='footer-button' href={link} target="_blank">OPEN</a>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 }

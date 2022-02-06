@@ -1,3 +1,12 @@
+.jc-npp-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: wheat; */
+  height: 40px;
+  /* align-content: center; */
+}
+
 .jc-npp-container-main {
   display: flex;
   flex-direction: column;
@@ -16,3 +25,7 @@
   box-sizing: border-box;  
 }
 
+.jc-npp-nav-buttons {
+  display: flex;
+  gap: 20px;
+}
