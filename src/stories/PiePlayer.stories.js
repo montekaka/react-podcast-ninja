@@ -9,7 +9,7 @@ const podcastTitle = "Inside the Aluminum Tube"
 const people = [
   {name: "Shanon Baker", role: "Host", roles: ["Host", "Creator", "Producer", "Writer"], img: "https://justcast.sfo2.digitaloceanspaces.com/js-production/1643421327912-2020-10-08%25252012.56.25.jpg", host_href: "https://justcast.com/shows/44187/about_us" },
   {name: "Mary Hall", role: "Co-Host", roles: ["Co-Host", "Associate Producer", "Social Media Manager"], img: "https://justcast.sfo2.digitaloceanspaces.com/js-production/1643422438462-2021-10-22%2013.52.48.jpg", host_href: "https://justcast.com/shows/44187/about_us" },
-  {name: "Josh Chen", role: "Co-Host", roles: ["Co-Host", "Associate Producer", "Social Media Manager"], host_href: "https://justcast.com/shows/44187/about_us", href: "https://justcast.com" }
+  {name: "Josh Chen safdadsfasdfasdfasdfasdfasdfasd", role: "Co-Host", roles: ["Co-Host", "Associate Producer", "Social Media Manager"], host_href: "https://justcast.com/shows/44187/about_us", href: "https://justcast.com" }
 ]
 
 const cardTheme = {

@@ -5,6 +5,7 @@ import './style/main.css';
 import './style/people-theme.css';
 import './style/card-theme.css';
 import './style/thumnail-theme.css';
+import './style/tile-theme.css';
 
 export default function PiePlayer(props) {
   const {sectionTitle, loading, people, episodes, artwork, title, href, theme, peopleTitle } = props;    

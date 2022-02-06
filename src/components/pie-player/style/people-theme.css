@@ -123,11 +123,14 @@
   border-radius: 10px;
   padding: 0px 10px 0 10px;
   width: 100%;
+  max-width: 150px;
+  /* height: 20px; */
   backdrop-filter: blur(9px);
   background-color: rgba(255, 255, 255, 0.4);  
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;  
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
@@ -136,7 +139,7 @@
   height: 30px;
   font-size: 16px;
   font-weight: bold;
-  display: flex;  
+  display: flex;    
   align-items: center;
   text-decoration: none;
 }

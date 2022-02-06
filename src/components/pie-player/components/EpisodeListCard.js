@@ -72,7 +72,18 @@ export default function EpisodeListCard(props) {
   } else if (themeClassName === 'jc-npp-tile') {
     return (
       <div className='episode-wrapper'>
-        <div>{title}</div>        
+        <img className='background-img' src={href ? href : podcastArtwork} alt={title}/> 
+        <div className='main-container'>
+          <div className='tags'>
+            <div className='tag'>{pubDate ? format(new Date(pubDate), 'MM/dd/yyyy') : ""}</div>
+          </div>
+          <div className='jc-card-body'>
+            <div className='controls'>              
+              <PlayPauseButton idx={idx} onClick={onClick}/>             
+            </div>
+            <div className='title'>{title}</div>
+          </div>
+        </div>
       </div>
     )
   } else if (themeClassName === 'jc-npp-card') {
