@@ -24,8 +24,8 @@ export default function EpisodeList({episodes, artwork, podcastTitle}) {
           duration={e.duration}
         />)}
       </div>
-    )      
-    
+    )  
+      
   }  
 
   return null;

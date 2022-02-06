@@ -21,7 +21,7 @@ export default function EpisodeListCard(props) {
   const [themeState] = useAtom(themeAtom);
 
   const {muted, playing, playingId} = playerState;
-  const {cardBackgroundColor, cardTextColor} = themeState;
+  const {cardBackgroundColor, cardTextColor, themeClassName} = themeState;
   
   const onClick = () => {
     if(playing === true && playingId === idx) {
@@ -53,6 +53,24 @@ export default function EpisodeListCard(props) {
 
   }
 
+  if(themeClassName === 'jc-npp-thumnail') {
+    return (
+      <div className='episode-wrapper' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>
+        <a className="meta-artwork" href={link} target="_blank">
+          <div className='background-filter'></div>
+          <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
+        </a>
+        <div className='main-meta' style={{color: cardTextColor}}>
+          <div className='title'>{title}</div>
+          <CurrentPlayingSec idx={idx} duration={duration}/>         
+        </div>
+        <div className='controls'>
+          <PlayPauseButton idx={idx} onClick={onClick}/> 
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className='episode-wrapper' style={{backgroundColor: cardBackgroundColor}}>
       <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
@@ -62,13 +80,9 @@ export default function EpisodeListCard(props) {
           <div className='meta'>
             <div className='main'>
               <div className='title'>{title}</div>
-              <div className='progress-time'>
-                <CurrentPlayingSec idx={idx}/>
-                <div>/</div>
-                <div>{duration}</div>
-              </div>
+              <CurrentPlayingSec idx={idx} duration={duration}/>
             </div>            
-            <PlayPauseButton idx={idx} onClick={onClick}/>           
+            <PlayPauseButton idx={idx} onClick={onClick}/>
           </div>  
           <div className='break-line'/>
           <div className='footer'>

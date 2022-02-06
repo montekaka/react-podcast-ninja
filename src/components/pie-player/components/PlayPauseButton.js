@@ -6,9 +6,9 @@ import { Play, Pause } from 'react-feather';
 const PlayPauseIcon = ({playing, playingId, idx}) => {
 
   if(playing === true && playingId > -1 && playingId === idx) {
-    return <Pause/>
+    return <Pause className='button'/>
   } else {
-    return <Play/>
+    return <Play className='button'/>
   }
 }
 

@@ -1,13 +1,7 @@
 
-.jc-podcast-people-wrapper {
+/* .jc-podcast-people-wrapper {
   margin: 20px 0 20px 0;
-}
-
-.jc-podcast-people-wrapper * {
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;  
-}
+} */
 
 .jc-podcast-people-wrapper > .podcast-people-header {
   display: flex;

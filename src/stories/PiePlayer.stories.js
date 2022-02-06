@@ -19,7 +19,17 @@ const theme = {
   cardTextColor: "#030A04",
   cardButtonColor: "",
   cardButtonTextColor: "",  
-  themeClassName: "jc-npp-card-episodes",
+  themeClassName: "jc-npp-card",
+}
+
+const thumnailTheme = {
+  backgroundColor: "#123",
+  textColor: "#123",
+  cardBackgroundColor: "#9FDCB8",
+  cardTextColor: "#030A04",
+  cardButtonColor: "",
+  cardButtonTextColor: "",  
+  themeClassName: "jc-npp-thumnail",
 }
 
 const episodes = [
@@ -47,6 +57,21 @@ stories.add('Card', () => {
       sectionTitle="Latest episodes"
       artwork={artwork}
       theme={theme}
+      episodes={episodes}
+      title={podcastTitle}
+      people={[]}
+    />
+    </div>
+  );
+})
+
+stories.add('Thumnail', () => {
+  return (
+    <div>
+    <PiePlayer
+      sectionTitle="Latest episodes"
+      artwork={artwork}
+      theme={thumnailTheme}
       episodes={episodes}
       title={podcastTitle}
       people={[]}
