@@ -9,7 +9,7 @@
 
 .jc-npp-tile > .episode-wrapper {
   height: 200px;
-  width: 320px; 
+  width: 340px; 
   border-radius: 12px;
   display: grid;
   grid-template: 1fr / 1fr;
@@ -19,7 +19,7 @@
 .jc-npp-tile > .episode-wrapper > .background-img {
   border-radius: 12px;
   height: 200px;
-  width: 320px; 
+  width: 340px; 
   object-fit: cover;
   grid-column: 1 / 1;
   grid-row: 1 / 1;
@@ -105,27 +105,38 @@
 
 .jc-npp-tile > .episode-wrapper > .main-container > .jc-card-body > .title {
 
-  max-width: 320px;
+  max-width: 280px;
   font-weight: bold;
+  font-size: 14px;
   color: white;
   display: block;
   display: -webkit-box;
   max-width: 100%;
-  height: 41px;
+  height: 50px;
   margin: 0 auto;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;  
 }
 
-/* 
-height: 60px;
-color: white;
-white-space: nowrap;
-font-weight: bold;
-overflow: hidden;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-line-clamp: 2;
--webkit-box-orient: vertical; */
+.jc-npp-tile > .episode-wrapper > .main-container > .jc-card-body > .progress-duration-container {
+  width: 100%;
+  height: 100%;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: yellow; */
+}
+
+.jc-npp-tile > .episode-wrapper > .main-container > .jc-card-body > .progress-duration-container > .label {
+  width: 70px;
+  height: 26px;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  background-color: white;
+}

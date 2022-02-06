@@ -82,6 +82,9 @@ export default function EpisodeListCard(props) {
               <PlayPauseButton idx={idx} onClick={onClick}/>             
             </div>
             <div className='title'>{title}</div>
+            <div className='progress-duration-container'>
+              <div className='label'>{duration}</div>
+            </div>
           </div>
         </div>
       </div>
