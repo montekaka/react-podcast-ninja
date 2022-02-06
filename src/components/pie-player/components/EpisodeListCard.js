@@ -4,6 +4,7 @@ import {useAtom} from "jotai"
 import {upatePlayerAtom, themeAtom} from '../jotai'
 import PlayPauseButton from './PlayPauseButton'
 import CurrentPlayingSec from './CurrentPlayingSec'
+import PlayingDurationSec from './PlayingDurationSec'
 
 export default function EpisodeListCard(props) {
   const {
@@ -83,7 +84,8 @@ export default function EpisodeListCard(props) {
             </div>
             <div className='title'>{title}</div>
             <div className='progress-duration-container'>
-              <div className='label'>{duration}</div>
+              
+              <div className='label'><PlayingDurationSec idx={idx} duration={duration}/></div>
             </div>
           </div>
         </div>
