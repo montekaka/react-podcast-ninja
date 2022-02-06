@@ -3,14 +3,14 @@ import EpisodeListCard from './EpisodeListCard'
 import {useAtom} from "jotai"
 import {themeAtom} from '../jotai'
 
-export default function EpisodeList({episodes, artwork, podcastTitle}) {
+export default function EpisodeList({episodes, artwork, podcastTitle, episodesRef}) {
 
   const [themeState] = useAtom(themeAtom);
-
+  
   if(episodes && episodes.length > 0) {
     
     return (
-      <div className={themeState.themeClassName}>
+      <div className={themeState.themeClassName} ref={episodesRef}>
         { episodes.map((e, idx) => <EpisodeListCard 
           key={`castpie-${idx+1}`} 
           title={e.title} 

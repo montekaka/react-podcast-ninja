@@ -34,7 +34,7 @@ const Image = ({img, name}) => {
 }
 
 const PersonMain = (props) => {
-  const {artwork, name, img,host_href, roles, role} = props;
+  const {artwork, name, img,host_href, roles, role, title_href} = props;
 
   return (
     <div className='podcast-person-wrapper'>    
@@ -46,7 +46,7 @@ const PersonMain = (props) => {
         <div className='podcast-person-meta'>
           <div className='person-basic-info'>
             <div className='person-name'>
-              <div className='person-name-text'>{name}</div>              
+              <a className='person-name-text' href={title_href} target="_blank">{name}</a>              
             </div>            
           </div>
           <PodcastPersonRoles roles={roles} role={role}/>
@@ -59,19 +59,19 @@ const PersonMain = (props) => {
 export default function PodcastPerson(props) {
   const {artwork, name, img, href,host_href, group, roles, role, backgroundColor, textColor} = props;
 
-  if(href && href.length > 5) {
-    return (
-      <a className='podcast-person-card' target='_blank' href={href} style={{textDecoration: "none"}}>    
-        <PersonMain
-          artwork={artwork} 
-          name={name} 
-          img={img}
-          host_href={host_href}
-          roles={roles}
-          role={role}
-        />       
-      </a>);
-  } 
+  // if(href && href.length > 5) {
+  //   return (
+  //     <a className='podcast-person-card' target='_blank' href={href} style={{textDecoration: "none"}}>    
+  //       <PersonMain
+  //         artwork={artwork} 
+  //         name={name} 
+  //         img={img}
+  //         host_href={host_href}
+  //         roles={roles}
+  //         role={role}
+  //       />       
+  //     </a>);
+  // } 
   
   return (
     <div className='podcast-person-card'>    
@@ -80,6 +80,7 @@ export default function PodcastPerson(props) {
         name={name} 
         img={img}
         host_href={host_href}
+        title_href={href}
         roles={roles}
         role={role}
       />

@@ -138,6 +138,7 @@
   font-weight: bold;
   display: flex;  
   align-items: center;
+  text-decoration: none;
 }
 
 .jc-podcast-people-wrapper .person-meta-roles {
