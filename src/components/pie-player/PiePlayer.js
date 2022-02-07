@@ -30,8 +30,10 @@ export default function PiePlayer(props) {
       <Provider>
         <PlayerContainer theme={theme}/>
         <Container>
-          <SectionHeader title={sectionTitle} sliderToRight={sliderToRight} sliderToLeft={sliderToLeft}/>
-          <EpisodeList episodes={episodes} artwork={artwork} podcastTitle={title} episodesRef={episodesRef}/>
+          <SectionHeader title={sectionTitle} navControler={theme.navControler} sliderToRight={sliderToRight} sliderToLeft={sliderToLeft}/>
+          <EpisodeList episodes={episodes} artwork={artwork} podcastTitle={title} episodesRef={episodesRef}>
+            <SectionHeader title={"More episodes"} navControler={true} sliderToRight={sliderToRight} sliderToLeft={sliderToLeft}/>
+          </EpisodeList>
           <PodcastPeople people={people} artwork={artwork} textColor={theme.textColor} peopleTitle={peopleTitle}/>
         </Container>
       </Provider>

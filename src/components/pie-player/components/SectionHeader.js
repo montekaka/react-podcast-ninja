@@ -4,9 +4,9 @@ import {themeAtom} from '../jotai'
 import PodcastNav from './PodcastNav'
 
 export default function SectionHeader(props) {
-  const {title, sliderToRight, sliderToLeft} = props;
+  const {title, navControler, sliderToRight, sliderToLeft} = props;
   const [themeState] = useAtom(themeAtom);
-  const {navControler, textColor} = themeState;
+  const {textColor} = themeState;
 
   if(title) {
     return (

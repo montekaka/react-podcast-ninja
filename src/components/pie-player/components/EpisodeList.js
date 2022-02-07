@@ -27,7 +27,10 @@ export default function EpisodeList(props) {
             pubDate={cardEpisode.pubDate}
             duration={cardEpisode.duration}
           />
-          <div className='jc-npp-tile'>
+          {
+            tileEpisodes.length > 1 && props.children
+          }
+          <div className='jc-npp-tile' ref={episodesRef}>
             { tileEpisodes.map((e, idx) => <EpisodeListCard 
               key={`castpie-${idx+2}`} 
               title={e.title} 
