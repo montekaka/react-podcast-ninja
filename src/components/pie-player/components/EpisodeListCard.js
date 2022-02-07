@@ -56,7 +56,7 @@ export default function EpisodeListCard(props) {
 
   if(themeClassName === 'jc-npp-thumnail') {
     return (
-      <div className='episode-wrapper' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>
+      <div className='jc-npp-thumnail-episode-wrapper' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>
         <a className="meta-artwork" href={link} target="_blank">
           <div className='background-filter'></div>
           <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
@@ -72,7 +72,7 @@ export default function EpisodeListCard(props) {
     );
   } else if (themeClassName === 'jc-npp-tile') {
     return (
-      <div className='episode-wrapper'>
+      <div className='jc-npp-tile-episode-wrapper'>
         <img className='background-img' src={href ? href : podcastArtwork} alt={title}/> 
         <div className='main-container'>
           <div className='tags'>
@@ -83,8 +83,7 @@ export default function EpisodeListCard(props) {
               <PlayPauseButton idx={idx} onClick={onClick}/>             
             </div>
             <div className='title'>{title}</div>
-            <div className='progress-duration-container'>
-              
+            <div className='progress-duration-container'>              
               <div className='label'><PlayingDurationSec idx={idx} duration={duration}/></div>
             </div>
           </div>
@@ -93,7 +92,7 @@ export default function EpisodeListCard(props) {
     )
   } else if (themeClassName === 'jc-npp-card') {
     return (
-      <div className='episode-wrapper' style={{backgroundColor: cardBackgroundColor}}>
+      <div className='jc-npp-card-episode-wrapper' style={{backgroundColor: cardBackgroundColor}}>
         <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
         <div className='main-container'>
           <div className='tags' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>{pubDate ? format(new Date(pubDate), 'MM/dd/yyyy') : ""}</div>

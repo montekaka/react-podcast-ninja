@@ -1,0 +1,204 @@
+.jc-npp-card-episode-wrapper {
+  height: 460px;
+  width: 380px;
+  border-radius: 10px;
+  padding: 8px;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  /* position: relative; */
+}
+
+.jc-npp-card-episode-wrapper > .background-img {
+  /* position: absolute; */
+  /* left: 0px;
+  right: 0px; */
+  border-radius: 10px;
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 1;
+}
+
+.jc-npp-card-episode-wrapper > .main-container {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 3;
+  /* position: absolute; */
+  /* backdrop-filter: blur(4px); */
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  /* background-color: bisque; */
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;  
+  /* padding: 10px; */
+  display: flex;  
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .tags {
+  width: 120px;
+  height: 24px;
+  /* background-color: black;
+  color: white; */
+  font-size: 14px;  
+  font-weight: 800;
+  /* font-weight: bold; */
+  border-radius: 0 0 20px 0;
+  /* display: flex;
+  align-content: center; */
+  text-align: center;
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body {
+  width: 100%;
+  height: 160px;
+  padding: 30px 10px 10px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(40px);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;  
+  /* background-color: bisque; */
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .break-line {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .meta {
+  width: 100%; 
+  height: 60px; 
+  display: flex;
+  gap: 10px;
+  /* background-color: bisque; */
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .meta > .jc-player-pp-button-container {
+  width: 40px;
+  height: 40px;
+  /* background-color: chocolate; */
+  flex-grow: 0;
+}
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .meta > .jc-player-pp-button-container > .pp-button {
+  width: 40px;
+  height: 40px;  
+  border-radius: 100%;
+  border-style: solid;
+  border-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .meta > .main {
+  /* width: 100%;   */
+  flex: 1;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* background-color: cadetblue; */
+  /* font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;   */
+} 
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .meta > .main > .title {
+  height: 36px;
+  max-width: 294px;
+  /* background-color: cadetblue; */
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .meta > .main > .progress-time {
+  height: 16px;
+  font-size: 12px;
+  color: white;
+  /* background-color: black; */
+  display: flex;
+  justify-items: center;
+  gap: 4px;
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .footer {
+  /* background-color: wheat; */
+  /* border-width: 2px;
+  border-top: solid; */
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .footer > .footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .footer > .footer-meta > .artwork-wrapper {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  grid-template: 1fr / 1fr;  
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .footer > .footer-meta > .artwork-wrapper > .cover {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 3;
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .footer > .footer-meta > .artwork-wrapper > img {
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  object-fit: cover;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  z-index: 1;  
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .footer > .footer-meta > .title {
+  font-weight: bold;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical; 
+}
+
+.jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .footer > .footer-button {
+  width: 80px;
+  height: 26px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}

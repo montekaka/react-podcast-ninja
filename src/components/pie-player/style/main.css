@@ -29,3 +29,24 @@
   display: flex;
   gap: 20px;
 }
+
+.jc-npp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;  
+}
+
+.jc-npp-thumnail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jc-npp-tile {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;  
+}
