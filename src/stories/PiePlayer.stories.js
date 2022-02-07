@@ -23,14 +23,14 @@ const cardTheme = {
   navControler: false
 }
 
-const thumnailTheme = {
+const thumbnailTheme = {
   backgroundColor: "#123",
   textColor: "#123",
   cardBackgroundColor: "#97CADB",
   cardTextColor: "#030A04",
   cardButtonColor: "",
   cardButtonTextColor: "",  
-  themeClassName: "jc-npp-thumnail",
+  themeClassName: "jc-npp-thumbnail",
   navControler: false
 }
 
@@ -88,12 +88,12 @@ stories.add('Card', () => {
   );
 })
 
-stories.add('Thumnail', () => {
+stories.add('thumbnail', () => {
   return (
     <PiePlayer
       sectionTitle="Latest episodes"
       artwork={artwork}
-      theme={thumnailTheme}
+      theme={thumbnailTheme}
       episodes={episodes}
       title={podcastTitle}
       peopleTitle={"Meet the hosts"}

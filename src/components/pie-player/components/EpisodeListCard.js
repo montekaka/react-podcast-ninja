@@ -54,9 +54,9 @@ export default function EpisodeListCard(props) {
 
   }
 
-  if(themeClassName === 'jc-npp-thumnail') {
+  if(themeClassName === 'jc-npp-thumbnail') {
     return (
-      <div className='jc-npp-thumnail-episode-wrapper' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>
+      <div className='jc-npp-thumbnail-episode-wrapper' style={{backgroundColor: cardBackgroundColor, color: cardTextColor}}>
         <a className="meta-artwork" href={link} target="_blank">
           <div className='background-filter'></div>
           <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>

@@ -1,10 +1,4 @@
-.jc-npp-thumnail {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.jc-npp-thumnail > .episode-wrapper {
+.jc-npp-thumbnail-episode-wrapper {
   height: 80px;
   width: 380px;
   border-radius: 10px;
@@ -17,7 +11,7 @@
   column-gap: 6px;
 }
 
-.jc-npp-thumnail > .episode-wrapper > .meta-artwork {
+.jc-npp-thumbnail-episode-wrapper > .meta-artwork {
   width: 60px;
   height: 100%;
   /* background-color: blanchedalmond; */
@@ -26,7 +20,7 @@
   /* align-items: center; */
 }
 
-.jc-npp-thumnail > .episode-wrapper > .meta-artwork > .background-img {
+.jc-npp-thumbnail-episode-wrapper > .meta-artwork > .background-img {
   border-radius: 10px;
   width: 60px;
   height: 60px;
@@ -36,7 +30,7 @@
   z-index: 1;
 }
 
-.jc-npp-thumnail > .episode-wrapper > .meta-artwork > .background-filter {
+.jc-npp-thumbnail-episode-wrapper > .meta-artwork > .background-filter {
   grid-column: 1 / 1;
   grid-row: 1 / 1;
   z-index: 3;
@@ -48,7 +42,7 @@
   flex-direction: column;
 }
 
-.jc-npp-thumnail > .episode-wrapper > .main-meta {
+.jc-npp-thumbnail-episode-wrapper > .main-meta {
   height: 100%;
   /* background-color: blanchedalmond; */
   display: flex;
@@ -56,7 +50,7 @@
   gap: 4px;
 }
 
-.jc-npp-thumnail > .episode-wrapper > .main-meta > .title {
+.jc-npp-thumbnail-episode-wrapper > .main-meta > .title {
   height: 36px;
   /* background-color: cadetblue; */
   font-weight: bold;
@@ -67,7 +61,7 @@
   -webkit-box-orient: vertical;  
 }
 
-.jc-npp-thumnail > .episode-wrapper > .main-meta > .progress-time {
+.jc-npp-thumbnail-episode-wrapper > .main-meta > .progress-time {
   height: 16px;
   font-size: 12px;
   /* background-color: black; */
@@ -76,7 +70,7 @@
   gap: 4px;
 }
 
-.jc-npp-thumnail > .episode-wrapper > .controls {
+.jc-npp-thumbnail-episode-wrapper > .controls {
   height: 100%;
   width: 60px;
   display: flex;
@@ -85,7 +79,7 @@
   /* background-color: blanchedalmond; */
 }
 
-.jc-npp-thumnail > .episode-wrapper > .controls > .jc-player-pp-button-container {
+.jc-npp-thumbnail-episode-wrapper > .controls > .jc-player-pp-button-container {
   width: 40px;
   height: 40px;  
   border-radius: 100%;
@@ -99,7 +93,7 @@
   justify-content: center;  
 }
 
-.jc-npp-thumnail > .episode-wrapper > .controls > .jc-player-pp-button-container > .pp-button {
+.jc-npp-thumbnail-episode-wrapper > .controls > .jc-player-pp-button-container > .pp-button {
   width: 40px;
   height: 40px;  
   cursor: pointer;
@@ -108,7 +102,7 @@
   justify-content: center;  
 }
 
-.jc-npp-thumnail > .episode-wrapper > .controls > .jc-player-pp-button-container > .pp-button > .button {
+.jc-npp-thumbnail-episode-wrapper > .controls > .jc-player-pp-button-container > .pp-button > .button {
   color:white;
   fill:white;
 }
