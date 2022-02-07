@@ -16,6 +16,8 @@
   width: 100%;
   -webkit-overflow-scrolling: touch;
   gap: 10px; 
+  /* background-color: blue; */
+  height: 160px;
 }
 
 .jc-podcast-people-wrapper .podcast-people-container::-webkit-scrollbar {
@@ -137,7 +139,7 @@
 .jc-podcast-people-wrapper .podcast-person-meta > .person-basic-info > .person-name > .person-name-text {
   color: #fff;
   height: 30px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   display: flex;    
   align-items: center;
