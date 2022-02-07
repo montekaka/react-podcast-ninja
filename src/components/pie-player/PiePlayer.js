@@ -1,7 +1,11 @@
 import React, {useRef} from 'react';
 import {Provider} from "jotai"
 import {Container, PlayerContainer, EpisodeList, SectionHeader, PodcastPeople} from './components'
-import './style.css';
+import './main.css';
+import './people-theme.css';
+import './item-card.css';
+import './item-thumbnail.css';
+import './item-tile.css';
 
 export default function PiePlayer(props) {
   const {sectionTitle, loading, people, episodes, artwork, title, href, theme, peopleTitle } = props;    
