@@ -50,3 +50,9 @@
   width: 100%;
   -webkit-overflow-scrolling: touch;  
 }
+
+.jc-npp-mix {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

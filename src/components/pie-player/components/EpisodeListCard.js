@@ -70,7 +70,7 @@ export default function EpisodeListCard(props) {
         </div>
       </div>
     );
-  } else if (themeClassName === 'jc-npp-tile') {
+  } else if (themeClassName === 'jc-npp-tile' || (themeClassName === 'jc-npp-mix' && idx > 0)) {
     return (
       <div className='jc-npp-tile-episode-wrapper'>
         <img className='background-img' src={href ? href : podcastArtwork} alt={title}/> 
@@ -90,7 +90,7 @@ export default function EpisodeListCard(props) {
         </div>
       </div>
     )
-  } else if (themeClassName === 'jc-npp-card') {
+  } else if (themeClassName === 'jc-npp-card' || (themeClassName === 'jc-npp-mix' && idx === 0)) {
     return (
       <div className='jc-npp-card-episode-wrapper' style={{backgroundColor: cardBackgroundColor}}>
         <img className='background-img' src={href ? href : podcastArtwork} alt={title}/>
