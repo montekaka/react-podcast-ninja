@@ -3,8 +3,7 @@ import {useAtom} from "jotai"
 import ChaptersListItem from './ChaptersListItem'
 import useDraggableScroll from 'use-draggable-scroll';
 import { updatePlayedTimeAtom, fetchChaptersAtom, themeNameAtom} from './jotai'
-import arrowLeft from '../../assets/img/arrow-left.svg'
-import arrowRight from '../../assets/img/arrow-right.svg'
+import { ArrowRight, ArrowLeft} from 'react-feather';
 
 const ChaptersList = () => {
   const ref = useRef(null);
@@ -42,7 +41,7 @@ const ChaptersList = () => {
       <div className={`${themeName}-chapters`}>   
         <div className={`${themeName}-chapters-handle`}>
           <div onClick={sliderToLeft}>
-            <img src={arrowLeft} width={30} height={30}/>
+            <ArrowLeft/>
           </div>
         </div>
         <div className={`${themeName}-chapters-container`} ref={ref} onMouseDown={onMouseDown}>
@@ -64,7 +63,7 @@ const ChaptersList = () => {
         </div> 
         <div className={`${themeName}-chapters-handle`}>
           <div onClick={sliderToRight} >
-            <img src={arrowRight} width={30} height={30}/>
+            <ArrowRight/>
           </div>
         </div>              
       </div>
