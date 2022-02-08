@@ -2,7 +2,7 @@
   height: 460px;
   width: 380px;
   border-radius: 10px;
-  padding: 8px;
+  /* padding: 8px; */
   display: grid;
   grid-template: 1fr / 1fr;
   /* position: relative; */
@@ -46,7 +46,7 @@
   font-size: 14px;  
   font-weight: 800;
   /* font-weight: bold; */
-  border-radius: 0 0 20px 0;
+  border-radius: 10px 0 20px 0;
   /* display: flex;
   align-content: center; */
   text-align: center;
