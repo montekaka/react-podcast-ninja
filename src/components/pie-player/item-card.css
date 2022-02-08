@@ -90,6 +90,7 @@
   width: 40px;
   height: 40px;  
   border-radius: 100%;
+  border-width: 2px;
   border-style: solid;
   border-color: white;
   cursor: pointer;
