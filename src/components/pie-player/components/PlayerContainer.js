@@ -13,7 +13,7 @@ export default function PlayerContainer({theme}) {
     if(theme) {
       setThemeState(theme);
     }
-  }, [theme.toString()])
+  }, [theme])
 
   return (
     <ReactPlayer 
