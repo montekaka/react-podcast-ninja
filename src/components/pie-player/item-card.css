@@ -118,7 +118,8 @@
 .jc-npp-card-episode-wrapper > .main-container > .jc-card-body > .meta > .main > .title {
   height: 36px;
   max-width: 294px;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 1.6;
   /* background-color: cadetblue; */
   font-weight: bold;
   overflow: hidden;

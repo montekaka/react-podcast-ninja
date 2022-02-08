@@ -17,7 +17,7 @@
   -webkit-overflow-scrolling: touch;
   gap: 10px; 
   /* background-color: blue; */
-  height: 160px;
+  height: 180px;
 }
 
 .jc-podcast-people-wrapper .podcast-people-container::-webkit-scrollbar {
@@ -139,7 +139,7 @@
 .jc-podcast-people-wrapper .podcast-person-meta > .person-basic-info > .person-name > .person-name-text {
   color: #fff;
   height: 30px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   display: flex;    
   align-items: center;
@@ -154,7 +154,7 @@
 }
 
 .jc-podcast-people-wrapper .person-meta-roles > .person-meta-role {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: bold;
   max-width: 80px;
   min-height: 30px;
