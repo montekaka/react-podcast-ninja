@@ -58,6 +58,7 @@
   padding: 30px 10px 10px 10px;
   border-radius: 10px;
   backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   background-color: rgba(0, 0, 0, 0.2);
   color: white;
   display: flex;
