@@ -1,6 +1,8 @@
 .jc-npp-card-episode-wrapper {
   height: 460px;
-  width: 380px;
+  /* width: 360px; */
+  width: 100%;
+  max-width: 380px;
   border-radius: 10px;
   /* padding: 8px; */
   display: grid;
