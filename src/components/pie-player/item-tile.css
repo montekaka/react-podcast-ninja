@@ -59,7 +59,7 @@
   padding: 10px;
   border-radius: 12px;
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
   display: grid;
   grid-template-columns: 40px 1fr 80px;
   column-gap: 10px;  
@@ -78,10 +78,11 @@
   width: 36px;
   height: 36px;  
   border-radius: 100%;
-  /* border-style: solid;
-  border-color: white;   */
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;  
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.1);  
+  background-color: rgba(255, 255, 255, 0.2);  
   cursor: pointer;
   display: flex;
   align-items: center;
