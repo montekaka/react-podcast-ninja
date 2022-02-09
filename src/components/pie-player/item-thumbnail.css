@@ -1,6 +1,7 @@
 .jc-npp-thumbnail-episode-wrapper {
   height: 80px;
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   border-radius: 10px;
   padding: 8px;
   /* display: flex;
