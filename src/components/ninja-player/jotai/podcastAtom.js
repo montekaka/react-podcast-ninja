@@ -65,12 +65,12 @@ export const fetchChaptersAtom = atom((get) => get(chaptersAtom), (_get, set, _)
 
 export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, params) => {
   const {rssFeedUrl, proxy, episodes} = params;  
-
   const fetchDate = async () => {
     
     try {
       const res = await feedParser(rssFeedUrl, proxy)
-      const feed = proxy && proxy.length > 0 ? res.data : res;
+      const feed = proxy && proxy.length > 0 ? res.data : res;      
+      
       let feedArtwork = ""
       if (feed.image && feed.image.url) {
         feedArtwork = feed.image.url;
@@ -82,8 +82,10 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
       const items = [];
       
       feed.items.forEach((item) => {
+        
         let artworkUrl = feedArtwork;
-        if(item.itunes && item.itunes.image) {
+
+        if(item.itunes && item.itunes.image && item.itunes.image.$ && item.itunes.image.$.href && item.itunes.image.$.href.length > 5) {
           artworkUrl = item.itunes.image;
         }
 
@@ -92,17 +94,18 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
           chaptersUrl = item.chapters.$.url;
         }
 
-        // console.log(artworkUrl)
-        items.push({
-          title: item.title,
-          podcastTitle: podcastTitle,
-          artworkUrl: artworkUrl,
-          pubDate: item.pubDate,
-          link: item.link,
-          audioUrl: item.enclosure.url,
-          chaptersUrl: chaptersUrl,
-          description: item.content
-        })
+        if(item.enclosure) {
+          items.push({
+            title: item.title,
+            podcastTitle: podcastTitle,
+            artworkUrl: artworkUrl,
+            pubDate: item.pubDate,
+            link: item.link,
+            audioUrl: item.enclosure.url,
+            chaptersUrl: chaptersUrl,
+            description: item.content
+          })
+        }
       }) 
       
       set(loadingAtom, false);
