@@ -9,7 +9,7 @@ const TabMenuItem = ({color, menuId, label, handleClick}) => {
       style={{
         cursor: 'pointer',
         color: color,
-        padding: '4px'
+        // padding: '4px'
       }}>
         {label}
     </div>

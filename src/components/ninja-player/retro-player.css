@@ -110,6 +110,8 @@ body {
 
 .retro-player-container > .retro-control-misc > .retro-control-tabs {
   font-size: 0.6em;  
+  gap: 8px;
+  align-items: center;
   display: flex;
 }
 

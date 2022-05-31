@@ -24,6 +24,7 @@ const PlayerHolder = () => {
         controls={false}
         height={"0"}
         width={"0"}    
+        playbackRate={playerState.playbackRate}
         onProgress={(res) => {
           if(playerState.onSeeking === false) {
             const playedSeconds = res.playedSeconds;
