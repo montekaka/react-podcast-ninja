@@ -17,6 +17,8 @@ const PlayerContainer = () => {
   const [, setTabName] = useAtom(tabAtom);
   const [tabsMenuState] = useAtom(tabsMenuAtom);
   const [themeName] = useAtom(themeNameAtom)
+
+  const {hideMoreInfo, primaryBackgroundColor, primaryTextColor} = playerSkin;
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
@@ -29,7 +31,7 @@ const PlayerContainer = () => {
     
     return (
       <div className={`${themeName}-player-container`} style={{
-        background: playerSkin.primaryBackgroundColor
+        background: primaryBackgroundColor
       }}>
         <Artwork artworkUrl={artworkUrl}/>
         <Metas title={title} podcastTitle={podcastTitle}/>        
@@ -44,19 +46,21 @@ const PlayerContainer = () => {
                   <TabMenuItem
                     key={menu.id}
                     handleClick={setTabName}
-                    color={playerSkin.primaryTextColor}
+                    color={primaryTextColor}
                     label={menu.label}
                     menuId={menu.id}
                   /> 
                 )
               })
             }
-            <TabMenuItem
+            {
+              !hideMoreInfo && <TabMenuItem
               handleClick={setTabName}
-              color={playerSkin.primaryTextColor}
+              color={primaryTextColor}
               label="MORE INFO"
               menuId="more-info"
-            />            
+            /> 
+            }           
           </div>
         </div>
       </div>
