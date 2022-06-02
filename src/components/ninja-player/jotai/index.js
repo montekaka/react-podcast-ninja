@@ -5,7 +5,8 @@ import {
   updatePlayerAtom,
   togglePlayPauseAtom,
   updatePlayedTimeAtom,
-  resetPlayerAtom
+  resetPlayerAtom,
+  togglePlaybackRateAtom
 } from './playerAtom'
 
 import {
@@ -47,5 +48,6 @@ export {
   playerSkinOptions,
   updateColorAtom,
   episodesAtom,
-  themeNameAtom
+  themeNameAtom,
+  togglePlaybackRateAtom
 }

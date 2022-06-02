@@ -110,6 +110,8 @@ body {
 
 .jc-player-container > .jc-control-misc > .jc-control-tabs {
   font-size: 0.6em;  
+  gap: 8px;
+  align-items: center;
   display: flex;
 }
 

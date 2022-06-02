@@ -16,6 +16,7 @@ export const themeNameAtom = atom('jc');
 
 export const playerSkinAtom = atom({
   hidePubDate: true,
+  hideMoreInfo: true,
   primaryBackgroundColor: "#0c1824",
   primaryButtonColor: "#f7f8f9",
   primaryTextColor: "#f7f8f9",

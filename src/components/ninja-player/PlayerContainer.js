@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useAtom} from "jotai"
-import {episodesAtom, playingIdAtom, 
+import {episodesAtom, playingIdAtom, togglePlaybackRateAtom, 
   playerSkinAtom, tabAtom, tabsMenuAtom, themeNameAtom
 } from './jotai'
 import Metas from './Metas'
@@ -17,6 +17,9 @@ const PlayerContainer = () => {
   const [, setTabName] = useAtom(tabAtom);
   const [tabsMenuState] = useAtom(tabsMenuAtom);
   const [themeName] = useAtom(themeNameAtom)
+  const [playerState, togglePlayerbackRate] = useAtom(togglePlaybackRateAtom);
+
+  const {hideMoreInfo, primaryBackgroundColor, primaryTextColor} = playerSkin;
   
   if(playingId >= 0 && episodes && episodes.length > 0) {
     const episode = episodes[playingId];
@@ -29,7 +32,7 @@ const PlayerContainer = () => {
     
     return (
       <div className={`${themeName}-player-container`} style={{
-        background: playerSkin.primaryBackgroundColor
+        background: primaryBackgroundColor
       }}>
         <Artwork artworkUrl={artworkUrl}/>
         <Metas title={title} podcastTitle={podcastTitle}/>        
@@ -38,25 +41,41 @@ const PlayerContainer = () => {
         <div className={`${themeName}-control-misc`}>
           <VolumeControls/>
           <div className={`${themeName}-control-tabs`}>
+            <div
+              onClick={togglePlayerbackRate}
+              ariaLabel="Change speed"
+              style={{
+                borderColor: primaryTextColor,
+                border: '1px solid',
+                cursor: 'pointer',
+                color: primaryTextColor,
+                padding: '4px',
+                width: "30px",
+                textAlign: 'center',
+                borderRadius: "8px"
+              }}
+            >{playerState.playbackRate}x</div>
             {
               tabsMenuState.map((menu) => {
                 return (
                   <TabMenuItem
                     key={menu.id}
                     handleClick={setTabName}
-                    color={playerSkin.primaryTextColor}
+                    color={primaryTextColor}
                     label={menu.label}
                     menuId={menu.id}
                   /> 
                 )
               })
             }
-            <TabMenuItem
+            {
+              !hideMoreInfo && <TabMenuItem
               handleClick={setTabName}
-              color={playerSkin.primaryTextColor}
+              color={primaryTextColor}
               label="MORE INFO"
               menuId="more-info"
-            />            
+            /> 
+            }           
           </div>
         </div>
       </div>

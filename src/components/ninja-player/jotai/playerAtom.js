@@ -7,6 +7,7 @@ export const playerAtom = atom({
   durationSeconds: 0,
   playedSeconds: 0,
   seekSeconds: 0,
+  playbackRate: 1,
   onSeeking: false,
   onReady: false,
   playing: false,
@@ -47,8 +48,8 @@ export const togglePlayPauseAtom = atom((get) => get(playerAtom), (_get, set, _)
 })
 
 export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, seconds) => {
-  const currentState = _get(playerAtom);;
-  const {durationSeconds, playerRef} = currentState
+  const currentState = _get(playerAtom);
+  const {durationSeconds, playerRef} = currentState;
   let playedSeconds = seconds;
   if(seconds >= durationSeconds) {
     playedSeconds = durationSeconds;
@@ -57,4 +58,16 @@ export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, 
   }
   playerRef.seekTo(playedSeconds);
   set(playerAtom, {...currentState, playedSeconds, playing: true});
+})
+
+export const togglePlaybackRateAtom = atom((get) => get(playerAtom), (_get, set, _) => {
+  // const rateOptions = [1, 1.25, 1.5, 1.75, 2];
+
+  const currentState = _get(playerAtom);
+  const {playbackRate} = currentState;
+  if(playbackRate === 2) {
+    set(playerAtom, {...currentState, playbackRate: 1});
+  } else {
+    set(playerAtom, {...currentState, playbackRate: playbackRate + 0.25});
+  }
 })
