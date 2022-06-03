@@ -50,7 +50,7 @@ const PlayerContainer = () => {
                 cursor: 'pointer',
                 color: primaryTextColor,
                 padding: '4px',
-                width: "30px",
+                width: "46px",
                 textAlign: 'center',
                 borderRadius: "8px"
               }}

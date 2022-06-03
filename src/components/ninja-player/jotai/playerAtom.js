@@ -61,13 +61,17 @@ export const updatePlayedTimeAtom = atom((get) => get(playerAtom),  (_get, set, 
 })
 
 export const togglePlaybackRateAtom = atom((get) => get(playerAtom), (_get, set, _) => {
-  // const rateOptions = [1, 1.25, 1.5, 1.75, 2];
+  const rateOptions = [1, 1.2, 1.4, 1.6, 1.8, 2];
 
   const currentState = _get(playerAtom);
   const {playbackRate} = currentState;
-  if(playbackRate === 2) {
+  const k = rateOptions.indexOf(playbackRate);
+  const n = rateOptions.length;
+  const r = k + 1
+
+  if(r >= n) {
     set(playerAtom, {...currentState, playbackRate: 1});
-  } else {
-    set(playerAtom, {...currentState, playbackRate: playbackRate + 0.25});
+  } else {    
+    set(playerAtom, {...currentState, playbackRate: rateOptions[r]});
   }
 })
