@@ -43,7 +43,7 @@ const PlayerContainer = () => {
           <div className={`${themeName}-control-tabs`}>
             <div
               onClick={togglePlayerbackRate}
-              ariaLabel="Change speed"
+              aria-label="Change speed"
               style={{
                 borderColor: primaryTextColor,
                 border: '1px solid',
