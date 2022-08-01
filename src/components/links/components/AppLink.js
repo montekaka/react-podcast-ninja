@@ -19,7 +19,7 @@ export default function AppLink(props) {
     imageSrc,
     backgroundColor,
     titleColor,
-    subTitleColor,
+    subtitleColor,
     titleDirection,
   } = props;
 
@@ -37,18 +37,18 @@ export default function AppLink(props) {
         alignItems: "center",
         gap: "10px",
       }}>
-        <div>
+        { imageSrc && <div>
           <img src={imageSrc} style={{
             width: "40px",
             height: "40px",
           }}/>
-        </div>
+        </div>}
         <div style={{
           display: 'flex',
           flexDirection: titleDirection || "column"
         }}>
           <p style={{color: titleColor, margin: 0, fontSize: "0.875rem", fontWeight: "600", lineHeight: "1.5"}}>{title}</p>
-          {subtitle && <p style={{color: subTitleColor, margin: 0, fontSize: "0.7rem"}}>{subtitle}</p>}
+          {subtitle && <p style={{color: subtitleColor, margin: 0, fontSize: "0.7rem"}}>{subtitle}</p>}
         </div>
       </div>
       {props.children}

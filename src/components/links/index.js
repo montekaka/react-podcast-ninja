@@ -1,5 +1,6 @@
-import {AppLink} from './components'
+import {AppLink, PageHeader} from './components'
 
 export {
-  AppLink
+  AppLink,
+  PageHeader
 }
