@@ -2,9 +2,9 @@ import React from 'react'
 
 const style = {
   display: 'flex',
-  minHeight: "5rem",
+  minHeight: "2rem",
   borderRadius: "10px",
-  padding: "8px",
+  padding: "1.25rem",
   gap: "10px",
   backgroundColor: "yellow",
   alignItems: "center",

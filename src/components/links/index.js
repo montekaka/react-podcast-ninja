@@ -1,6 +1,7 @@
-import {AppLink, PageHeader} from './components'
+import {AppLink, PageHeader, CollapseCard} from './components'
 
 export {
   AppLink,
-  PageHeader
+  PageHeader,
+  CollapseCard
 }

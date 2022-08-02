@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react'
-import {AppLink, PageHeader} from '../components/links'
+import {AppLink, PageHeader, CollapseCard} from '../components/links'
 
 const stories = storiesOf('App Link', module);
 
@@ -28,3 +28,17 @@ stories.add('PageHeader', () => {
   );
 })
 
+stories.add('CollapseCard', () => {
+  return (
+    <CollapseCard
+      title="RSS Feed"
+      imageSrc="https://www.apple.com/v/apple-podcasts/c/images/overview/hero_icon__c135x5gz14mu_large_2x.png"
+    >
+      <ol style={{padding: "0 1.25rem 0 1.25rem"}}>
+        <li>Click here to copy the RSS feed</li>
+        <li>Open your podcast app</li>
+        <li>Paste RSS feed</li>
+      </ol>
+    </CollapseCard>
+  );
+})
