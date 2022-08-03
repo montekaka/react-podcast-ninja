@@ -28,7 +28,10 @@ export default function CollapseCard(props) {
   return (
     <div className='ninja-collapse-container' style={{backgroundColor, borderRadius: "10px", padding: "1.25rem"}}>
       <div className='ninja-collapse-header' 
-        style={{...style}}
+        style={{...style, cursor: "pointer"}}
+        onClick={() => {
+        setOpen(!open);
+      }}        
       >
         <div style={{
           display: 'flex',
@@ -49,11 +52,7 @@ export default function CollapseCard(props) {
             {subtitle && <p style={{color: subtitleColor, margin: 0, fontSize: "0.7rem"}}>{subtitle}</p>}
           </div>
         </div>
-        <div 
-          style={{cursor: "pointer"}}
-          onClick={() => {
-          setOpen(!open);
-        }}>
+        <div>
           {open ? <Minus/> : <Plus/>}
         </div>
       </div>
