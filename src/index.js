@@ -14,7 +14,8 @@ import {
 import {
   AppLink,
   PageHeader,
-  CollapseCard
+  CollapseCard,
+  QRCard
 } from './components/links'
 
 export {
@@ -24,6 +25,7 @@ export {
   PiePlayer,
   AppLink,
   PageHeader,
-  CollapseCard  
+  CollapseCard,
+  QRCard 
 }
 
