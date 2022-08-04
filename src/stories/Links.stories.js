@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react'
-import {AppLink, PageHeader, CollapseCard} from '../components/links'
+import {AppLink, PageHeader, CollapseCard, QRCard} from '../components/links'
 
 const stories = storiesOf('App Link', module);
 
@@ -40,5 +40,17 @@ stories.add('CollapseCard', () => {
         <li>Paste RSS feed</li>
       </ol>
     </CollapseCard>
+  );
+})
+
+stories.add('QRCard', () => {
+  return (
+    <QRCard
+      url="https://github.com/gcoro/react-qrcode-logo"
+    >
+      <div>
+        <p>Hello world</p>
+      </div>
+    </QRCard>
   );
 })

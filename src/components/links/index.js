@@ -1,7 +1,8 @@
-import {AppLink, PageHeader, CollapseCard} from './components'
+import {AppLink, PageHeader, CollapseCard, QRCard} from './components'
 
 export {
   AppLink,
   PageHeader,
-  CollapseCard
+  CollapseCard,
+  QRCard
 }
