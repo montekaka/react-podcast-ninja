@@ -2,12 +2,13 @@ import React, { useRef } from 'react'
 import {useAtom} from "jotai" 
 import ChaptersListItem from './ChaptersListItem'
 import useDraggableScroll from 'use-draggable-scroll';
-import { updatePlayedTimeAtom, fetchChaptersAtom, themeNameAtom} from './jotai'
+import { playerSkinAtom, updatePlayedTimeAtom, fetchChaptersAtom, themeNameAtom} from './jotai'
 import { ArrowRight, ArrowLeft} from 'react-feather';
 
 const ChaptersList = () => {
   const ref = useRef(null);
   // const [chapters] = useAtom(chaptersAtom);
+  const [playerSkin] = useAtom(playerSkinAtom);
   const [_, updatePlayTime] = useAtom(updatePlayedTimeAtom);
   const { onMouseDown } = useDraggableScroll(ref);
   const [chapters] = useAtom(fetchChaptersAtom);
@@ -41,7 +42,7 @@ const ChaptersList = () => {
       <div className={`${themeName}-chapters`}>   
         <div className={`${themeName}-chapters-handle`}>
           <div onClick={sliderToLeft}>
-            <ArrowLeft/>
+            <ArrowLeft color={playerSkin.primaryButtonColor}/>
           </div>
         </div>
         <div className={`${themeName}-chapters-container`} ref={ref} onMouseDown={onMouseDown}>
@@ -63,7 +64,7 @@ const ChaptersList = () => {
         </div> 
         <div className={`${themeName}-chapters-handle`}>
           <div onClick={sliderToRight} >
-            <ArrowRight/>
+            <ArrowRight color={playerSkin.primaryButtonColor}/>
           </div>
         </div>              
       </div>

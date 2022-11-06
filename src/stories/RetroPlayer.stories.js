@@ -10,7 +10,7 @@ const configs = {
   hideMoreInfo: false,
   primaryBackgroundColor: "#122211",
   primaryButtonColor: "#f7f8f9",
-  // primaryButtonColor: "black",
+  // primaryButtonColor: "yellow",
   primaryTextColor: "#f7f8f9",
   progressBarFilledColor: "#f7f8f9",
   progressBarBackgroundColor: "#8A8175",
