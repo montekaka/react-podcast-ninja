@@ -28,12 +28,18 @@ const EpisodeList = () => {
     updatePlayingId(idx);
   }
 
+  const style = { 
+    backgroundColor: playerSkin.playlistBackgroundColor,
+    color: playerSkin.playlistTextColor
+  }
+
+  if(playerSkin.playlistFullHeight) {
+    style["maxHeight"] = "100%";
+    style["overflow"] = "auto";
+  }
+
   return (
-    <div className={`${themeName}-episodes-list`} style={{
-      // background: `linear-gradient(0deg, ${playerSkin.primaryBackgroundColor} ,${playerSkin.primaryBackgroundColor} 54px)`,
-      backgroundColor: playerSkin.playlistBackgroundColor,
-      color: playerSkin.playlistTextColor
-    }}>
+    <div className={`${themeName}-episodes-list`} style={style}>
       {
         episodes.map((item, idx) => {
           return <EpisodeListItem key={(idx+1).toString()}
