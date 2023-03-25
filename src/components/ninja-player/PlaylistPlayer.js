@@ -50,7 +50,7 @@ const PlaylistPlayer = ({
     if(loading || fetching) return;
     if(intObserver.current) intObserver.current.disconnect();
     intObserver.current = new IntersectionObserver(posts => {
-      if(posts[0].isIntersecting && (nextPage <= totalPage)) {
+      if(posts[0].isIntersecting && (nextPage && nextPage <= totalPage )) {
         updateCurrentPage(currentPage+1)
       }
     })
