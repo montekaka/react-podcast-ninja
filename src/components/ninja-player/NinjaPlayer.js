@@ -6,7 +6,7 @@ import './retro-player.css';
 import WaveSvg from './WaveSvg';
 
 const NinjaPlayer = ({
-  playerId, themeName, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
+  playerId, themeName, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy, jcPodcastApi
 }) => {
 
   return (    
@@ -21,6 +21,7 @@ const NinjaPlayer = ({
           proxy={proxy}
           configs={configs}
           singleEpisode={singleEpisode}
+          jcPodcastApi={jcPodcastApi}
         />
         {/* <WaveSvg/> */}
       </Provider>  

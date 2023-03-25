@@ -6,7 +6,7 @@ import {
   togglePlayPauseAtom,
   updatePlayedTimeAtom,
   resetPlayerAtom,
-  togglePlaybackRateAtom
+  togglePlaybackRateAtom,
 } from './playerAtom'
 
 import {
@@ -25,7 +25,11 @@ import {
   fetchChaptersAtom,
   chaptersAtom,
   tabsAtom,
-  tabsMenuAtom
+  tabsMenuAtom,
+  currentPageAtom,
+  totalPageAtom,
+  nextPageAtom,
+  fetchingAtom
 } from './podcastAtom'
 
 export {
@@ -49,5 +53,9 @@ export {
   updateColorAtom,
   episodesAtom,
   themeNameAtom,
-  togglePlaybackRateAtom
+  togglePlaybackRateAtom,
+  currentPageAtom,
+  totalPageAtom,
+  nextPageAtom,
+  fetchingAtom
 }

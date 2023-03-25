@@ -9,7 +9,7 @@ import {
 } from './jotai'
 import EpisodeListItem from './EpisodeListItem'
 
-const EpisodeList = () => {
+const EpisodeList = ({lastPostRef}) => {
 
   const [episodes] = useAtom(episodesAtom);
   const [themeName] = useAtom(themeNameAtom);
@@ -41,13 +41,23 @@ const EpisodeList = () => {
   return (
     <div className={`${themeName}-episodes-list`} style={style}>
       {
-        episodes.map((item, idx) => {
+        episodes.map((item, idx) => {          
+          if(episodes.length === idx + 1) {
+            return <EpisodeListItem key={(idx+1).toString()}
+              ref={lastPostRef}
+              title={item.title}
+              pubDate={item.pubDate}
+              id={idx}
+              onClick={handleClick}
+          />
+          } 
+          
           return <EpisodeListItem key={(idx+1).toString()}
             title={item.title}
             pubDate={item.pubDate}
             id={idx}
             onClick={handleClick}
-          />
+        />
         })
       }
     </div>

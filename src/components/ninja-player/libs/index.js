@@ -1,4 +1,5 @@
 export {feedParser} from './parser'
+export {getApi} from './getApi'
 
 export const getHHMMSSFromSeconds = (position) => {
   let totalSeconds = Math.round(position);

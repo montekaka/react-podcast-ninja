@@ -1,25 +1,6 @@
 import {atom} from "jotai"
 import {playingIdAtom, playerAtom} from './playerAtom'
-import {feedParser} from './../libs'
-
-// export interface Episode {
-//   title: string;
-//   artworkUrl: string;
-//   pubDate: Date;
-//   audioUrl: string;
-//   chaptersUrl?: string;
-//   podcastTitle: string;
-//   link: string;
-//   description: stirng;
-// }
-
-// const podcast = {
-//   menuItems: [{id:'subscribe', label: 'Subscribe', id: 'social', label: "Social"}],
-//   'subscribe': [{id: 'rss', url: 'https://feed.justcast.com/shows/inside-the-aluminum-tube-with-shanon-baker/audioposts.rss'}],
-//   'social': [
-//     {id: 'twitter', url: 'https://twitter.com/thejustcast'}
-//   ]
-// }
+import {feedParser, getApi} from './../libs'
 
 export const tabAtom = atom('main');
 export const tabsAtom = atom({});
@@ -27,12 +8,16 @@ export const tabsMenuAtom = atom([]);
 export const episodesAtom = atom([]);
 export const chaptersAtom = atom([]);
 export const loadingAtom = atom(false);
+export const fetchingAtom = atom(false);
 export const errorMessageAtom = atom('');
+export const currentPageAtom = atom(1);
+export const totalPageAtom = atom(1);
+export const nextPageAtom = atom(1);
 
 export const fetchChaptersAtom = atom((get) => get(chaptersAtom), (_get, set, _) => {
   const episodes = _get(episodesAtom);
-
   const playingId = _get(playingIdAtom);
+
   const fetchDate = async () => {
     const chaptersUrl = episodes[playingId]['chaptersUrl'];
 
@@ -64,9 +49,11 @@ export const fetchChaptersAtom = atom((get) => get(chaptersAtom), (_get, set, _)
 });
 
 export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, params) => {
-  const {rssFeedUrl, proxy, episodes} = params;  
-  const fetchDate = async () => {
-    
+  const currentPage = _get(currentPageAtom);
+  const currentEpisodes = _get(episodesAtom);
+
+  const {rssFeedUrl, proxy, episodes, jcPodcastApi, signal} = params;  
+  const fetchDate = async () => {    
     try {
       const res = await feedParser(rssFeedUrl, proxy)
       const feed = proxy && proxy.length > 0 ? res.data : res;      
@@ -118,9 +105,52 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
     }    
   }
 
+  const fetchPodcast = async () => {
+    try {
+      const res = await getApi(`${jcPodcastApi}?page=${currentPage}`, {signal})
+      const {audioposts, show, total, current_page, next_page} = res;
+      const {podcast_title} = show;
+      const items = audioposts.map((item) => {
+        return {
+          title: item.name,
+          podcastTitle: podcast_title,
+          artworkUrl: item.artwork_url,
+          pubDate: item.audio_date,
+          link: item.permulink,
+          audioUrl: item.audio_url,
+          // chaptersUrl: chaptersUrl,
+          description: item.description
+        }
+      })
+      if(current_page === 1) {
+        set(loadingAtom, false);
+      }
+      set(fetchingAtom, false) 
+      set(episodesAtom, [...currentEpisodes, ...items]);
+      set(errorMessageAtom, '');
+      set(totalPageAtom, total);
+      set(currentPageAtom, current_page);
+      set(nextPageAtom, next_page);
+    } catch (err) {
+      set(loadingAtom, false);
+      set(fetchingAtom, false)
+      set(episodesAtom, []);
+      set(totalPageAtom, 1);
+      set(currentPageAtom, 1);
+      set(errorMessageAtom, `${rssFeedUrl} is not able to reach.  Please try again later. ${JSON.stringify(err)}`);
+      if(signal.aborted) return;
+    }
+  }
+
   if(rssFeedUrl && rssFeedUrl.length > 6) {
     set(loadingAtom, true);
     fetchDate()
+  } else if(jcPodcastApi) {
+    if(currentPage === 1) {
+      set(loadingAtom, true);
+    }
+    set(fetchingAtom, true)
+    fetchPodcast();
   } else {
     set(loadingAtom, false);
     set(episodesAtom, episodes);

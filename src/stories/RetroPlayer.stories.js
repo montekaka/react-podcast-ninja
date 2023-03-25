@@ -49,3 +49,17 @@ stories.add('App', () => {
     </Provider>
   );
 })
+
+stories.add('Infinite Scroll', () => {
+  return (
+    <Provider>
+      <NinjaPlayer
+        jcPodcastApi="http://localhost:3000/v3/shows/the-patrick-johnson-show/audioposts"
+        themeName={"retro"}
+        playerId="example-infinite"
+        configs={configs}
+        singleEpisode={false}
+      />
+    </Provider>
+  );
+})

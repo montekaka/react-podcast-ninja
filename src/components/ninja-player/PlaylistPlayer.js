@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState, useCallback, useRef} from 'react';
 import {useAtom} from 'jotai'
 // import PropTypes from 'prop-types';
 import {
@@ -11,7 +11,11 @@ import {
   fetchEpisodesAtom,
   errorMessageAtom,
   loadingAtom,  
-  themeNameAtom
+  themeNameAtom,
+  currentPageAtom,
+  totalPageAtom,
+  nextPageAtom,
+  fetchingAtom
 } from './jotai'
 // import PlayerContainer from './PlayerContainer'
 // import MoreInfoSection from './MoreInfoSection';
@@ -22,7 +26,7 @@ import LoadingScreenContainer from './LoadingScreenContainer'
 import LoadingBouncing from './LoadingBouncing'
 
 const PlaylistPlayer = ({
-  themeName, playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy
+  themeName, playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy, jcPodcastApi
 }) => {
 
   // set jotai state
@@ -36,15 +40,38 @@ const PlaylistPlayer = ({
   const [errorMessage] = useAtom(errorMessageAtom)
   const [loading] = useAtom(loadingAtom)
   const [themeNameState, setThemeNameState] = useAtom(themeNameAtom);
+  const [currentPage, updateCurrentPage] = useAtom(currentPageAtom);
+  const [totalPage] = useAtom(totalPageAtom);
+  const [nextPage] = useAtom(nextPageAtom)
+  const [fetching] = useAtom(fetchingAtom)  
   
+  const intObserver = useRef();
+  const lastPostRef = useCallback(post => {
+    if(loading || fetching) return;
+    if(intObserver.current) intObserver.current.disconnect();
+    intObserver.current = new IntersectionObserver(posts => {
+      if(posts[0].isIntersecting && (nextPage <= totalPage)) {
+        updateCurrentPage(currentPage+1)
+      }
+    })
+    if(post) intObserver.current.observe(post);
+  }, [loading, nextPage, totalPage]);
+
   useEffect(() => {
+    const controller = new AbortController();
+    const {signal} = controller;
+
     fetchEpisodes({
       rssFeedUrl,
       proxy, 
-      episodes
-    })
+      episodes,
+      jcPodcastApi,
+      signal
+    })    
     setPlayingId(0);
-  }, [rssFeedUrl, JSON.stringify(episodes)])
+
+    return () => controller.abort();
+  }, [rssFeedUrl, jcPodcastApi, currentPage, JSON.stringify(episodes)])
 
   useEffect(() => {
     if(playingId >= 0) {
@@ -71,7 +98,6 @@ const PlaylistPlayer = ({
     }
   }, [themeName])
 
-
   if(loading) {
     return (
       <LoadingScreenContainer>        
@@ -95,7 +121,7 @@ const PlaylistPlayer = ({
         tabState === 'main' ? <PlayerContainer/> : <MoreInfoSection/>
       }       */}
       <MainSectionSwitch/>
-      {singleEpisode ? null : <EpisodeList/> }
+      {singleEpisode ? null : <EpisodeList lastPostRef={lastPostRef}/> }
       <PlayerHolder/>
     </div>
   )
