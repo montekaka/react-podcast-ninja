@@ -46,7 +46,8 @@ const PlayerContainer = () => {
               aria-label="Change speed"
               style={{
                 borderColor: primaryTextColor,
-                border: '1px solid',
+                borderWidth: "1px",
+                borderStyle: 'solid',
                 cursor: 'pointer',
                 color: primaryTextColor,
                 padding: '4px',
