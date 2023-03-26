@@ -107,7 +107,7 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
 
   const fetchPodcast = async () => {
     try {
-      const res = await getApi(`${jcPodcastApi}?page=${currentPage}`, {signal})
+      const res = await getApi(jcPodcastApi, currentPage, {signal})
       const {audioposts, show, total, current_page, next_page} = res;
       const {podcast_title} = show;
       const items = audioposts.map((item) => {

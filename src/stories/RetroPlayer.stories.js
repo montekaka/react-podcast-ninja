@@ -63,3 +63,17 @@ stories.add('Infinite Scroll', () => {
     </Provider>
   );
 })
+
+stories.add('Widget code', () => {
+  return (
+    <Provider>
+      <NinjaPlayer
+        jcPodcastApi="http://localhost:3000/v3/shows/47497/audioposts?referer_url=abcd"
+        themeName={"retro"}
+        playerId="example-infinite"
+        configs={configs}
+        singleEpisode={false}
+      />
+    </Provider>
+  );
+})
