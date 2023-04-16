@@ -1,6 +1,6 @@
 {
   "name": "react-podcast-ninja",
-  "version": "1.6.7",
+  "version": "1.6.8",
   "description": "A simple react component that plays back podcast",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -42,7 +42,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rss-parser": "^3.12.0",
     "use-draggable-scroll": "^0.1.0",
-    "styled-components": "^5.3.3"    
+    "styled-components": "^5.3.3"
   },
   "peerDependencies": {
     "axios": "^0.21.1",
