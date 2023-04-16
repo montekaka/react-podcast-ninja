@@ -43,7 +43,7 @@ export const fetchChaptersAtom = atom((get) => get(chaptersAtom), (_get, set, _)
   if(episodes.length > 0 && episodes[playingId] && episodes[playingId]['chaptersUrl']) {
     fetchDate()
   } else {
-    set(chaptersAtom, [])    
+    set(chaptersAtom, [])
     // set(chaptersAtom, [])
   }
 });
@@ -52,12 +52,12 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
   const currentPage = _get(currentPageAtom);
   const currentEpisodes = _get(episodesAtom);
 
-  const {rssFeedUrl, proxy, episodes, jcPodcastApi, signal} = params;  
-  const fetchDate = async () => {    
+  const {rssFeedUrl, proxy, episodes, jcPodcastApi, signal} = params;
+  const fetchDate = async () => {
     try {
       const res = await feedParser(rssFeedUrl, proxy)
-      const feed = proxy && proxy.length > 0 ? res.data : res;      
-      
+      const feed = proxy && proxy.length > 0 ? res.data : res;
+
       let feedArtwork = ""
       if (feed.image && feed.image.url) {
         feedArtwork = feed.image.url;
@@ -67,9 +67,9 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
       // const feedArtwork = feed.image.url;
       const podcastTitle = feed.title;
       const items = [];
-      
+
       feed.items.forEach((item) => {
-        
+
         let artworkUrl = feedArtwork;
 
         if(item.itunes && item.itunes.image && item.itunes.image.$ && item.itunes.image.$.href && item.itunes.image.$.href.length > 5) {
@@ -93,8 +93,8 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
             description: item.content
           })
         }
-      }) 
-      
+      })
+
       set(loadingAtom, false);
       set(episodesAtom, items);
       set(errorMessageAtom, '');
@@ -102,7 +102,7 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
       set(loadingAtom, false);
       set(episodesAtom, []);
       set(errorMessageAtom, `${rssFeedUrl} is not able to reach.  Please try again later. ${JSON.stringify(err)}`);
-    }    
+    }
   }
 
   const fetchPodcast = async () => {
@@ -112,6 +112,7 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
       const {podcast_title} = show;
       const items = audioposts.map((item) => {
         return {
+          id: item.id,
           title: item.name,
           podcastTitle: podcast_title,
           artworkUrl: item.artwork_url,
@@ -125,7 +126,7 @@ export const fetchEpisodesAtom = atom((get) => get(episodesAtom), (_get, set, pa
       if(current_page === 1) {
         set(loadingAtom, false);
       }
-      set(fetchingAtom, false) 
+      set(fetchingAtom, false)
       set(episodesAtom, [...currentEpisodes, ...items]);
       set(errorMessageAtom, '');
       set(totalPageAtom, total);

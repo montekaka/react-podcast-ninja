@@ -24,7 +24,7 @@ const configs = {
   playlistBackgroundColor: "#30343c",
   playlistTextColor: "#f7f8f9",
   chapterBackgroundColor: "#30343c",
-  chapterTextColor:  "#f7f8f9"  
+  chapterTextColor:  "#f7f8f9"
 }
 
 const podcast = {
@@ -40,7 +40,7 @@ stories.add('App', () => {
     <Provider>
       <NinjaPlayer
         themeName={"retro"}
-        podcast={podcast} 
+        podcast={podcast}
         playerId="example"
         episodes={episodes}
         configs={configs}

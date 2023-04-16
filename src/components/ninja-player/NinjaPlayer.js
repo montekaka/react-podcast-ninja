@@ -6,25 +6,26 @@ import './retro-player.css';
 import WaveSvg from './WaveSvg';
 
 const NinjaPlayer = ({
-  playerId, themeName, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy, jcPodcastApi
+  playerId, themeName, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy, jcPodcastApi, jcCallback
 }) => {
 
-  return (    
+  return (
     <Suspense fallback={<></>}>
       <Provider>
-        <PlaylistPlayer 
+        <PlaylistPlayer
           themeName={themeName}
-          playerId={playerId} 
-          podcast={podcast} 
+          playerId={playerId}
+          podcast={podcast}
           episodes={episodes}
-          rssFeedUrl={rssFeedUrl} 
+          rssFeedUrl={rssFeedUrl}
           proxy={proxy}
           configs={configs}
           singleEpisode={singleEpisode}
           jcPodcastApi={jcPodcastApi}
+          jcCallback={jcCallback}
         />
         {/* <WaveSvg/> */}
-      </Provider>  
+      </Provider>
     </Suspense>
   )
 }

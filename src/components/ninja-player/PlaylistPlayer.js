@@ -10,7 +10,7 @@ import {
   fetchChaptersAtom,
   fetchEpisodesAtom,
   errorMessageAtom,
-  loadingAtom,  
+  loadingAtom,
   themeNameAtom,
   currentPageAtom,
   totalPageAtom,
@@ -26,7 +26,7 @@ import LoadingScreenContainer from './LoadingScreenContainer'
 import LoadingBouncing from './LoadingBouncing'
 
 const PlaylistPlayer = ({
-  themeName, playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy, jcPodcastApi
+  themeName, playerId, podcast, episodes, configs, singleEpisode, rssFeedUrl, proxy, jcPodcastApi, jcCallback
 }) => {
 
   // set jotai state
@@ -43,8 +43,8 @@ const PlaylistPlayer = ({
   const [currentPage, updateCurrentPage] = useAtom(currentPageAtom);
   const [totalPage] = useAtom(totalPageAtom);
   const [nextPage] = useAtom(nextPageAtom)
-  const [fetching] = useAtom(fetchingAtom)  
-  
+  const [fetching] = useAtom(fetchingAtom)
+
   const intObserver = useRef();
   const lastPostRef = useCallback(post => {
     if(loading || fetching) return;
@@ -63,11 +63,11 @@ const PlaylistPlayer = ({
 
     fetchEpisodes({
       rssFeedUrl,
-      proxy, 
+      proxy,
       episodes,
       jcPodcastApi,
       signal
-    })    
+    })
     setPlayingId(0);
 
     return () => controller.abort();
@@ -85,12 +85,12 @@ const PlaylistPlayer = ({
       setTabsMenuState(podcast.menuItems)
     }
   }, [podcast])
-  
+
   useEffect(() => {
     if(configs && Object.keys(configs).length > 0) {
       setPlayerSkin(configs); // TODO: use mapping to get the right fileds
     }
-  }, [JSON.stringify(configs)])  
+  }, [JSON.stringify(configs)])
 
   useEffect(() => {
     if(themeName) {
@@ -100,7 +100,7 @@ const PlaylistPlayer = ({
 
   if(loading) {
     return (
-      <LoadingScreenContainer>        
+      <LoadingScreenContainer>
         <LoadingBouncing/>
         <h2>Loading....</h2>
       </LoadingScreenContainer>
@@ -113,7 +113,7 @@ const PlaylistPlayer = ({
         <h3>{errorMessage}</h3>
       </LoadingScreenContainer>
     )
-  }  
+  }
 
   return (
     <div className={singleEpisode ? `${themeNameState}-player-wrapper ${themeNameState}-single-episode-player-wrapper` : `${themeNameState}-player-wrapper`}>
@@ -122,7 +122,7 @@ const PlaylistPlayer = ({
       }       */}
       <MainSectionSwitch/>
       {singleEpisode ? null : <EpisodeList lastPostRef={lastPostRef}/> }
-      <PlayerHolder/>
+      <PlayerHolder jcCallback={jcCallback}/>
     </div>
   )
 }

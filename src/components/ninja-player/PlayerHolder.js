@@ -2,11 +2,11 @@ import React from 'react'
 import {useAtom} from "jotai"
 import ReactPlayer from 'react-player'
 import {
-  playerAtom, episodesAtom, updatePlayerAtom, 
+  playerAtom, episodesAtom, updatePlayerAtom,
   updatePlayingIdAtom, playingIdAtom
 } from './jotai'
 
-const PlayerHolder = () => {
+const PlayerHolder = ({jcCallback}) => {
   const [playerState] = useAtom(playerAtom);
   const [episodes] = useAtom(episodesAtom);
   const [_, updatePlayer] = useAtom(updatePlayerAtom);
@@ -16,14 +16,14 @@ const PlayerHolder = () => {
   // console.log(playerId)
 
   if(playerId >= 0 && episodes.length > 0 && playerId >= 0 && playerId < episodes.length) {
-    const { audioUrl } = episodes[playerId];
+    const { audioUrl, id } = episodes[playerId];
 
     return (
-      <ReactPlayer 
-        url={audioUrl} 
+      <ReactPlayer
+        url={audioUrl}
         controls={false}
         height={"0"}
-        width={"0"}    
+        width={"0"}
         playbackRate={playerState.playbackRate}
         onProgress={(res) => {
           if(playerState.onSeeking === false) {
@@ -34,16 +34,16 @@ const PlayerHolder = () => {
         onReady={(res) => {
           if(res) {
             updatePlayer({
-              onReady: true, 
+              onReady: true,
               durationSeconds: res.getDuration(),
               playerRef: res
             })
           }
         }}
-        onError={(err) =>{ 
+        onError={(err) =>{
           // TODO: some sort of callback
           console.log('can not load', err);
-        }}   
+        }}
         onEnded={() => {
           const idx = playerId+ 1;
           if(idx < episodes.length) {
@@ -51,15 +51,21 @@ const PlayerHolder = () => {
             updatePlayer({
               durationSeconds: 0,
               playedSeconds: 0,
-              playing: true, 
+              playing: true,
               onReady: false
             })
 
             updatePlayingId(idx);
           }
-        }}     
-        playing={playerState.playing}  
-        volume={playerState.volume}   
+        }}
+        onStart={() => {
+          console.log('hi', jcCallback, id)
+          if(jcCallback && id) {
+            jcCallback(id)
+          }
+        }}
+        playing={playerState.playing}
+        volume={playerState.volume}
       />
     )
   }
