@@ -59,7 +59,6 @@ const PlayerHolder = ({jcCallback}) => {
           }
         }}
         onStart={() => {
-          console.log('hi', jcCallback, id)
           if(jcCallback && id) {
             jcCallback(id)
           }
