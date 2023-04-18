@@ -18,7 +18,7 @@ const configs = {
   playlistBackgroundColor: "#30343c",
   playlistTextColor: "#f7f8f9",
   chapterBackgroundColor: "#30343c",
-  chapterTextColor:  "#f7f8f9"  
+  chapterTextColor:  "#f7f8f9"
 }
 
 stories.add('App', () => {
@@ -30,7 +30,7 @@ stories.add('App', () => {
       {/* <input value={primaryBackgroundColor} onChange={(e) => {
         setColor(e.target.value)
       }}/> */}
-      <NinjaPodcastPlayer 
+      <NinjaPodcastPlayer
         playerId="podcast-example"
         rssFeedUrl={rssFeedUrl}
         configs={{...configs, primaryBackgroundColor}}

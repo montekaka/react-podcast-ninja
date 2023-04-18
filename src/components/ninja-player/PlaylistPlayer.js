@@ -47,7 +47,7 @@ const PlaylistPlayer = ({
 
   const intObserver = useRef();
   const lastPostRef = useCallback(post => {
-    if(loading || fetching) return;
+    if(loading || fetching || rssFeedUrl || episodes || singleEpisode) return;
     if(intObserver.current) intObserver.current.disconnect();
     intObserver.current = new IntersectionObserver(posts => {
       if(posts[0].isIntersecting && (nextPage && nextPage <= totalPage )) {
