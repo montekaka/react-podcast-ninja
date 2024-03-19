@@ -6,9 +6,9 @@ import {upatePlayerAtom, setThemeAtom} from '../jotai'
 export default function PlayerContainer({theme}) {
 
   const [playerState, setPlayerState] = useAtom(upatePlayerAtom);
-  const {url, playing, volume, muted, onReady } = playerState;  
+  const {url, playing, volume, muted, onReady } = playerState;
   const [_, setThemeState] = useAtom(setThemeAtom);
-  
+
   useEffect(() => {
     if(theme) {
       setThemeState(theme);
@@ -16,7 +16,7 @@ export default function PlayerContainer({theme}) {
   }, [theme])
 
   return (
-    <ReactPlayer 
+    <ReactPlayer
       url={url}
       autoPlay={true}
       width={"0%"}
@@ -24,24 +24,32 @@ export default function PlayerContainer({theme}) {
       controls={false}
       muted={muted}
       volume={volume}
-      onError={(err) =>{ 
+      config={{
+        file: {
+          forceAudio: true,
+          attributes: {
+            preload: "none"
+          }
+        }
+      }}
+      onError={(err) =>{
         // TODO: some sort of callback
         console.log('can not load', err);
       }}
-      onProgress={(res) => {        
+      onProgress={(res) => {
         const playedSeconds = res.playedSeconds;
-        setPlayerState({playedSeconds})        
+        setPlayerState({playedSeconds})
       }}
       onReady={(res) => {
         if(res) {
           setPlayerState({
-            onReady: true, 
+            onReady: true,
             durationSeconds: res.getDuration(),
             playerRef: res
           })
         }
-      }}      
-      playing={playing}       
+      }}
+      playing={playing}
     />
   )
 }

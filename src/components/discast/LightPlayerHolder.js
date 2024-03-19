@@ -15,7 +15,7 @@ const PlayIconPlaceholder = ({id}) => {
 }
 
 const LightPlayerHolder = () => {
-  
+
   const [playerState, updatePlayer] = useAtom(updatePlayerAtom);
   const [url] = useAtom(enclosureUrlAtom);
 
@@ -24,31 +24,39 @@ const LightPlayerHolder = () => {
   useEffect(() => {
     updatePlayer({playIconId})
   }, [])
-  
+
   if(playerState && url && url.length > 0) {
     return (
-      <ReactPlayer  
+      <ReactPlayer
         height={"0px"}
-        width={"0px"} 
-        controls={false}        
+        width={"0px"}
+        controls={false}
         url={url}
         // playIcon={<PlayIconPlaceholder id={playIconId}/>} // to hide the play icon
         // light={true} // set light to true, so that we will not pre-load the file
         playing={playerState.playing}
+        config={{
+          file: {
+            forceAudio: true,
+            attributes: {
+              preload: "none"
+            }
+          }
+        }}
         onReady={(res) => {
           if(res) {
             if(playerState.previewStartSeconds) {
               res.seekTo(playerState.previewStartSeconds);
             }
             updatePlayer({
-              onReady: true, 
+              onReady: true,
               durationSeconds: res.getDuration(),
               playerRef: res,
               previewStartSeconds: null
             })
           }
-        }} 
-        onError={(err) =>{ 
+        }}
+        onError={(err) =>{
           // TODO: some sort of callback
           console.log('can not load', err);
         }}
@@ -65,7 +73,7 @@ const LightPlayerHolder = () => {
             const playedSeconds = res.playedSeconds;
             updatePlayer({playedSeconds, playing: false})
           }
-        }}        
+        }}
       />
     )
   }

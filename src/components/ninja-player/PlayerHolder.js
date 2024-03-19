@@ -25,6 +25,14 @@ const PlayerHolder = ({jcCallback}) => {
         height={"0"}
         width={"0"}
         playbackRate={playerState.playbackRate}
+        config={{
+          file: {
+            forceAudio: true,
+            attributes: {
+              preload: "none"
+            }
+          }
+        }}
         onProgress={(res) => {
           if(playerState.onSeeking === false) {
             const playedSeconds = res.playedSeconds;
